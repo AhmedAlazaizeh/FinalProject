@@ -16,6 +16,8 @@ export class TestComponent implements OnInit {
 
   firstName : string | undefined
 
+  x : string = ''
+
   constructor(private Toast: ToastrService) { }
 
   ngOnInit(): void {

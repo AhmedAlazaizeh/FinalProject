@@ -4,12 +4,8 @@
 
 <button (click)="getName()">send</button>
 
-<!-- <input type="text" id="firstName" [(ngModel)]="firstName"> -->
 
-<h2 [innerHTML]="firstName"></h2>
-
-
-
+<!-- form -->
 <form [formGroup] = "testform" (ngSubmit) = "getall()">
 
   <mat-form-field class="example-full-width">
@@ -29,4 +25,11 @@
   <button mat-flat-button type="submit" [disabled]= "testform.invalid"> Register </button>
 </form>
 
+
+<!-- Toaster -->
 <button (click) = "showToaster()" >button</button>
+
+
+<!-- using ngModel (Two Way Data Binding)-->
+<input type="text" placeholder="x" [(ngModel)]="x">
+<h1>x: {{x}}</h1>
