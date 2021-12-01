@@ -32,5 +32,4 @@ export class TestComponent implements OnInit {
   showToaster(){
     this.Toast.success("Hello","Title")
   }
-
 }

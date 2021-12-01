@@ -11,6 +11,7 @@ import { MatInputModule } from '@angular/material/input';
 import { CustomerModule } from './customer/customer.module';
 import { TestComponent } from './customer/test/test.component';
 import { HomeComponent } from './customer/home/home.component';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { HomeComponent } from './customer/home/home.component';
     ReactiveFormsModule,
     MatFormFieldModule,
     MatButtonModule,
-    MatInputModule
+    MatInputModule,
+    ToastrModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
