@@ -13,6 +13,7 @@ import { TestComponent } from './customer/test/test.component';
 import { HomeComponent } from './customer/home/home.component';
 import { ToastrModule } from 'ngx-toastr';
 
+
 @NgModule({
   declarations: [
     AppComponent
