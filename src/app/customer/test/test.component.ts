@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormGroup, FormsModule, Validators } from '@angular/forms';
 import { FormControl } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-test',
@@ -9,20 +10,27 @@ import { FormControl } from '@angular/forms';
 })
 export class TestComponent implements OnInit {
 
-
-  x: string = "Ahmed";
+  testform: FormGroup = new FormGroup({
+    name: new FormControl('', [Validators.required]),
+  })
 
   firstName : string | undefined
- 
-  constructor() { }
+
+  constructor(private Toast: ToastrService) { }
 
   ngOnInit(): void {
   }
 
   getName(){
-
     alert(this.firstName)
+  }
 
+  getall(){
+    console.log(this.testform.value)
+  }
+
+  showToaster(){
+    this.Toast.success("Hello","Title")
   }
 
 }

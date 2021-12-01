@@ -1,5 +1,4 @@
 <p>test works!</p>
-<h1>{{x}}</h1>
 
 <input type="text" id="firstName" [(ngModel)]="firstName">
 
@@ -8,3 +7,27 @@
 <!-- <input type="text" id="firstName" [(ngModel)]="firstName"> -->
 
 <h2 [innerHTML]="firstName"></h2>
+
+
+
+<form [formGroup] = "testform" (ngSubmit) = "getall()">
+
+  <mat-form-field class="example-full-width">
+      <mat-label>Name</mat-label>
+      <input matInput formControlName="name" type="text"/>
+      <mat-hint> Field is required</mat-hint>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Gender</mat-label>
+    <mat-select>
+      <mat-option value="Male"> Male </mat-option>
+      <mat-option value="Female">Female</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+
+  <button mat-flat-button type="submit" [disabled]= "testform.invalid"> Register </button>
+</form>
+
+<button (click) = "showToaster()" ></button>

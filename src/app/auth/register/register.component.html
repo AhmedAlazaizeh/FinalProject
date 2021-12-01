@@ -1,1 +1,19 @@
-<p>register works!</p>
+
+
+<form [formGroup]="registerform" (ngSubmit)="getall()">
+
+    <mat-form-field class="example-full-width">
+        <mat-label>username</mat-label>
+        <input matInput formControlName="username" type="text"/>
+        <mat-hint> Field is required</mat-hint>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <mat-label>password</mat-label>
+        <input matInput formControlName="password" type="text"/>
+        <mat-hint> Field is required</mat-hint>
+    </mat-form-field>
+
+    <button mat-flat-button type="submit" [disabled]= "registerform.invalid"> Register </button>
+</form>
+
