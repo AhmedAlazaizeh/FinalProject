@@ -7,6 +7,8 @@ import { EmployeeComponent } from './employee/employee.component';
 import { FeedbackComponent } from './feedback/feedback.component';
 import { SystemComponent } from './system/system.component';
 import { ProfileComponent } from './profile/profile.component';
+import { HeaderComponent } from './header/header.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 
 
@@ -16,7 +18,9 @@ import { ProfileComponent } from './profile/profile.component';
     EmployeeComponent,
     FeedbackComponent,
     SystemComponent,
-    ProfileComponent
+    ProfileComponent,
+    HeaderComponent,
+    SidebarComponent
   ],
   imports: [
     CommonModule,
