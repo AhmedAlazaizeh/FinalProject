@@ -7,9 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
 
-  constructor() { }
+
+
+  constructor() {
+
+    var item = localStorage.getItem("firstName");
+
+   }
 
   ngOnInit(): void {
   }
+
+  y = localStorage.getItem("firstName")
 
 }

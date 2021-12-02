@@ -5,6 +5,11 @@ import { AuthModule } from './auth/auth.module';
 import { CustomerModule } from './customer/customer.module';
 import { DeveloperModule } from './developer/developer.module';
 import { InfluncerModule } from './influncer/influncer.module';
+import { AdminGuard } from './guards/admin/admin.guard';
+import { DeveloperGuard } from './guards/developer/developer.guard';
+import { AccountantGuard } from './guards/accountant/accountant.guard';
+import { AccountantModule } from './accountant/accountant.module';
+import { InfluncerGuard } from './guards/influncer/influncer.guard';
 
 const routes: Routes = [
   {
@@ -13,15 +18,19 @@ const routes: Routes = [
   },
   {
     path: 'Admin',
-    loadChildren : () => AdminModule
+    loadChildren : () => AdminModule, canActivate:[AdminGuard]
   },
   {
     path: 'Developer',
-    loadChildren : () => DeveloperModule
+    loadChildren : () => DeveloperModule, canActivate:[DeveloperGuard]
   },
   {
     path: 'Influncer',
-    loadChildren : () => InfluncerModule
+    loadChildren : () => InfluncerModule, canActivate:[InfluncerGuard]
+  },
+  {
+    path: 'Accountant',
+    loadChildren : () => AccountantModule, canActivate:[AccountantGuard]
   },
   {
     path: 'Auth',

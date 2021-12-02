@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormsModule, Validators } from '@angular/forms';
 import { FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
@@ -14,17 +15,28 @@ export class TestComponent implements OnInit {
     name: new FormControl('', [Validators.required]),
   })
 
-  firstName : string | undefined
+  firstName : string = ""
 
   x : string = ''
 
-  constructor(private Toast: ToastrService) { }
+  constructor(private Toast: ToastrService, private router: Router) { }
 
   ngOnInit(): void {
   }
 
   getName(){
+
+
+    localStorage.setItem("firstName", this.firstName)
+
     alert(this.firstName)
+
+    //---navigate to Module---
+    this.router.navigate(["profile"])
+
+    //---navigate to component---
+    // this.router.navigate(["about"])
+
   }
 
   getall(){
