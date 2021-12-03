@@ -1,46 +1,32 @@
 <body>
     <app-header></app-header>
     <main>
-        <!--? Hero Area Start-->
-<div class="slider-area ">
-    <div class="single-slider slider-height2 d-flex align-items-center">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-12">
-                    <div class="hero-cap text-center">
-                        <h2>Feedback</h2>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<br /><br /><br /><br />
+<br /><br /><br />
                   <div class="container">
                       <div class="col-12">
                           <h2 style="padding-left:200px;" class="contact-title">Help Us Improve</h2>
                       </div>
                       <div style="display:flex;justify-content:center;">
                           <div class="col-8">
-                              <form asp-action="Create" class="form-contact contact_form" method="post" id="contactForm" novalidate="novalidate">
-                                  <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                              <form [formGroup]="feedbackForm" (ngSubmit)="feedbackSent()" class="form-contact contact_form" id="contactForm" novalidate="novalidate">
+                                <mat-form-field>
                                   <div class="row">
                                       <div class="col-12">
-                                          <div class="form-group">
-                                              <textarea asp-for="FeedbackBody" class="form-control" cols="30" rows="9" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Feedback'" placeholder=" Write Your Feedback Here" required></textarea>
-                                              <span asp-validation-for="FeedbackBody" class="text-danger"></span>
+                                          <div style="width: 700px;" class="form-group p-0 m-0">
+                                              <textarea formControlName="feedback" matInput  class="form-control" cols="30" rows="9" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Feedback'" placeholder=" Write Your Feedback Here"></textarea>
                                           </div>
                                       </div>
                                   </div>
+                                </mat-form-field>
                                   <div class="form-group mt-3">
-                                      <input type="submit" value="Send" class="button button-contactForm boxed-btn" />
+                                      <button type="submit" [disabled]="feedbackForm.invalid" class="btn_3" mat-flat-button>Send</button>
                                   </div>
                               </form>
                           </div>
                       </div>
                   </div>
     </main>
-    
+
     <app-footer></app-footer>
     <!--? Search model Begin -->
     <div class="search-model-box">
