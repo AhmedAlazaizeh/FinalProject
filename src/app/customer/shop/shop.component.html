@@ -10,7 +10,7 @@
                   <!--Nav Button  -->
                   <nav>
                       <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                          @{
+                          <!-- @{
                               if (ViewBag.searchedFor != null)
                               {
                                   <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-search" role="tab" aria-controls="nav-search" aria-selected="true"> Search Result </a>
@@ -20,7 +20,7 @@
                               {
                                   <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true"> Latest </a>
                               }
-                          }
+                          } -->
 
                           <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false"> Price low to high </a>
                           <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false"> Price high to low </a>
@@ -42,7 +42,7 @@
           <div></div><br /><br />
           <!-- Nav Card -->
           <div class="tab-content" id="nav-tabContent">
-              @{
+              <!-- @{
                   if (ViewBag.searchedFor != null)
                   {
                       <div class="tab-pane fade show active" id="nav-search" role="tabpanel" aria-labelledby="nav-search-tab">
@@ -65,13 +65,13 @@
                                           </div>
                                       </div>
                                   }
-                              }
+                              } -->
                           </div>
                       </div>
                       <!-- card one -->
                       <div class="tab-pane fade show" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
                           <div class="row">
-                              @{
+                              <!-- @{
                                   foreach (var item in listOfLatestAds)
                                   {
                                       <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
@@ -94,11 +94,11 @@
                       </div>
                   }
                   else
-                  {
+                  { -->
                       <!-- card one -->
                       <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
                           <div class="row">
-                              @{
+                              <!-- @{
                                   foreach (var item in listOfLatestAds)
                                   {
                                       <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
@@ -116,16 +116,16 @@
                                           </div>
                                       </div>
                                   }
-                              }
+                              } -->
                           </div>
                       </div>
-                  }
-              }
+                  <!-- }
+              } -->
 
               <!-- Card two -->
               <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
                   <div class="row">
-                      @{
+                      <!-- @{
                           foreach (var item in listPriceLowToHigh)
                           {
                               <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
@@ -143,13 +143,13 @@
                                   </div>
                               </div>
                           }
-                      }
+                      } -->
                   </div>
               </div>
               <!-- Card three -->
               <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
                   <div class="row">
-                      @{
+                      <!-- @{
                           foreach (var item in listPriceHighToLow)
                           {
                               <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
@@ -167,13 +167,13 @@
                                   </div>
                               </div>
                           }
-                      }
+                      } -->
                   </div>
               </div>
               <!-- Card four -->
               <div class="tab-pane fade" id="nav-Exp" role="tabpanel" aria-labelledby="nav-Exp-tab">
                   <div class="row">
-                      @{
+                      <!-- @{
                           foreach (var item in listExperationDateAsc)
                           {
                               <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
@@ -191,7 +191,7 @@
                                   </div>
                               </div>
                           }
-                      }
+                      } -->
                   </div>
               </div>
           </div>
