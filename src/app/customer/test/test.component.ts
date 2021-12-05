@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormsModule, Validators } from '@angular/forms';
 import { FormControl } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { TestService } from 'src/app/test.service';
 
 @Component({
   selector: 'app-test',
@@ -19,7 +21,9 @@ export class TestComponent implements OnInit {
 
   x : string = ''
 
-  constructor(private Toast: ToastrService, private router: Router) { }
+  constructor(private Toast: ToastrService, private router: Router, public testService: TestService, private dialog: MatDialog) {
+    this.testService.getAllUsers()
+  }
 
   ngOnInit(): void {
   }
@@ -45,5 +49,9 @@ export class TestComponent implements OnInit {
 
   showToaster(){
     this.Toast.success("Hello","Title")
+  }
+
+  matdialogclick(ID: number){
+    //this.dialog.open(getbyIDDialogComponent.{data:{ID:ID}});
   }
 }

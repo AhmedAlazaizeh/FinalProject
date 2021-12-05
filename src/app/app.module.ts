@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,12 +12,13 @@ import { CustomerModule } from './customer/customer.module';
 import { TestComponent } from './customer/test/test.component';
 import { HomeComponent } from './customer/home/home.component';
 import { ToastrModule } from 'ngx-toastr';
-
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent
   ],
+  //entryComponents:[GetByIDDialogComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -27,9 +28,11 @@ import { ToastrModule } from 'ngx-toastr';
     MatFormFieldModule,
     MatButtonModule,
     MatInputModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    HttpClientModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  //schemas:[CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }
