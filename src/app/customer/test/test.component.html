@@ -51,6 +51,14 @@
   <tr *ngFor="let item of testService.data">
         <td>{{ item.userID }}</td>
         <td>{{ item.fName }}</td>
-        <button class="btn btn-danger" (click)="matdialogclick(item.userID)">Edit</button>
+        <!-- <button class="btn btn-danger" (click)="matdialogclick(item.userID)">Edit</button> -->
   </tr>
   </table>
+
+
+  <input
+  style="display: none"
+  type="file" (change)="onFileChanged($event)"
+  #fileInput>
+<button (click)="fileInput.click()">Select File</button>
+<button (click)="onUpload()">Upload!</button>

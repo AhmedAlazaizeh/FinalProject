@@ -13,6 +13,8 @@ import { TestService } from 'src/app/test.service';
 })
 export class TestComponent implements OnInit {
 
+  selectedFile: File | undefined
+
   testform: FormGroup = new FormGroup({
     name: new FormControl('', [Validators.required]),
   })
@@ -51,7 +53,15 @@ export class TestComponent implements OnInit {
     this.Toast.success("Hello","Title")
   }
 
-  matdialogclick(ID: number){
+  //matdialogclick(ID: number){
     //this.dialog.open(getbyIDDialogComponent.{data:{ID:ID}});
+  //}
+
+  onFileChanged(event: any) {
+    this.selectedFile = event.target.files[0]
+  }
+
+  onUpload() {
+    this.testService.uplaodImage(this.selectedFile)
   }
 }
