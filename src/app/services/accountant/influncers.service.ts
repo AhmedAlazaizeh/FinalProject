@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -5,5 +6,11 @@ import { Injectable } from '@angular/core';
 })
 export class InfluncersService {
 
-  constructor() { }
+  data: any = [{}]
+
+  constructor(private http: HttpClient) { }
+
+  influncersList(){
+    this.http.get("https://localhost:44309/api/User/influncersList").subscribe((Response: any)=>{this.data=Response})
+  }
 }

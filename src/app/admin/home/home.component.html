@@ -1,7 +1,6 @@
  <body class="app sidebar-mini rtl">
 
     <app-header></app-header>
-    <app-sidebar></app-sidebar>
 
     <main class="app-content">
       <div class="app-title">
@@ -89,6 +88,21 @@
             <p>The source code is available on GitHub. If anything is missing or weird please report it as an issue on <a href="https://github.com/pratikborsadiya/vali-admin" target="_blank">GitHub</a>. If you want to contribute to this theme pull requests are always welcome.</p>
           </div>
         </div>
+<!-- Sidebar menu-->
+<div class="app-sidebar__overlay" data-toggle="sidebar"></div>
+<aside class="app-sidebar">
+  <div class="app-sidebar__user">
+    <div>
+      <h1 class="app-sidebar__user-name">John Doe</h1>
+    </div>
+  </div>
+  <ul class="app-menu">
+    <li><a class="app-menu__item active" routerLink="/Admin/"><i class="app-menu__icon fa fa-home"></i><span class="app-menu__label">Home</span></a></li>
+    <li><a class="app-menu__item" routerLink="/Admin/employee"><i class="app-menu__icon fa fa-users"></i><span class="app-menu__label">Employee</span></a></li>
+    <li><a class="app-menu__item" routerLink="/Admin/feedback"><i class="app-menu__icon fa fa-thumbs-o-up"></i><span class="app-menu__label">Feedback</span></a></li>
+    <li><a class="app-menu__item" routerLink="/Admin/system"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">System</span></a></li>
+  </ul>
+</aside>
       </div>
     </main>
   </body>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { InfluncersService } from 'src/app/services/accountant/influncers.service';
 
 @Component({
   selector: 'app-influncers',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InfluncersComponent implements OnInit {
 
-  constructor() { }
+  constructor(public influncersService: InfluncersService) {
+    this.influncersService.influncersList();
+  }
 
   ngOnInit(): void {
   }
