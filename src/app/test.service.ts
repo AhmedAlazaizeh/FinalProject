@@ -10,29 +10,20 @@ export class TestService {
   data: any = [{}]
   //for a single record
   data1 = {}
-
+  dataCount: any = {}
   constructor(private http:HttpClient) { }
 
   getAllUsers(){
-
-    this.http.get("https://localhost:44309/api/User/GetAll").subscribe((Response:any)=>{this.data=Response})
-
+    this.http.get("https://localhost:44309/api/User/GetAll").subscribe((Response: any)=>{this.data=Response})
   }
 
-  //example of getting a single record with ID
+  getCountOfEmployees(){
+    this.http.get("https://localhost:44309/api/User/countOfEmployees").subscribe((Response: any)=>{this.dataCount=Response})
+  }
+
+  //======example of getting a single record with ID======
   // getUserByID(ID: number){
   //   this.http.get("https://localhost:44309/api/User/GetAll/" + ID).subscribe((Response:any)=>{this.data1=Response})
   // }
 
-  uplaodImage( img: any){
-    alert(img)
-    alert(img.value)
-    console.log("1 " + img)
-    console.log("2 " + img.value)
-
-    const uploadData = new FormData();
-    uploadData.append('myFile', img, img.name);
-
-    console.log("3 " + uploadData)
-  }
 }

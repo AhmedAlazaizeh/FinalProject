@@ -1,6 +1,79 @@
 
 
-<form [formGroup]="registerform" (ngSubmit)="getall()">
+<body>
+  <app-header></app-header>
+  <main>
+      <!--================login_part Area =================-->
+      <section class="login_part pt-0">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="offset-2">
+                    <div class="login_part_form">
+                        <div class="login_part_form_iner">
+                            <h3 class="ml-3">
+                                Welcome ! <br>
+                                Create An Account
+                            </h3>
+                            <div class="row">
+                                <div class="col-9">
+                                    <form asp-action="Register">
+                                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                        <div class="col-md-12 form-group p_star">
+                                            <input type="text" class="form-control" value=""
+                                                   placeholder="First Name" required asp-for="FName">
+                                        </div>
+                                        <div class="col-md-12 form-group p_star">
+                                            <input type="text" class="form-control" value=""
+                                                   placeholder="Last Name" required asp-for="LName">
+                                        </div>
+                                        <div class="col-md-12 form-group p_star">
+                                            <input type="text" class="form-control" value=""
+                                                   placeholder="Email" required asp-for="Email">
+                                        </div>
+                                        <div class="col-md-12 form-group p_star">
+                                            <input type="number" class="form-control" value=""
+                                                   placeholder="Phone Number" required asp-for="PhoneNum">
+                                        </div>
+                                        <div class="col-md-12 form-group p_star">
+                                            <input type="text" class="form-control" value=""
+                                                   placeholder="Username" required asp-for="Username">
+                                        </div>
+                                        <div class="col-md-12 form-group p_star">
+                                            <input type="password" class="form-control" id="password" name="password" value=""
+                                                   placeholder="Password" required asp-for="Password">
+                                        </div>
+                                    <br /><br /><br />
+                                        <button type="submit" value="Create" class="btn_3 col-3 ml-3">
+                                            Register
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+      <!--================login_part end =================-->
+  </main>
+  <app-footer></app-footer>
+  <!--? Search model Begin -->
+  <div class="search-model-box">
+      <div class="h-100 d-flex align-items-center justify-content-center">
+          <div class="search-close-btn">+</div>
+          <form class="search-model-form">
+              <input type="text" id="search-input" placeholder="Searching key.....">
+          </form>
+      </div>
+  </div>
+  <!-- Search model end -->
+  </body>
+
+
+
+<!-- =======example from the lecture (Don't delete)========= -->
+<!-- <form [formGroup]="registerform" (ngSubmit)="getall()">
 
     <mat-form-field class="example-full-width">
         <mat-label>username</mat-label>
@@ -15,5 +88,5 @@
     </mat-form-field>
     <h1>saefrsefsef</h1>
     <button mat-flat-button type="submit" [disabled]= "registerform.invalid"> Register </button>
-</form>
+</form> -->
 

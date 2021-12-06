@@ -61,7 +61,7 @@ export class TestComponent implements OnInit {
     this.selectedFile = event.target.files[0]
   }
 
-  onUpload() {
-    this.testService.uplaodImage(this.selectedFile)
-  }
+  // onUpload() {
+  //   this.testService.uplaodImage(this.selectedFile)
+  // }
 }
