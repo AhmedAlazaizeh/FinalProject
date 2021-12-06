@@ -24,7 +24,6 @@ export class TestComponent implements OnInit {
   x : string = ''
 
   constructor(private Toast: ToastrService, private router: Router, public testService: TestService, private dialog: MatDialog) {
-    this.testService.getAllUsers()
   }
 
   ngOnInit(): void {

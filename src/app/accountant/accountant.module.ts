@@ -7,7 +7,6 @@ import { CustomersComponent } from './customers/customers.component';
 import { InfluncersComponent } from './influncers/influncers.component';
 import { EmployeesComponent } from './employees/employees.component';
 import { HeaderComponent } from './header/header.component';
-import { SidebarComponent } from './sidebar/sidebar.component';
 import { ProfileComponent } from './profile/profile.component';
 
 
@@ -18,7 +17,6 @@ import { ProfileComponent } from './profile/profile.component';
     InfluncersComponent,
     EmployeesComponent,
     HeaderComponent,
-    SidebarComponent,
     ProfileComponent
   ],
   imports: [
