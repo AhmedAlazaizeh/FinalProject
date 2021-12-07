@@ -29,7 +29,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatFormFieldModule,
     MatButtonModule,
     MatInputModule,
-    ToastrModule.forRoot(),
+    ToastrModule.forRoot({progressBar:true,progressAnimation:"increasing"}),
     HttpClientModule,
     MatDialogModule
   ],

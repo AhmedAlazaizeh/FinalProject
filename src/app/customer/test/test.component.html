@@ -65,3 +65,33 @@
 
 <h1 *ngFor="let item of testService.dataCount | keyvalue">{{item.value}}</h1>
 
+<hr>
+<input [(ngModel)]="fName" type="text"/>
+<input [(ngModel)]="lName" type="text"/>
+<input [(ngModel)]="email" type="text"/>
+<input [(ngModel)]="phoneNumber" type="text"/>
+<input [(ngModel)]="username" type="text"/>
+<input [(ngModel)]="password" type="text"/>
+<input [(ngModel)]="roleID" type="number"/>
+
+<button type="submit" (click)="addUser()">Submit</button>
+
+
+<!-- ==================================================== -->
+
+<h1>=======================================================================================</h1>
+<form [formGroup]="addUserWithForm" (ngSubmit)="addUserWithFormTS()">
+
+  <input formControlName="fName" type="text"/>
+  <input formControlName="lName" type="text"/>
+  <input formControlName="email" type="text"/>
+  <input formControlName="phoneNumber" type="text"/>
+  <input formControlName="username" type="text"/>
+  <input formControlName="password" type="text"/>
+  <input formControlName="employmentDate" type="text"/>
+  <input formControlName="salary" type="number"/>
+  <input formControlName="roleID" type="number"/>
+
+  <button mat-flat-button type="submit"> Submit </button>
+</form>
+

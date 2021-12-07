@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormsModule, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, FormsModule, Validators } from '@angular/forms';
 import { FormControl } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
@@ -13,6 +13,16 @@ import { TestService } from 'src/app/test.service';
 })
 export class TestComponent implements OnInit {
 
+  addUserWithForm: FormGroup | any
+
+  fName: string = ""
+  lName: string = ""
+  email: string = ""
+  phoneNumber: string = ""
+  username: string = ""
+  password: string = ""
+  roleID: number = 0
+
   selectedFile: File | undefined
 
   testform: FormGroup = new FormGroup({
@@ -23,7 +33,20 @@ export class TestComponent implements OnInit {
 
   x : string = ''
 
-  constructor(private Toast: ToastrService, private router: Router, public testService: TestService, private dialog: MatDialog) {
+  constructor(private Toast: ToastrService, private router: Router, public testService: TestService, private dialog: MatDialog, private fb: FormBuilder) {
+
+    this.addUserWithForm = this.fb.group({
+      fName: new FormControl,
+      lName: new FormControl,
+      email: new FormControl,
+      username: new FormControl,
+      password: new FormControl,
+      phoneNumber: new FormControl,
+      employmentDate: new FormControl,
+      salary: new FormControl,
+      roleID: new FormControl,
+    })
+
   }
 
   ngOnInit(): void {
@@ -63,4 +86,13 @@ export class TestComponent implements OnInit {
   // onUpload() {
   //   this.testService.uplaodImage(this.selectedFile)
   // }
+
+  addUser(){
+    this.testService.addUser(this.fName, this.lName, this.email, this.phoneNumber, this.username, this.password, this.roleID)
+  }
+
+  addUserWithFormTS(){
+    this.testService.addUserWithForm(this.addUserWithForm.value)
+  }
+
 }
