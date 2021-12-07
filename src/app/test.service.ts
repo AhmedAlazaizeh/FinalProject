@@ -10,7 +10,7 @@ export class TestService {
   //for more than one record
   data: any = [{}]
   //for a single record
-  data1 = {}
+  data1 = [{}]
   dataCount: any = {}
 
 
@@ -25,10 +25,10 @@ export class TestService {
     this.http.get("https://localhost:44309/api/User/countOfEmployees").subscribe((Response: any)=>{this.dataCount=Response})
   }
 
-  //======example of getting a single record with ID======
-  // getUserByID(ID: number){
-  //   this.http.get("https://localhost:44309/api/User/GetAll/" + ID).subscribe((Response:any)=>{this.data1=Response})
-  // }
+  // ======example of getting a single record with ID======
+  getUserByID(ID: number){
+    this.http.get("https://localhost:44309/api/User/getUser/" + ID).subscribe((Response:any)=>{this.data=Response})
+  }
 
   //post example
   addUser(fName: string, lName: string, email: string, phoneNumber: string, username: string, password: string, roleID: number){

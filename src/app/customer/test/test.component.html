@@ -95,3 +95,16 @@
   <button mat-flat-button type="submit"> Submit </button>
 </form>
 
+<h1>input</h1>
+<form [formGroup]="getUserForm" (ngSubmit)="getUser()">
+<input formControlName="ID" type="number"/>
+<button type="submit">get user</button>
+</form>
+<table>
+  <thead>
+    <td></td>
+  </thead>
+  <tr *ngFor="let item of testService.data | keyvalue">
+    <td *ngFor="let item1 of item | keyvalue" >{{ item1.key }} = {{item1.value}}</td>
+  </tr>
+</table>

@@ -13,6 +13,8 @@ import { TestService } from 'src/app/test.service';
 })
 export class TestComponent implements OnInit {
 
+
+
   addUserWithForm: FormGroup | any
 
   fName: string = ""
@@ -27,6 +29,10 @@ export class TestComponent implements OnInit {
 
   testform: FormGroup = new FormGroup({
     name: new FormControl('', [Validators.required]),
+  })
+
+  getUserForm: FormGroup = new FormGroup({
+    ID: new FormControl('', [Validators.required])
   })
 
   firstName : string = ""
@@ -95,4 +101,7 @@ export class TestComponent implements OnInit {
     this.testService.addUserWithForm(this.addUserWithForm.value)
   }
 
+  getUser(){
+    this.testService.getUserByID(1)
+  }
 }
