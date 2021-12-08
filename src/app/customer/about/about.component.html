@@ -2,27 +2,29 @@
     <app-header></app-header>
     <main>
     <!-- About Details Start -->
+    <div *ngFor="let item of aboutService.data">
     <div class="about-details pt-5">
         <div class="container" style="display:flex;justify-content:center">
             <div class="row" style="display:flex;justify-content:center">
                 <div  class=" col-lg-8">
                     <div class="about-details-cap mb-50">
-                        <h4>About Us</h4>
+                        <h4 style="font-size: large;">About Us</h4>
                         <p>
-                            {{about}}
+                            {{item.aboutUs}}
                         </p>
                     </div>
 
                     <div class="about-details-cap mb-50">
-                        <h4>Our Vision</h4>
+                        <h4 style="font-size: large;" >Our Vision</h4>
                         <p>
-                            {{vision}}
+                            {{item.ourVision}}
                         </p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+  </div>
     <!-- About Details End -->
     </main>
     <app-footer></app-footer>

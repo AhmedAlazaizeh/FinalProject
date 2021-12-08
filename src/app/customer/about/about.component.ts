@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AboutService } from 'src/app/services/customer/about.service';
 
 @Component({
   selector: 'app-about',
@@ -7,13 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AboutComponent implements OnInit {
 
-  about: string = "dsfgjbsdijf hesudhf uhsdjhf sdhfhj sdhghhjdjg hjjk gjkhdgjhjhjfh jhsjjdf hjhdhj fhj hhj dhjjfjdhfhhjhjdf hj jhjhdhj hj hjjhd fhjhjsh fjjshjhdfhj hjshjf hjshjf hjsjhdf hjdjf hjsdhfj hjdhf jsdhjfh jsdhfj hdsjhf jdsh f"
-
-  vision: string = "dsfgjbsdijf hesudhf uhsdjhf sdhfhj sdhghhjdjg hjjk gjkhdgjhjhjfh jhsjjdf hjhdhj fhj hhj dhjjfjdhfhhjhjdf hj jhjhdhj hj hjjhd fhjhjsh fjjshjhdfhj hjshjf hjshjf hjsjhdf hjdjf hjsdhfj hjdhf jsdhjfh jsdhfj hdsjhf jdsh f dsfgjbsdijf hesudhf uhsdjhf sdhfhj sdhghhjdjg hjjk gjkhdgjhjhjfh jhsjjdf hjhdhj fhj hhj dhjjfjdhfhhjhjdf hj jhjhdhj hj hjjhd fhjhjsh fjjshjhdfhj hjshjf hjshjf hjsjhdf hjdjf hjsdhfj hjdhf jsdhjfh jsdhfj hdsjhf jdsh f dsfgjbsdijf hesudhf uhsdjhf sdhfhj sdhghhjdjg hjjk gjkhdgjhjhjfh jhsjjdf hjhdhj fhj hhj dhjjfjdhfhhjhjdf hj jhjhdhj hj hjjhd fhjhjsh fjjshjhdfhj hjshjf hjshjf hjsjhdf hjdjf hjsdhfj hjdhf jsdhjfh jsdhfj hdsjhf jdsh f"
-
-  constructor() { }
+  constructor(public aboutService: AboutService) { }
 
   ngOnInit(): void {
+    this.getSystemInfo()
   }
 
+  getSystemInfo(){
+    this.aboutService.getSystemInfo()
+  }
 }
