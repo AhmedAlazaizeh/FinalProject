@@ -1,2 +1,14 @@
-<p>show customer profile</p>
-<h1>{{y}}</h1>
+<table class="table">
+        <thead>
+          <td>First Name</td>
+          <td>Last Name</td>
+          <td>Email</td>
+          <td>Phone Number</td>
+        </thead>
+        <tr *ngFor="let item of homeService.data">
+          <td>{{item.fName}}</td>
+          <td>{{item.lName}}</td>
+          <td>{{item.email}}</td>
+          <td>{{item.phoneNumber}}</td>
+        </tr>
+      </table>

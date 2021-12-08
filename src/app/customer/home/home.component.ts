@@ -17,4 +17,8 @@ export class HomeComponent implements OnInit {
   getAllProducts(){
     this.homeService.getAllProducts()
   }
+
+  getUserByID(){
+    this.homeService.getUserByID(3)
+  }
 }

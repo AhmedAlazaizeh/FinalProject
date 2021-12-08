@@ -1,14 +1,7 @@
 <body>
     <app-header></app-header>
     <main>
-      <table>
-        <thead>
-          <td></td>
-        </thead>
-        <tr *ngFor="let item of homeService.data">
-          <td *ngFor="let item1 of item | keyvalue" >{{ item1.key }} = {{item1.value}}</td>
-        </tr>
-      </table>
+
         <!--? slider Area Start -->
         <div class="slider-area ">
             <div class="slider-active">

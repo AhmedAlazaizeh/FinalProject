@@ -14,4 +14,7 @@ export class HomeService {
     this.http.get("https://localhost:44309/api/Product/GetAll").subscribe((Response: any)=>{this.data=Response})
   }
 
+  getUserByID(ID: number){
+    this.http.get("https://localhost:44309/api/User/getUser/" + ID).subscribe((Response: any)=>{this.data=Response})
+  }
 }
