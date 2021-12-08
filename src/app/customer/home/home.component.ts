@@ -12,10 +12,15 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllProducts()
+    this.getLatestProducts()
   }
 
   getAllProducts(){
     this.homeService.getAllProducts()
+  }
+
+  getLatestProducts(){
+    this.homeService.getLatestProducts()
   }
 
   getUserByID(){

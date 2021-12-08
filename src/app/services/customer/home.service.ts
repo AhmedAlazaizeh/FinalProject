@@ -6,15 +6,22 @@ import { HttpClient, HttpHandler, HttpHeaders } from '@angular/common/http';
 })
 export class HomeService {
 
-  data: any = [{}]
+  allProductsData: any = [{}]
+  latestProductsData: any = [{}]
+  userData: any = [{}]
+
   constructor(private http:HttpClient) { }
 
 
   getAllProducts(){
-    this.http.get("https://localhost:44309/api/Product/GetAll").subscribe((Response: any)=>{this.data=Response})
+    this.http.get("https://localhost:44309/api/Product/GetAll").subscribe((Response: any)=>{this.allProductsData=Response})
   }
 
   getUserByID(ID: number){
-    this.http.get("https://localhost:44309/api/User/getUser/" + ID).subscribe((Response: any)=>{this.data=Response})
+    this.http.get("https://localhost:44309/api/User/getUser/" + ID).subscribe((Response: any)=>{this.userData=Response})
+  }
+
+  getLatestProducts(){
+    this.http.get("https://localhost:44309/api/Product/latestProducts").subscribe((Response: any)=>{this.latestProductsData=Response})
   }
 }
