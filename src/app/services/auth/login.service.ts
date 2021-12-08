@@ -5,7 +5,7 @@ import { HttpClient, HttpHandler, HttpHeaders } from '@angular/common/http';
   providedIn: 'root'
 })
 export class LoginService {
-  token: any | string
+  token: string | any
 
   constructor(private http:HttpClient) { }
 

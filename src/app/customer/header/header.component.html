@@ -18,11 +18,11 @@
                                 <li><a routerLink="/contactus" >Contact Us</a></li>
                                 <li><a routerLink="/feedback">Feedback</a></li>
                                 <li>
-                                  <div *ngIf="username == null; else elseBlock" >
-                                    <a style="color:#ff2020">{{usernameReturned}} asd</a>
+                                  <div *ngIf="username != null ; else elseBlock" >
+                                    <a style="color:#ff2020"> loged in as: {{usernameReturned}}</a>
                                   </div>
                                   <ng-template #elseBlock>
-                                    <a style="color:#ff2020">null</a>
+                                    <a style="color:#ff2020">not logged in</a>
                                   </ng-template>
                                     <ul class="submenu" style="cursor: pointer;">
                                         <li><a routerLink="/orders">My Orders</a></li>

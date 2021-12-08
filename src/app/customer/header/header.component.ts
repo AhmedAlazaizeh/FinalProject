@@ -15,9 +15,7 @@ export class HeaderComponent implements OnInit {
   constructor(private router: Router, private headerService: HeaderService) { }
 
   ngOnInit(): void {
-    // if (localStorage.getItem("username") != null) {
-    //   this.getUsername();
-    // }
+      this.getUsername();
   }
 
   logOut(){
