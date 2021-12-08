@@ -18,9 +18,12 @@
                                 <li><a routerLink="/contactus" >Contact Us</a></li>
                                 <li><a routerLink="/feedback">Feedback</a></li>
                                 <li>
-                                  <div *ngIf="username != null" >
-                                    <a style="color:#ff2020">{{usernameReturned}}</a>
+                                  <div *ngIf="username == null; else elseBlock" >
+                                    <a style="color:#ff2020">{{usernameReturned}} asd</a>
                                   </div>
+                                  <ng-template #elseBlock>
+                                    <a style="color:#ff2020">null</a>
+                                  </ng-template>
                                     <ul class="submenu" style="cursor: pointer;">
                                         <li><a routerLink="/orders">My Orders</a></li>
                                         <li><a asp-controller="Users" asp-action="Edit" asp-route-id="@ID">Edit My Profile</a></li>

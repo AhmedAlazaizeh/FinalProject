@@ -2,7 +2,7 @@
   <app-header></app-header>
   <main>
     <!-- Latest Products Start -->
-    <section class="popular-items latest-padding">
+    <section class="popular-items pt-5">
       <div class="container">
         <div class="row product-btn justify-content-between mb-40">
           <div class="properties__button">
@@ -37,8 +37,7 @@
           <!-- card one -->
           <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
             <div class="row">
-              <div *ngFor="let item of shopService.latestProductsData">
-                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
+                <div *ngFor="let item of shopService.latestProductsData" class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
                   <div class="single-popular-items mb-50 text-center">
                       <div class="popular-img">
                           <img src="assets/img/gallery/popular1.png" alt="">
@@ -54,15 +53,13 @@
                           <span>$ {{item.price}}</span>
                       </div>
                   </div>
-              </div>
                 </div>
             </div>
           </div>
           <!-- Card two -->
           <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
             <div class="row">
-              <div *ngFor="let item of shopService.priceLowToHighData">
-                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
+                <div *ngFor="let item of shopService.priceLowToHighData" class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
                   <div class="single-popular-items mb-50 text-center">
                       <div class="popular-img">
                           <img src="assets/img/gallery/popular1.png" alt="">
@@ -78,15 +75,13 @@
                           <span>$ {{item.price}}</span>
                       </div>
                   </div>
-              </div>
                 </div>
             </div>
           </div>
           <!-- Card three -->
           <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
             <div class="row">
-              <div *ngFor="let item of shopService.priceHighToLowData">
-                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
+                <div *ngFor="let item of shopService.priceHighToLowData" class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
                   <div class="single-popular-items mb-50 text-center">
                       <div class="popular-img">
                           <img src="assets/img/gallery/popular1.png" alt="">
@@ -102,7 +97,6 @@
                           <span>$ {{item.price}}</span>
                       </div>
                   </div>
-              </div>
                 </div>
             </div>
           </div>

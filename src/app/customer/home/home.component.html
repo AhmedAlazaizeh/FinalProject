@@ -1,7 +1,6 @@
 <body>
     <app-header></app-header>
     <main>
-
         <!--? slider Area Start -->
         <div class="slider-area ">
             <div class="slider-active">
@@ -42,8 +41,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div *ngFor="let item of homeService.latestProductsData">
-                      <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
+                      <div *ngFor="let item of homeService.latestProductsData" class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
                         <div class="single-new-pro mb-30 text-center">
                             <div class="product-img">
                                 <img src="assets/img/gallery/new_product1.png" alt="">
@@ -53,7 +51,6 @@
                                 <span>$ {{item.price}}</span>
                             </div>
                         </div>
-                    </div>
                     </div>
                 </div>
             </div>
@@ -72,8 +69,8 @@
                     </div>
                 </div>
                 <div class="row">
-                <div *ngFor="let item of homeService.allProductsData">
-                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
+
+                    <div *ngFor="let item of homeService.allProductsData" class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
                       <div class="single-popular-items mb-50 text-center">
                           <div class="popular-img">
                               <img src="assets/img/gallery/popular1.png" alt="">
@@ -89,7 +86,6 @@
                               <span>$ {{item.price}}</span>
                           </div>
                       </div>
-                  </div>
                     </div>
                 </div>
                 <!-- Button -->
