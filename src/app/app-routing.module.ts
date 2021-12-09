@@ -18,19 +18,19 @@ const routes: Routes = [
   },
   {
     path: 'Admin',
-    loadChildren : () => AdminModule, canActivate:[AdminGuard]
+    loadChildren : () => AdminModule//, canActivate:[AdminGuard]
   },
   {
     path: 'Developer',
-    loadChildren : () => DeveloperModule, canActivate:[DeveloperGuard]
+    loadChildren : () => DeveloperModule//, canActivate:[DeveloperGuard]
   },
   {
     path: 'Influncer',
-    loadChildren : () => InfluncerModule, canActivate:[InfluncerGuard]
+    loadChildren : () => InfluncerModule//, canActivate:[InfluncerGuard]
   },
   {
     path: 'Accountant',
-    loadChildren : () => AccountantModule, canActivate:[AccountantGuard]
+    loadChildren : () => AccountantModule//, canActivate:[AccountantGuard]
   },
   {
     path: 'Auth',
