@@ -18,12 +18,9 @@
                                 <li><a routerLink="/contactus" >Contact Us</a></li>
                                 <li><a routerLink="/feedback">Feedback</a></li>
                                 <li>
-                                  <div *ngIf="username != null ; else elseBlock" >
-                                    <a style="color:#ff2020"> loged in as: {{usernameReturned}}</a>
+                                  <div *ngFor="let item of headerService.data1">
+                                    <a  style="color:#ff2020">{{item.fName}}</a>
                                   </div>
-                                  <ng-template #elseBlock>
-                                    <a style="color:#ff2020">not logged in</a>
-                                  </ng-template>
                                     <ul class="submenu" style="cursor: pointer;">
                                         <li><a routerLink="/orders">My Orders</a></li>
                                         <li><a asp-controller="Users" asp-action="Edit" asp-route-id="@ID">Edit My Profile</a></li>
@@ -55,3 +52,13 @@
     </div>
     <!-- Header End -->
 </header>
+    <!--? Search model Begin -->
+    <div class="search-model-box">
+      <div class="h-100 d-flex align-items-center justify-content-center">
+          <div class="search-close-btn">+</div>
+          <form class="search-model-form">
+              <input type="text" id="search-input" placeholder="Searching key.....">
+          </form>
+      </div>
+  </div>
+  <!-- Search model end -->
