@@ -10,6 +10,7 @@ export class HomeService {
   countOfCustomers: any = {}
   countOfInfluncers: any = {}
   countOfFeedback: any = {}
+  orderListData: any = [{}]
   constructor( private http: HttpClient) { }
 
   getCountOfEmployees(){
@@ -27,5 +28,9 @@ export class HomeService {
 
   getCountOfFeedback(){
     this.http.get("https://localhost:44309/api/Feedback/countOfFeedback").subscribe((Response: any)=>{this.countOfFeedback=Response})
+  }
+
+  getOrderLsit(){
+    this.http.get("https://localhost:44309/api/Order/ordersList").subscribe((Response: any)=>{this.orderListData=Response})
   }
 }
