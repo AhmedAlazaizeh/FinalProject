@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HomeService } from 'src/app/services/customer/home.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-home',
@@ -8,7 +9,7 @@ import { HomeService } from 'src/app/services/customer/home.service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(public homeService: HomeService) { }
+  constructor(public homeService: HomeService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.getAllProducts()
@@ -27,8 +28,4 @@ export class HomeComponent implements OnInit {
   getApprovedFeedback(){
     this.homeService.getApprovedFeedback()
   }
-
-  //getUserByID(){
-    //this.homeService.getUserByID(3)
-  //}
 }

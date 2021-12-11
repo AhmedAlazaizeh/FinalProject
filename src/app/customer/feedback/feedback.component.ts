@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { FeedbackService } from 'src/app/services/customer/feedback.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-feedback',
@@ -16,7 +17,7 @@ export class FeedbackComponent implements OnInit {
     userID: new FormControl(3)
   })
 
-  constructor(public feedbackService: FeedbackService, private router: Router) { }
+  constructor(public feedbackService: FeedbackService, private router: Router, private toastr: ToastrService) { }
 
   ngOnInit(): void {
   }
@@ -24,6 +25,7 @@ export class FeedbackComponent implements OnInit {
   feedbackSent(){
     this.feedbackService.addFeedback(this.feedbackForm.value)
     this.router.navigate([""])
+    this.toastr.success( "Feedback sent");
   }
 
 }
