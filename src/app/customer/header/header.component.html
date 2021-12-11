@@ -23,7 +23,7 @@
                                   </div>
                                     <ul class="submenu" style="cursor: pointer;">
                                         <li><a routerLink="/orders">My Orders</a></li>
-                                        <li><a asp-controller="Users" asp-action="Edit" asp-route-id="@ID">Edit My Profile</a></li>
+                                        <li><a >Edit My Profile</a></li>
                                         <li><a (click)="logOut()" style="color:#ff2020;">Sign Out</a></li>
                                     </ul>
                                 </li>
@@ -38,7 +38,7 @@
                                     <span class="flaticon-search"></span>
                                 </div>
                             </li>
-                            <li> <a routerLink="/profile"><span class="flaticon-user"></span></a></li>
+                            <li *ngIf="username != 'o' " ><a routerLink="/Auth"><span class="flaticon-user"></span></a></li>
                             <li><a href="cart.html"><span class="flaticon-shopping-cart"></span></a> </li>
                         </ul>
                     </div>
