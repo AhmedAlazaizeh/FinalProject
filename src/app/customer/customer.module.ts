@@ -79,7 +79,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     MatButtonModule,
     MatInputModule,
     MatSelectModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
   ]
 })
 export class CustomerModule { }

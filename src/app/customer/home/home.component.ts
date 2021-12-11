@@ -13,6 +13,7 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.getAllProducts()
     this.getLatestProducts()
+    this.getApprovedFeedback()
   }
 
   getAllProducts(){
@@ -23,7 +24,11 @@ export class HomeComponent implements OnInit {
     this.homeService.getLatestProducts()
   }
 
-  getUserByID(){
-    this.homeService.getUserByID(3)
+  getApprovedFeedback(){
+    this.homeService.getApprovedFeedback()
   }
+
+  //getUserByID(){
+    //this.homeService.getUserByID(3)
+  //}
 }

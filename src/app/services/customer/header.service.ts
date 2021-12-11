@@ -6,6 +6,7 @@ import { HttpClient, HttpHandler, HttpHeaders } from '@angular/common/http';
 })
 export class HeaderService {
   data: any | string
+  data1: any | string = [{}]
   un = localStorage.getItem("username")
   username = [{"username": this.un}]
   constructor(private http:HttpClient) { }
@@ -23,6 +24,11 @@ export class HeaderService {
 
     this.http.post("https://localhost:44309/api/User/getUserByUsername", this.username, requestOptions).subscribe((Response: any)=>{this.data=Response})
     console.log(this.data.username)
+  }
+
+   getUserByUsername(username: string){
+
+    this.http.get("https://localhost:44309/api/User/getUserByUsername/" + username).subscribe((Response: any)=>{this.data1=Response})
 
   }
 }

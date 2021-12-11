@@ -14,7 +14,7 @@
                                     <p data-animation="fadeInLeft" data-delay=".7s" data-duration="2000ms">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat is aute irure.</p>
                                     <!-- Hero-btn -->
                                     <div class="hero__btn" data-animation="fadeInLeft" data-delay=".8s" data-duration="2000ms">
-                                        <a href="industries.html" class="btn hero-btn">Shop Now</a>
+                                        <a routerLink="/shop" class="btn hero-btn">Shop Now</a>
                                     </div>
                                 </div>
                             </div>
@@ -104,15 +104,17 @@
                   <h2 class="text-center">Testimonials </h2>
                   <p class="text-center">Our customers love us! Read what they have to say below.</p>
                   </div>
-                  <div class="row people">
-                    <div class="col-4 item">
-                      <div class="box">
-                        <p class="description">@item.FeedbackBody</p>
-                      </div>
-                      <div class="author">
+                  <div >
+                    <div  class="row people">
+                      <div *ngFor="let item of homeService.approvedFeedbackData" class="col-4 item">
+                        <div class="box">
+                          <p class="description">{{item.feedbackBody}}</p>
+                        </div>
+                        <div class="author">
 
-                        <h5>@item1.FName @item1.LName</h5>
+                          <h5>{{item.fName}} {{item.lName}}</h5>
 
+                        </div>
                       </div>
                     </div>
                   </div>

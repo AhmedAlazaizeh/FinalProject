@@ -79,18 +79,6 @@ export class TestComponent implements OnInit {
     this.Toast.success("Hello","Title")
   }
 
-  //matdialogclick(ID: number){
-    //this.dialog.open(getbyIDDialogComponent.{data:{ID:ID}});
-  //}
-
-  onFileChanged(event: any) {
-    this.selectedFile = event.target.files[0]
-  }
-
-  // onUpload() {
-  //   this.testService.uplaodImage(this.selectedFile)
-  // }
-
   addUser(){
     this.testService.addUser(this.fName, this.lName, this.email, this.phoneNumber, this.username, this.password, this.roleID)
   }
