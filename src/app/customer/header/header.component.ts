@@ -16,6 +16,15 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
       this.getUsername();
+      console.log(this.headerService.data1)
+      console.log(this.headerService.data1.value)
+      console.log(this.headerService.data1[0])
+      console.log(this.headerService.data1[1])
+      console.log(this.headerService.data1.userID)
+      console.log(this.headerService.data1.value.userID)
+      console.log(this.headerService.data1[0].userID)
+      console.log(this.headerService.data1[1].userID)
+      console.log(this.headerService.data1["userID"].value)
   }
 
   logOut(){
@@ -25,5 +34,9 @@ export class HeaderComponent implements OnInit {
 
   getUsername(){
     this.headerService.getUserByUsername(this.username!)
+  }
+
+  getUserID(){
+
   }
 }
