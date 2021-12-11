@@ -9,8 +9,6 @@ import { SystemComponent } from './system/system.component';
 import { ProfileComponent } from './profile/profile.component';
 import { HeaderComponent } from './header/header.component';
 
-
-
 @NgModule({
   declarations: [
     HomeComponent,
@@ -18,7 +16,7 @@ import { HeaderComponent } from './header/header.component';
     FeedbackComponent,
     SystemComponent,
     ProfileComponent,
-    HeaderComponent
+    HeaderComponent,
   ],
   imports: [
     CommonModule,
