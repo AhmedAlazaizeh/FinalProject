@@ -14,6 +14,8 @@ import { HomeComponent } from './customer/home/home.component';
 import { ToastrModule } from 'ngx-toastr';
 import { HttpClientModule } from '@angular/common/http';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatTableModule } from '@angular/material/table';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +32,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatInputModule,
     ToastrModule.forRoot({progressBar:true,progressAnimation:"increasing"}),
     HttpClientModule,
-    MatDialogModule
+    MatDialogModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent],

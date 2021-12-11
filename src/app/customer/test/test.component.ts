@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, Validators } from '@angular/forms';
 import { FormControl } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
+import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { TestService } from 'src/app/test.service';
@@ -12,6 +13,10 @@ import { TestService } from 'src/app/test.service';
   styleUrls: ['./test.component.css']
 })
 export class TestComponent implements OnInit {
+
+
+  listData: MatTableDataSource<any> = new MatTableDataSource<any>()
+  displayedColumns: string[] = ['fName'];
 
   addUserWithForm: FormGroup | any
 
@@ -54,6 +59,7 @@ export class TestComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.listData = new MatTableDataSource(this.testService.data)
   }
 
   getName(){
@@ -90,5 +96,6 @@ export class TestComponent implements OnInit {
   getUser(){
     this.testService.getUserByID(1)
   }
+
 
 }

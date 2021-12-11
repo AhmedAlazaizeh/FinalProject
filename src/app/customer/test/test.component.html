@@ -100,3 +100,15 @@
     <td *ngFor="let item1 of item | keyvalue" >{{ item1.key }} = {{item1.value}}</td>
   </tr>
 </table>
+
+
+<div class="mat-elevation-z8">
+ <mat-table [dataSource]="listData">
+   <ng-container  matColumnDef="fName">
+     <mat-header-cell *matHeaderCellDef>Full Name</mat-header-cell>
+     <mat-cell *matCellDef="let element">{{element.fName}}</mat-cell>
+   </ng-container>
+   <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+   <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+ </mat-table>
+</div>

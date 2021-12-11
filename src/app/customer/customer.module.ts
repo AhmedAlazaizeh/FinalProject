@@ -53,6 +53,7 @@ import {MatSortModule} from '@angular/material/sort';
 import {MatPaginatorModule} from '@angular/material/paginator';
 
 
+
 @NgModule({
   declarations: [
     HomeComponent,
@@ -80,6 +81,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     MatInputModule,
     MatSelectModule,
     ToastrModule.forRoot(),
+    MatTableModule
   ]
 })
 export class CustomerModule { }
