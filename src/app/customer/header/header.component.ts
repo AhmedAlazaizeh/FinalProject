@@ -15,16 +15,10 @@ export class HeaderComponent implements OnInit {
   constructor(private router: Router, public headerService: HeaderService) { }
 
   ngOnInit(): void {
-      this.getUsername();
-      console.log(this.headerService.data1)
-      console.log(this.headerService.data1.value)
-      console.log(this.headerService.data1[0])
-      console.log(this.headerService.data1[1])
-      console.log(this.headerService.data1.userID)
-      console.log(this.headerService.data1.value.userID)
-      console.log(this.headerService.data1[0].userID)
-      console.log(this.headerService.data1[1].userID)
-      console.log(this.headerService.data1["userID"].value)
+    var ID = localStorage.getItem("userID")
+    console.log(ID)
+    this.getUsername();
+    this.getCartCount(ID)
   }
 
   logOut(){
@@ -36,7 +30,7 @@ export class HeaderComponent implements OnInit {
     this.headerService.getUserByUsername(this.username!)
   }
 
-  getUserID(){
-
+  getCartCount(ID: any){
+    this.headerService.getCartCount(ID)
   }
 }
