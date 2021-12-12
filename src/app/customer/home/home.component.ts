@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HomeService } from 'src/app/services/customer/home.service';
 import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -9,7 +10,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(public homeService: HomeService, private toastr: ToastrService) { }
+  constructor(public homeService: HomeService, private toastr: ToastrService, private router: Router) { }
 
   ngOnInit(): void {
     this.getAllProducts()
@@ -27,5 +28,10 @@ export class HomeComponent implements OnInit {
 
   getApprovedFeedback(){
     this.homeService.getApprovedFeedback()
+  }
+
+  productDetails(ID: any){
+    localStorage.setItem("productID", ID)
+    this.router.navigate(["productDetails"])
   }
 }

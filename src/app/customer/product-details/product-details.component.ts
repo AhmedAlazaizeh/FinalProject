@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductDetailsService } from 'src/app/services/customer/product-details.service';
 
 @Component({
   selector: 'app-product-details',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductDetailsComponent implements OnInit {
 
-  constructor() { }
+  loggedUserID: any = localStorage.getItem("userID")
+
+  constructor(public productService: ProductDetailsService) { }
 
   ngOnInit(): void {
+    var ID = localStorage.getItem("productID")
+    this.getDetails(ID)
   }
 
+  getDetails(ID: any){
+   this.productService.getDetails(ID)
+  }
 }

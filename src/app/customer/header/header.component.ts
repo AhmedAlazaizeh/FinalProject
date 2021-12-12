@@ -29,7 +29,7 @@ export class HeaderComponent implements OnInit {
 
   logOut(){
     localStorage.clear()
-    window.location.reload();
+      window.location.reload();
   }
 
   getUsername(){
