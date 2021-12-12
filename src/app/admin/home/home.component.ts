@@ -15,6 +15,7 @@ export class HomeComponent implements OnInit {
     this.getCountOfCustomers()
     this.getCountOfInfluncers()
     this.getCountOfFeedback()
+    this.getOrderList()
   }
 
   getCountOfEmployees(){
@@ -31,5 +32,9 @@ export class HomeComponent implements OnInit {
 
   getCountOfFeedback(){
     this.homeService.getCountOfFeedback()
+  }
+
+  getOrderList(){
+    this.homeService.getOrderLsit()
   }
 }
