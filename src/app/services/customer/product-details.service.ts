@@ -13,4 +13,6 @@ export class ProductDetailsService {
   async getDetails(ID: number){
     await this.http.get("https://localhost:44309/api/Product/getProduct/" + ID).subscribe((Response: any)=>{this.productDetails=Response})
   }
+
+
 }
