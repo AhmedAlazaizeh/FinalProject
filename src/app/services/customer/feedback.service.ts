@@ -21,5 +21,5 @@ export class FeedbackService {
     };
 
     this.http.post("https://localhost:44309/api/Feedback/Add", form, requestOptions).subscribe((res)=>{console.log(res)})
-    }
+  }
   }

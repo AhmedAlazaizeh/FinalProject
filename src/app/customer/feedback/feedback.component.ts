@@ -14,7 +14,7 @@ export class FeedbackComponent implements OnInit {
   feedbackForm: FormGroup = new FormGroup({
     feedbackBody: new FormControl("", [Validators.required]),
     isApproved: new FormControl(false),
-    userID: new FormControl(3)
+    userID: new FormControl(localStorage.getItem("userID"))
   })
 
   constructor(public feedbackService: FeedbackService, private router: Router, private toastr: ToastrService) { }
