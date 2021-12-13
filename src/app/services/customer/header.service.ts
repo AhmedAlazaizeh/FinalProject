@@ -29,7 +29,6 @@ export class HeaderService {
   }
 
   getUserByUsername(username: string){
-    alert(username)
     if (username != null) {
       this.http.get("https://localhost:44309/api/User/getUserByUsername/" + username).subscribe((Response: any)=>{this.data1=Response})
     }else{
@@ -40,6 +39,5 @@ export class HeaderService {
 
   getCartCount(ID: number){
     this.http.get("https://localhost:44309/api/Order/countOfCart/" + ID).subscribe((Response: any)=>{this.countOfCart=Response})
-    alert(this.countOfCart["countOfCartItems"])
   }
 }

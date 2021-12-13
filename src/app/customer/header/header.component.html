@@ -38,24 +38,24 @@
                                     <span class="flaticon-search"></span>
                                 </div>
                             </li>
-                            <div *ngIf="headerService.countOfCart == 0 || headerService.countOfCart == null || headerService.data1 == null ; else elseFun">
+                            <div *ngFor="let item of headerService.countOfCart | keyvalue">
+                            <div *ngIf="item.value == 0 || item.value == null || username == null ;else elseFun">
                                 <li><span class="flaticon-shopping-cart" style="cursor:default;color:#808080"></span></li>
                               </div>
-
+                            </div>
                               <ng-template #elseFun>
-                                    <li ><a href="cart.html"><span class="flaticon-shopping-cart"></span></a> </li>
+                                    <li ><a routerLink="/cart"><span class="flaticon-shopping-cart"></span></a> </li>
                               </ng-template>
 
-                              <div *ngIf="headerService.data1 !=  null && headerService.countOfCart != null && headerService.countOfCart != 0; else elseFun2">
-                                <div *ngFor="let item of headerService.countOfCart | keyvalue">
+                              <div *ngFor="let item of headerService.countOfCart | keyvalue">
+                              <div *ngIf="username != null && item.value != null && item.value != 0">
+
                                 <li><label style="color:#ff2020" class="mr-2 ml-0">{{item.value}}</label></li>
                             </div>
                               </div>
-                              <ng-template #elseFun2>
                                 <div *ngIf="headerService.data1 == null">
                                     <li><a routerLink="/Auth"><span class="flaticon-user"></span></a></li> <!--need fixing -->
                                   </div>
-                              </ng-template>
                         </ul>
                     </div>
                 </div>
