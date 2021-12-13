@@ -7,27 +7,35 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { HeaderComponent } from '../auth/header/header.component';
 import { FooterComponent } from '../auth/footer/footer.component';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatButtonModule } from '@angular/material/button';
-import { MatInputModule } from '@angular/material/input';
-import { ToastrService } from 'ngx-toastr';
+import {MatButtonModule} from '@angular/material/button';
+import {MatInputModule} from '@angular/material/input';
+
+import {MatFormFieldModule} from '@angular/material/form-field';
+
+import {MatSelectModule} from '@angular/material/select';
+
 
 @NgModule({
   declarations: [
     LoginComponent,
     RegisterComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+   
 
   ],
   imports: [
+    
     CommonModule,
     AuthRoutingModule,
-    FormsModule,
     ReactiveFormsModule,
+    FormsModule,
     MatFormFieldModule,
     MatButtonModule,
-    MatInputModule
+    MatInputModule,
+    MatSelectModule
+  
+    
   ]
 })
 export class AuthModule { }
