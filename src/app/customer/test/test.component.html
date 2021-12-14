@@ -112,3 +112,8 @@
    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
  </mat-table>
 </div>
+
+<h1>===============================================================================================================</h1>
+<h1>===============================================================================================================</h1>
+
+<input #imageInput type="file" accept="image/*" ngModel="imageInput" (change)="processFile(imageInput.files)">
