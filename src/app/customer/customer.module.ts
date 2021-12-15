@@ -52,6 +52,11 @@ import {MatTableModule} from '@angular/material/table';
 import {MatSortModule} from '@angular/material/sort';
 import {MatPaginatorModule} from '@angular/material/paginator';
 
+import {BrowserModule} from '@angular/platform-browser';
+import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
+
+
+
 
 
 @NgModule({
@@ -70,6 +75,8 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     CartComponent,
     CheckoutComponent,
     ConfirmationComponent
+    
+    
   ],
   imports: [
     CommonModule,

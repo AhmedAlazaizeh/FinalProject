@@ -1,0 +1,20 @@
+
+<br/>
+<div class="row">
+  <div class="col-md-12 form-group">
+    <div style="text-align: center;">
+    <label class="col-form-label" for="location" style="text-align: center; font-size: x-large;">Enter your Address </label>
+    </div>
+    <app-google-map class="clearfix" (setSearchedMarkerplace)="getSearchedMarkerplace($event)"
+                    (setDroppedMarkerLocation)="getDroppedMarkerLocation($event)" [adressNameFilled]="addressTitle"
+                    [latFilled]="latitude" [lngFilled]="longitude" adressType="geocode">
+
+    </app-google-map>
+  </div>
+
+  <br />
+  <button mat-raised-button color="primary" type="submit" style="text-align: center;">Submit</button>
+
+</div>
+
+<router-outlet></router-outlet>
