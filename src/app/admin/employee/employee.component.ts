@@ -15,18 +15,14 @@ export class EmployeeComponent implements OnInit {
 
   ngOnInit(): void {
     this. getEmployeeList()
-
   }
 
   opendialog(){
   this.dialog.open(DialogComponent,{data:{name:"monther",age:55664}})
   }
+
   getEmployeeList() {
-    this. getEmployeeList();
+    this.getEmployeeList();
   }
-
-
-
-
 
 }

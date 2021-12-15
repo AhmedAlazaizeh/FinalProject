@@ -13,8 +13,6 @@ export class EmployeeService {
 
   constructor(private http: HttpClient) { }
 
-
-
   getEmployeeList(){
     this.http.get("https://localhost:44309/api/User/employeeList").subscribe((Response: any)=>{this.employeeList=Response})
   }
