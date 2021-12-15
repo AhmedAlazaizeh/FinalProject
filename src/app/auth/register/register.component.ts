@@ -52,10 +52,10 @@ export class RegisterComponent implements OnInit {
 
 //google Map Config
  getSearchedMarkerplace(place: any) {
-  this.formattedAddress = place['formatted_address'];
+  //this.formattedAddress = place['formatted_address'];
   this.latitude = place['geometry']['location']['lat']();
   this.longitude = place['geometry']['location']['lng']();
-  this.addressTitle = place['formatted_address'];
+  //this.addressTitle = place['formatted_address'];
   this.resetLink();
 }
 

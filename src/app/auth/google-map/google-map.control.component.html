@@ -1,9 +1,12 @@
 
 
 
-<div style="text-align: center; ">
-<input type="button" title="Get My Current Location" (click)="GetCurrentLocation();"  value="Get Current Location"/>
-</div>
 
-<br />
-<div #google_map id="google_map" style="height:800px; width: 600px;" class="google_map"></div>
+<div #google_map id="google_map" style="height:500px; width: 500px; margin-left: 100px;" class="google_map"></div>
+<br>
+<div class="ml-5" style="text-align: center; ">
+  <button type="submit" (click)="GetCurrentLocation();" value="Create" class="btn_3 pl-0"
+  mat-flat-button>
+  get My Location
+</button>
+  </div>

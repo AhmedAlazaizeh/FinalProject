@@ -36,6 +36,9 @@ export class GoogleMapControlComponent {
   constructor() {}
 
   ngOnInit() {
+
+    this.GetCurrentLocation();
+
     var mapProp = {
       center: new google.maps.LatLng(31.963158, 35.930359),
 
@@ -97,10 +100,8 @@ export class GoogleMapControlComponent {
         this.ShowLocation(position, this.map);
         localStorage.setItem("lon", String(position.coords.longitude))
         localStorage.setItem("lat", String(position.coords.latitude))
+        this.map.setCenter({ lat: this.lat, lng: this.long });
       });
-
-
-
     } else {
       alert("Geolocation is not supported by this browser.");
     }
@@ -172,7 +173,7 @@ export class GoogleMapControlComponent {
 
     this.droppedMarkerLocationEvent(location);
     this.markers.push(marker);
-    this.map.setCenter({ lat: this.lat, lng: this.long });
+    //this.map.setCenter({ lat: this.lat, lng: this.long });
 
     localStorage.setItem("lon", String(this.long))
     localStorage.setItem("lat", String(this.lat))

@@ -1,0 +1,11 @@
+.mat-form-field-wrapper {
+  padding: 0px;
+}
+
+.mat-form-field-appearance-legacy{
+  padding: 0px;
+}
+
+.mat-form-field-appearance-legacy .mat-form-field-wrapper {
+  padding: 0px;
+}
