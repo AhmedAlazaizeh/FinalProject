@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ShopService } from 'src/app/services/customer/shop.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { ShopService } from 'src/app/services/customer/shop.service';
 })
 export class ShopComponent implements OnInit {
 
-  constructor(public shopService: ShopService) { }
+  constructor(public shopService: ShopService, private router: Router) { }
 
   ngOnInit(): void {
     this.getLatestProducts();
@@ -24,5 +25,10 @@ export class ShopComponent implements OnInit {
   }
   getPriceLowToHigh(){
     this.shopService.getPriceLowToHigh()
+  }
+
+  productDetails(ID: any){
+    localStorage.setItem("productID", ID)
+    this.router.navigate(["productDetails"])
   }
 }

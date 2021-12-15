@@ -8,6 +8,8 @@ import { HomeService } from 'src/app/services/customer/home.service';
 })
 export class ProfileComponent implements OnInit {
 
+  loggedInUserID: number = Number(localStorage.getItem("userID"))
+
   constructor(public homeService: HomeService) {
 
   }
@@ -17,6 +19,6 @@ export class ProfileComponent implements OnInit {
   }
 
   getUserByID(){
-    this.homeService.getUserByID(3)
+    this.homeService.getUserByID(this.loggedInUserID)
   }
 }

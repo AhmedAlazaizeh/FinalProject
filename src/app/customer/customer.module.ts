@@ -58,6 +58,7 @@ import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
 
 
 
+
 @NgModule({
   declarations: [
     HomeComponent,
@@ -87,6 +88,7 @@ import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
     MatInputModule,
     MatSelectModule,
     ToastrModule.forRoot(),
+    MatTableModule
   ]
 })
 export class CustomerModule { }
