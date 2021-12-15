@@ -24,7 +24,8 @@ export class HeaderComponent implements OnInit {
 
   logOut(){
     localStorage.clear()
-    window.location.reload();
+    this.toastr.error("Logged Out!")
+    this.router.navigate(["/Auth"])
   }
 
   getUsername(){

@@ -11,7 +11,6 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { ToastrService } from 'ngx-toastr';
-import { MapdialogComponent } from './mapdialog/mapdialog.component';
 import { GoogleMapControlComponent } from './google-map/google-map.control.component';
 
 
@@ -21,7 +20,6 @@ import { GoogleMapControlComponent } from './google-map/google-map.control.compo
     RegisterComponent,
     HeaderComponent,
     FooterComponent,
-    MapdialogComponent,
     GoogleMapControlComponent
   ],
   imports: [
