@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FeedbackService } from 'src/app/services/admin/feedback.service';
 
 @Component({
   selector: 'app-feedback',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FeedbackComponent implements OnInit {
 
-  constructor() { }
+  constructor(public feedbackService: FeedbackService) { }
 
   ngOnInit(): void {
+    this.AllFeedback()
   }
+
+
+
+  AllFeedback() {
+    this.AllFeedback();
+  }
+
 
 }
