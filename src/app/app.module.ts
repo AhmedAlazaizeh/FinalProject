@@ -17,11 +17,9 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatTableModule } from '@angular/material/table';
 
 
-
 @NgModule({
   declarations: [
-    AppComponent
-   
+    AppComponent,
   ],
   //entryComponents:[GetByIDDialogComponent],
   imports: [
