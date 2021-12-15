@@ -5,90 +5,53 @@ import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { TestService } from 'src/app/test.service';
-
+import { MatSort} from '@angular/material/sort';
+import { Product, products} from './product';
+import {MatPaginator} from '@angular/material/paginator';
+import {MatTableDataSource} from '@angular/material/table';
 @Component({
   selector: 'app-test',
   templateUrl: './test.component.html',
   styleUrls: ['./test.component.css']
 })
 export class TestComponent implements OnInit {
-
-  addUserWithForm: FormGroup | any
-
-  fName: string = ""
-  lName: string = ""
-  email: string = ""
-  phoneNumber: string = ""
-  username: string = ""
-  password: string = ""
-  roleID: number = 0
-
-  selectedFile: File | undefined
-
-  testform: FormGroup = new FormGroup({
-    name: new FormControl('', [Validators.required]),
-  })
-
-  getUserForm: FormGroup = new FormGroup({
-    ID: new FormControl('', [Validators.required])
-  })
-
-  firstName : string = ""
-
-  x : string = ''
-
-  constructor(private Toast: ToastrService, private router: Router, public testService: TestService, private dialog: MatDialog, private fb: FormBuilder) {
-
-    this.addUserWithForm = this.fb.group({
-      fName: new FormControl,
-      lName: new FormControl,
-      email: new FormControl,
-      username: new FormControl,
-      password: new FormControl,
-      phoneNumber: new FormControl,
-      employmentDate: new FormControl,
-      salary: new FormControl,
-      roleID: new FormControl,
-    })
-
-  }
-
   ngOnInit(): void {
+    
   }
 
-  getName(){
-
-
-    localStorage.setItem("firstName", this.firstName)
-
-    alert(this.firstName)
-
-    //---navigate to Module---
-    this.router.navigate(["profile"])
-
-    //---navigate to component---
-    // this.router.navigate(["about"])
-
+ 
+  row = [
+    {
+      id : '',
+      name: '',
+      email: ''
+    },
+    {
+      id : '',
+      name: '',
+      email: ''
+    },
+    {
+      id : '',
+      name: '',
+      email: ''
+    }
+  ];
+  
+  addTable() {
+    const obj = {
+      id: '',
+      name: '',
+      email: ''
+    }
+    this.row.push(obj)
   }
-
-  getall(){
-    console.log(this.testform.value)
-  }
-
-  showToaster(){
-    this.Toast.success("Hello","Title")
-  }
-
-  addUser(){
-    this.testService.addUser(this.fName, this.lName, this.email, this.phoneNumber, this.username, this.password, this.roleID)
-  }
-
-  addUserWithFormTS(){
-    this.testService.addUserWithForm(this.addUserWithForm.value)
-  }
-
-  getUser(){
-    this.testService.getUserByID(1)
-  }
+  
+  deleteRow(x: number){
+    var delBtn = confirm(" Do you want to delete ?");
+    if ( delBtn == true ) {
+      this.row.splice(x, 1 );
+    }   
+  } 
 
 }

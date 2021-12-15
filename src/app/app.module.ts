@@ -15,9 +15,11 @@ import { ToastrModule } from 'ngx-toastr';
 import { HttpClientModule } from '@angular/common/http';
 import { MatDialogModule } from '@angular/material/dialog';
 
+
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
+   
   ],
   //entryComponents:[GetByIDDialogComponent],
   imports: [

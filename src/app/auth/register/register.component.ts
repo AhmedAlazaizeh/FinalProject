@@ -12,7 +12,7 @@ export class RegisterComponent implements OnInit {
   registerForm: FormGroup = new FormGroup({
     fullName: new FormControl('', [Validators.required]),
     email: new FormControl('', [Validators.required]),
-    address: new FormControl('', [Validators.required]),
+   
     phoneNumber: new FormControl('', [Validators.required]),
     username : new FormControl('', [Validators.required]),
     password: new FormControl('', [Validators.required,Validators.minLength(8)]),
@@ -33,6 +33,8 @@ export class RegisterComponent implements OnInit {
     const formValue =
     this.registerForm.value;
     console.log(formValue)
+
+    
     }
    
     

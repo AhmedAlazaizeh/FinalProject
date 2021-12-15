@@ -11,8 +11,11 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
 
 import {MatFormFieldModule} from '@angular/material/form-field';
-
+import { GoogleMapControlModule } from './google-map/google-map.control.module';
 import {MatSelectModule} from '@angular/material/select';
+
+import { AdressComponent } from './adress/adress.component';
+
 
 
 @NgModule({
@@ -21,6 +24,9 @@ import {MatSelectModule} from '@angular/material/select';
     RegisterComponent,
     HeaderComponent,
     FooterComponent,
+   
+    AdressComponent
+ 
    
 
   ],
@@ -33,7 +39,8 @@ import {MatSelectModule} from '@angular/material/select';
     MatFormFieldModule,
     MatButtonModule,
     MatInputModule,
-    MatSelectModule
+    MatSelectModule,
+    GoogleMapControlModule
   
     
   ]
