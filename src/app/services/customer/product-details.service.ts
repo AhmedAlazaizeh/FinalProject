@@ -27,6 +27,6 @@ export class ProductDetailsService {
       headers: new HttpHeaders(headerDict)
     };
 
-    this.http.post("https://localhost:44309/api/Order/addOrder", form, requestOptions).subscribe((res)=>{console.log(res)})
+    this.http.post("https://localhost:44309/api/Order/Add", form, requestOptions).subscribe((res)=>{console.log(res)})
     }
 }

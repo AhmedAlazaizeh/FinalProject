@@ -20,6 +20,8 @@ export class TestComponent implements OnInit {
 
   addUserWithForm: FormGroup | any
 
+  selectedFile: string = "";
+
   fName: string = ""
   lName: string = ""
   email: string = ""
@@ -28,7 +30,6 @@ export class TestComponent implements OnInit {
   password: string = ""
   roleID: number = 0
 
-  selectedFile: File | undefined
 
   testform: FormGroup = new FormGroup({
     name: new FormControl('', [Validators.required]),
@@ -97,5 +98,16 @@ export class TestComponent implements OnInit {
     this.testService.getUserByID(1)
   }
 
+  processFile(file:any)
+  {
 
+    let fileToUpload = <File>file[0];//c://fakepath/
+    this.selectedFile=fileToUpload.name
+    const formData = new FormData();
+
+    formData.append('file', fileToUpload, fileToUpload.name);
+    //this.home.uploadimage(formData)
+    console.log(this.selectedFile)
+
+  }
 }
