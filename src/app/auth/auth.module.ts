@@ -12,6 +12,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { ToastrService } from 'ngx-toastr';
 import { MapdialogComponent } from './mapdialog/mapdialog.component';
+import { GoogleMapControlComponent } from './google-map/google-map.control.component';
+
 
 @NgModule({
   declarations: [
@@ -19,8 +21,8 @@ import { MapdialogComponent } from './mapdialog/mapdialog.component';
     RegisterComponent,
     HeaderComponent,
     FooterComponent,
-    MapdialogComponent
-
+    MapdialogComponent,
+    GoogleMapControlComponent
   ],
   imports: [
     CommonModule,
@@ -29,7 +31,7 @@ import { MapdialogComponent } from './mapdialog/mapdialog.component';
     ReactiveFormsModule,
     MatFormFieldModule,
     MatButtonModule,
-    MatInputModule
+    MatInputModule,
   ]
 })
 export class AuthModule { }
