@@ -11,13 +11,15 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { ToastrService } from 'ngx-toastr';
+import { MapdialogComponent } from './mapdialog/mapdialog.component';
 
 @NgModule({
   declarations: [
     LoginComponent,
     RegisterComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    MapdialogComponent
 
   ],
   imports: [
