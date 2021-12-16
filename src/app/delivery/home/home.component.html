@@ -5,11 +5,11 @@
   <main class="app-content">
     <div class="app-title">
       <div>
-        <h2 class="p-0 m-0"><i></i> Admin | Feedback</h2>
+        <h2 class="p-0 m-0"><i></i> Delivery</h2>
       </div>
     </div>
 
-    <!-- <div class="row">
+    <div class="row">
       <div class="col-md-12">
         <div class="tile">
           <div class="tile-body">
@@ -17,25 +17,27 @@
             <table class="table table-hover table-bordered" id="sampleTable">
               <thead>
                 <tr>
-                  <th>First Name</th>
-                  <th>Last Name</th>
-                  <th>Feedback</th>
-                  <th>Is Approved?</th>
+                  <th>Order Date</th>
+                  <th>Order Value</th>
+                  <th>Customer</th>
+                  <th>Product Title</th>
+                  <th>Is Delivered</th>
                 </tr>
               </thead>
-              <tbody *ngFor="let item of feedbackService.feedbackData">
+              <tbody *ngFor="let item of homeService.orderListData">
                 <tr >
-                  <td>{{item.fName}}</td>
-                  <td>{{item.lName}}</td>
-                  <td>{{item.feedbackBody}}</td>
-                  <td>{{item.isApproved}}</td>
+                  <td>{{item.orderDate | date }}</td>
+                  <td>$ {{item.orderValue}}</td>
+                  <td>{{item.fName}} {{item.lName}}</td>
+                  <td>{{item.productTitle}}</td>
+                  <td>{{item.isDelivered}}</td>
                 </tr>
               </tbody>
             </table>
           </div>
         </div>
       </div>
-    </div> -->
+    </div>
 
 
 <!-- Sidebar menu-->
@@ -47,12 +49,8 @@
   </div>
 </div>
 <ul class="app-menu">
-  <li><a class="app-menu__item" routerLink="/Admin/"><i class="app-menu__icon fa fa-home"></i><span class="app-menu__label">Home</span></a></li>
-  <li><a class="app-menu__item" routerLink="/Admin/employee"><i class="app-menu__icon fa fa-users"></i><span class="app-menu__label">Employees</span></a></li>
-  <li><a class="app-menu__item active" routerLink="/Admin/feedback"><i class="app-menu__icon fa fa-thumbs-o-up"></i><span class="app-menu__label">Feedback</span></a></li>
-  <li><a class="app-menu__item" routerLink="/Admin/system"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">System</span></a></li>
+  <li><a class="app-menu__item active" routerLink="/Delivery/"><i class="app-menu__icon fa fa-home"></i><span class="app-menu__label">Home</span></a></li>
 </ul>
 </aside>
-
   </main>
 </body>

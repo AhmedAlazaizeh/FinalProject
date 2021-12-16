@@ -60,10 +60,10 @@ export class LoginComponent implements OnInit {
           this.toastr.success("Logged In Successfully!");
           break;
 
-        case "Developer":
+        case "Delivery":
           localStorage.setItem("username", this.returnedToken.unique_name)
           localStorage.setItem("role", this.returnedToken.role)
-          this.router.navigate(["Developer"])
+          this.router.navigate(["Delivery"])
           this.toastr.success("Logged In Successfully!");
           break;
 
