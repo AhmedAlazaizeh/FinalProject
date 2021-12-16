@@ -14,11 +14,7 @@ export class FeedbackComponent implements OnInit {
     this.AllFeedback()
   }
 
-
-
   AllFeedback() {
-    this.AllFeedback();
+    this.feedbackService.getAllFeedback()
   }
-
-
 }

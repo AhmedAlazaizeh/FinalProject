@@ -11,10 +11,10 @@ import { EmployeeService } from 'src/app/services/admin/employee.service';
 })
 export class EmployeeComponent implements OnInit {
 
-  constructor(private dialog:MatDialog , public employeeService: EmployeeService) { }
+  constructor(private dialog: MatDialog, public employeeService: EmployeeService) { }
 
   ngOnInit(): void {
-    this. getEmployeeList()
+    this.getEmployeeList()
   }
 
   opendialog(){
@@ -22,7 +22,7 @@ export class EmployeeComponent implements OnInit {
   }
 
   getEmployeeList() {
-    this.getEmployeeList();
+    this.employeeService.getEmployeeList();
   }
 
 }

@@ -8,8 +8,34 @@
         <h2 class="p-0 m-0"><i></i> Admin | Feedback</h2>
       </div>
     </div>
-    <div class="row">
 
+    <div class="row">
+      <div class="col-md-12">
+        <div class="tile">
+          <div class="tile-body">
+            <h2>Orders</h2>
+            <table class="table table-hover table-bordered" id="sampleTable">
+              <thead>
+                <tr>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+                  <th>Feedback</th>
+                  <th>Is Approved?</th>
+                </tr>
+              </thead>
+              <tbody *ngFor="let item of feedbackService.feedbackData">
+                <tr >
+                  <td>{{item.fName}}</td>
+                  <td>{{item.lName}}</td>
+                  <td>{{item.feedbackBody}}</td>
+                  <td>{{item.isApproved}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
 
 
 <!-- Sidebar menu-->
@@ -27,6 +53,6 @@
   <li><a class="app-menu__item" routerLink="/Admin/system"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">System</span></a></li>
 </ul>
 </aside>
-    </div>
+
   </main>
 </body>

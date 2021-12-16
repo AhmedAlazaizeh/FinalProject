@@ -28,10 +28,10 @@
               </thead>
               <tbody *ngFor="let item of employeeService.employeeList">
                 <tr >
-                  <td>$ {{item.fName}}</td>
-                  <td>$ {{item.lName}}</td>
-                  <td>$ {{item.email}}</td>
-                  <td>$ {{item.phoneNumber}}</td>
+                  <td>{{item.fName}}</td>
+                  <td>{{item.lName}}</td>
+                  <td>{{item.email}}</td>
+                  <td>{{item.phoneNumber}}</td>
                   <td>$ {{item.salary}}</td>
                   <td>{{item.employmentDate | date }}</td>
                 </tr>

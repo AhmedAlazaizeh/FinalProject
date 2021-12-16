@@ -6,17 +6,12 @@ import { HttpClient, HttpHandler, HttpHeaders } from '@angular/common/http';
   providedIn: 'root'
 })
 export class FeedbackService {
-  getAllFeedback:any = [{}]
-
+  feedbackData: any = [{}]
 
   constructor(private http: HttpClient) { }
 
-
-
-  AllFeedback(){
-    this.http.get("https://localhost:44309/api/Feedback/getAllFeedback").subscribe((Response: any)=>{this.getAllFeedback=Response})
+  getAllFeedback(){
+    this.http.get("https://localhost:44309/api/Feedback/GetAll").subscribe((Response: any)=>{this.feedbackData=Response})
   }
-
-
 
 }
