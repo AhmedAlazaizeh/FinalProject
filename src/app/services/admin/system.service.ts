@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -5,5 +6,11 @@ import { Injectable } from '@angular/core';
 })
 export class SystemService {
 
-  constructor() { }
+  systemData: any = [{}]
+
+  constructor(private http: HttpClient) { }
+
+  getAllSystem(){
+    this.http.get("https://localhost:44309/api/IAmAnInfluncer/GetAll").subscribe((Response: any)=>{this.systemData=Response})
+  }
 }

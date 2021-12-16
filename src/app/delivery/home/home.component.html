@@ -5,39 +5,37 @@
   <main class="app-content">
     <div class="app-title">
       <div>
-        <h2 class="p-0 m-0"><i></i> Admin | System</h2>
+        <h2 class="p-0 m-0"><i></i> Admin | Feedback</h2>
       </div>
     </div>
-    <div class="row">
+
+    <!-- <div class="row">
       <div class="col-md-12">
         <div class="tile">
           <div class="tile-body">
-            <h2>System Info</h2>
+            <h2>Feedback</h2>
             <table class="table table-hover table-bordered" id="sampleTable">
               <thead>
                 <tr>
-                  <th>About Us</th>
-                  <th>Our Vision</th>
-                  <th>Email</th>
-                  <th>Phone Number</th>
-                  <th>Address</th>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+                  <th>Feedback</th>
+                  <th>Is Approved?</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr *ngFor="let item of systemService.systemData">
-                  <td>{{item.aboutUs}}</td>
-                  <td>{{item.ourVision}}</td>
-                  <td>{{item.email}}</td>
-                  <td>{{item.phoneNumber}}</td>
-                  <td>{{item.address}}</td>
+              <tbody *ngFor="let item of feedbackService.feedbackData">
+                <tr >
+                  <td>{{item.fName}}</td>
+                  <td>{{item.lName}}</td>
+                  <td>{{item.feedbackBody}}</td>
+                  <td>{{item.isApproved}}</td>
                 </tr>
               </tbody>
             </table>
           </div>
         </div>
       </div>
-    </div>
-
+    </div> -->
 
 
 <!-- Sidebar menu-->
@@ -51,9 +49,10 @@
 <ul class="app-menu">
   <li><a class="app-menu__item" routerLink="/Admin/"><i class="app-menu__icon fa fa-home"></i><span class="app-menu__label">Home</span></a></li>
   <li><a class="app-menu__item" routerLink="/Admin/employee"><i class="app-menu__icon fa fa-users"></i><span class="app-menu__label">Employees</span></a></li>
-  <li><a class="app-menu__item" routerLink="/Admin/feedback"><i class="app-menu__icon fa fa-thumbs-o-up"></i><span class="app-menu__label">Feedback</span></a></li>
-  <li><a class="app-menu__item active" routerLink="/Admin/system"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">System</span></a></li>
+  <li><a class="app-menu__item active" routerLink="/Admin/feedback"><i class="app-menu__icon fa fa-thumbs-o-up"></i><span class="app-menu__label">Feedback</span></a></li>
+  <li><a class="app-menu__item" routerLink="/Admin/system"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">System</span></a></li>
 </ul>
 </aside>
+
   </main>
 </body>

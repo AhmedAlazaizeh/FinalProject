@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SystemService } from 'src/app/services/admin/system.service';
 
 @Component({
   selector: 'app-system',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SystemComponent implements OnInit {
 
-  constructor() { }
+  constructor(public systemService: SystemService) { }
 
   ngOnInit(): void {
+    this.getSystem()
   }
 
+  getSystem(){
+    this.systemService.getAllSystem()
+  }
 }
