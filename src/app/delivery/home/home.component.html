@@ -22,6 +22,8 @@
                   <th>Customer</th>
                   <th>Product Title</th>
                   <th>Is Delivered</th>
+                  <th>longitude</th>
+                  <th>latitude</th>
                 </tr>
               </thead>
               <tbody *ngFor="let item of homeService.orderListData">
@@ -31,6 +33,8 @@
                   <td>{{item.fName}} {{item.lName}}</td>
                   <td>{{item.productTitle}}</td>
                   <td>{{item.isDelivered}}</td>
+                  <td>{{item.longitude}}</td>
+                  <td>{{item.latitude}}</td>
                 </tr>
               </tbody>
             </table>

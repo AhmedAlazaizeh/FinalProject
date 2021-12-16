@@ -18,7 +18,8 @@ export class ProductDetailsComponent implements OnInit {
     isOrder: new FormControl(false),
     orderValue: new FormControl(0),
     userID: new FormControl(Number(localStorage.getItem("userID"))),
-    productID: new FormControl(Number(localStorage.getItem("productID")))
+    productID: new FormControl(Number(localStorage.getItem("productID"))),
+    isDelivered: new FormControl(false)
   })
 
   loggedUserID: any = localStorage.getItem("userID")
