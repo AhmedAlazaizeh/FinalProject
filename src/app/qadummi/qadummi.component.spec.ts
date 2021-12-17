@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { EmployeeEditDialogComponent } from './employee-edit-dialog.component';
+import { QadummiComponent } from './qadummi.component';
 
-describe('EmployeeEditDialogComponent', () => {
-  let component: EmployeeEditDialogComponent;
-  let fixture: ComponentFixture<EmployeeEditDialogComponent>;
+describe('QadummiComponent', () => {
+  let component: QadummiComponent;
+  let fixture: ComponentFixture<QadummiComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ EmployeeEditDialogComponent ]
+      declarations: [ QadummiComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(EmployeeEditDialogComponent);
+    fixture = TestBed.createComponent(QadummiComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
