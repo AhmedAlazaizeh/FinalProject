@@ -46,5 +46,27 @@ export class EmployeeService {
         this.toastr.error('Somthing wrong!!')
 
       })
-    }
+  }
+
+  addEmployee(form: FormGroup){
+
+    const headerDict = {
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+    };
+
+    const requestOptions = {
+      headers: new HttpHeaders(headerDict)
+    };
+
+    this.http.post("https://localhost:44309/api/User/Add", form, requestOptions).subscribe((res)=>{
+
+      this.toastr.success('Employee Added!')
+
+      },err =>{
+
+      this.toastr.error('Somthing wrong!!')
+
+    })
+  }
 }
