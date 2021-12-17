@@ -35,4 +35,16 @@ export class EmployeeService {
 
       })
   }
+
+  deleteEmployee(ID: number){
+      this.http.delete('https://localhost:44309/api/User/Delete/' + ID).subscribe((date:any)=>{
+
+        this.toastr.success('Deleted!')
+
+      },err =>{
+
+        this.toastr.error('Somthing wrong!!')
+
+      })
+    }
 }
