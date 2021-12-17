@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { HomeService } from 'src/app/services/customer/home.service';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
+import { NgxSpinnerComponent, NgxSpinnerService } from 'ngx-spinner';
+import { MatSpinner } from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'app-home',
