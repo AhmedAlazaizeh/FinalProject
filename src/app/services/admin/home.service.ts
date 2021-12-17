@@ -10,6 +10,10 @@ export class HomeService {
   countOfCustomers: any = {}
   countOfInfluncers: any = {}
   countOfFeedback: any = {}
+  sumOfSales: any = {}
+  sumOfRevune: any = {}
+  countOfOrders: any = {}
+  countOfActiveProducts: any = {}
   orderListData: any = [{}]
   financialData: any = [{}]
   constructor( private http: HttpClient) { }
@@ -31,11 +35,29 @@ export class HomeService {
     this.http.get("https://localhost:44309/api/Feedback/countOfFeedback").subscribe((Response: any)=>{this.countOfFeedback=Response})
   }
 
+  getSumOfSales(){
+    this.http.get("https://localhost:44309/api/Order/sumOfSales").subscribe((Response: any)=>{this.sumOfSales=Response})
+  }
+
+  getSumOfRevune(){
+    this.http.get("https://localhost:44309/api/Order/sumOfRevune").subscribe((Response: any)=>{
+      this.sumOfRevune["sumOfRevune"] = Math.round(Response["sumOfRevune"] * 100) / 100
+  })
+  }
+
   getOrderLsit(){
     this.http.get("https://localhost:44309/api/Order/ordersList").subscribe((Response: any)=>{this.orderListData=Response})
   }
 
   getFinancialList(){
     this.http.get("https://localhost:44309/api/User/GetFinancial").subscribe((Response: any)=>{this.financialData=Response})
+  }
+
+  getCountOfOrders(){
+    this.http.get("https://localhost:44309/api/Order/countOfOrders").subscribe((Response: any)=>{this.countOfOrders=Response})
+  }
+
+  getCountOfActiveProducts(){
+    this.http.get("https://localhost:44309/api/Product/countOfAvailableProducts").subscribe((Response: any)=>{this.countOfActiveProducts=Response})
   }
 }

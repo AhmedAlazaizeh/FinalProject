@@ -10,7 +10,7 @@
       </div>
       <div class="row">
         <div class="col-md-6 col-lg-3">
-          <div class="widget-small primary coloured-icon"><i class="icon fa fa-users fa-3x"></i>
+          <div class="widget-small primary coloured-icon"><i class="icon fa fa-id-card fa-3x"></i>
             <div class="info">
               <h4>Employees</h4>
               <p><b *ngFor="let item of homeService.countOfEmployees | keyvalue">{{item.value}}</b></p>
@@ -18,7 +18,7 @@
           </div>
         </div>
         <div class="col-md-6 col-lg-3">
-          <div class="widget-small info coloured-icon"><i class="icon fa fa-thumbs-o-up fa-3x"></i>
+          <div class="widget-small primary coloured-icon"><i class="icon fa fa-users fa-3x"></i>
             <div class="info">
               <h4>Customers</h4>
               <p><b *ngFor="let item of homeService.countOfCustomers | keyvalue">{{item.value}}</b></p>
@@ -26,7 +26,7 @@
           </div>
         </div>
         <div class="col-md-6 col-lg-3">
-          <div class="widget-small warning coloured-icon"><i class="icon fa fa-files-o fa-3x"></i>
+          <div class="widget-small primary coloured-icon"><i class="icon fa fa-briefcase fa-3x"></i>
             <div class="info">
               <h4>Influncers</h4>
               <p><b *ngFor="let item of homeService.countOfInfluncers | keyvalue">{{item.value}}</b></p>
@@ -34,10 +34,44 @@
           </div>
         </div>
         <div class="col-md-6 col-lg-3">
-          <div class="widget-small danger coloured-icon"><i class="icon fa fa-thumbs-o-up fa-3x"></i>
+          <div class="widget-small primary coloured-icon"><i class="icon fa fa-thumbs-o-up fa-3x"></i>
             <div class="info">
               <h4>Feedbacks</h4>
               <p><b *ngFor="let item of homeService.countOfFeedback | keyvalue">{{item.value}}</b></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 col-lg-3">
+          <div class="widget-small primary coloured-icon"><i class="icon fa fa-bar-chart fa-3x"></i>
+            <div class="info">
+              <h4>Sales</h4>
+              <p><b *ngFor="let item of homeService.sumOfSales | keyvalue">$ {{item.value}}</b></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="widget-small primary coloured-icon"><i class="icon fa fa-money fa-3x"></i>
+            <div class="info">
+              <h4>Revune</h4>
+              <p><b *ngFor="let item of homeService.sumOfRevune | keyvalue">$ {{item.value}}</b></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="widget-small primary coloured-icon"><i class="icon fa fa-shopping-bag fa-3x"></i>
+            <div class="info">
+              <h4>Orders</h4>
+              <p><b *ngFor="let item of homeService.countOfOrders | keyvalue">{{item.value}}</b></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="widget-small primary coloured-icon"><i class="icon fa fa-check fa-3x"></i>
+            <div class="info">
+              <h4>Available Products</h4>
+              <p><b *ngFor="let item of homeService.countOfActiveProducts | keyvalue">{{item.value}}</b></p>
             </div>
           </div>
         </div>
