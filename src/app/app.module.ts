@@ -15,11 +15,13 @@ import { ToastrModule } from 'ngx-toastr';
 import { HttpClientModule } from '@angular/common/http';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatTableModule } from '@angular/material/table';
+import { EmployeeEditDialogComponent } from './employee-edit-dialog/employee-edit-dialog.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    EmployeeEditDialogComponent,
   ],
   //entryComponents:[GetByIDDialogComponent],
   imports: [
