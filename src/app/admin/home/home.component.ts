@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { HomeService } from 'src/app/services/admin/home.service';
 import * as XLSX from 'xlsx';
+import jspdf from 'jspdf';
+import html2canvas from 'html2canvas';
 
 @Component({
   selector: 'app-home',
@@ -64,9 +66,9 @@ export class HomeComponent implements OnInit {
     this.homeService.getCountOfActiveProducts()
   }
 
-  exportToExcel(){
+  exportToExcel(tableID: string){
     /* pass here the table id */
-    let element = document.getElementById('Orders');
+    let element = document.getElementById(tableID);
     const ws: XLSX.WorkSheet =XLSX.utils.table_to_sheet(element);
 
     /* generate workbook and add the worksheet */
@@ -74,6 +76,22 @@ export class HomeComponent implements OnInit {
     XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
 
     /* save to file */
-    XLSX.writeFile(wb, "Orders.xlsx");
+    XLSX.writeFile(wb, tableID + ".xlsx");
+  }
+
+  exportToPDF(tableID: string){
+    let data = document.getElementById(tableID)
+    html2canvas(data!).then(canvas => {
+
+      let fileWidth = 208;
+      let fileHeight = canvas.height * fileWidth / canvas.width;
+
+      const FILEURI = canvas.toDataURL('image/png')
+      let PDF = new jspdf('p', 'mm', 'a4');
+      let position = 0;
+      PDF.addImage(FILEURI, 'PNG', 0, position, fileWidth, fileHeight)
+
+      PDF.save(tableID +'.pdf');
+  });
   }
 }
