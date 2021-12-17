@@ -11,6 +11,8 @@ import html2canvas from 'html2canvas';
 })
 export class HomeComponent implements OnInit {
 
+  username = localStorage.getItem("username")
+
   constructor(public homeService: HomeService) { }
 
   ngOnInit(): void {
@@ -24,6 +26,9 @@ export class HomeComponent implements OnInit {
     this.getFinancialList()
     this.getCountOfOrders()
     this.getCountOfActiveProducts()
+
+    var ID = localStorage.getItem("userID")
+    this.getUsername();
   }
 
   getCountOfEmployees(){
@@ -85,5 +90,9 @@ export class HomeComponent implements OnInit {
       PDF.addImage(FILEURI, 'PNG', 0, position, fileWidth, fileHeight)
       PDF.save(tableID +'.pdf');
   });
+  }
+
+  getUsername(){
+    this.homeService.getUserByUsername(this.username!)
   }
 }

@@ -11,10 +11,14 @@ import html2canvas from 'html2canvas';
 })
 export class FeedbackComponent implements OnInit {
 
+  username = localStorage.getItem("username")
+
   constructor(public feedbackService: FeedbackService) { }
 
   ngOnInit(): void {
     this.AllFeedback()
+    var ID = localStorage.getItem("userID")
+    this.getUsername();
   }
 
   AllFeedback() {
@@ -40,5 +44,9 @@ export class FeedbackComponent implements OnInit {
       PDF.addImage(FILEURI, 'PNG', 0, position, fileWidth, fileHeight)
       PDF.save(tableID +'.pdf');
   });
+  }
+
+  getUsername(){
+    this.feedbackService.getUserByUsername(this.username!)
   }
 }

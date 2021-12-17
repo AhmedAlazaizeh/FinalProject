@@ -16,6 +16,12 @@ export class HomeService {
   countOfActiveProducts: any = {}
   orderListData: any = [{}]
   financialData: any = [{}]
+
+  data1: any | string = [{}]
+
+  un = localStorage.getItem("username")
+  username = [{"username": this.un}]
+
   constructor( private http: HttpClient) { }
 
   getCountOfEmployees(){
@@ -59,5 +65,14 @@ export class HomeService {
 
   getCountOfActiveProducts(){
     this.http.get("https://localhost:44309/api/Product/countOfAvailableProducts").subscribe((Response: any)=>{this.countOfActiveProducts=Response})
+  }
+
+  getUserByUsername(username: string){
+    if (username != null) {
+      this.http.get("https://localhost:44309/api/User/getUserByUsername/" + username).subscribe((Response: any)=>{this.data1=Response})
+    }else{
+      this.data1 = null
+    }
+
   }
 }

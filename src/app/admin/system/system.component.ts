@@ -11,10 +11,14 @@ import html2canvas from 'html2canvas';
 })
 export class SystemComponent implements OnInit {
 
+  username = localStorage.getItem("username")
+
   constructor(public systemService: SystemService) { }
 
   ngOnInit(): void {
     this.getSystem()
+    var ID = localStorage.getItem("userID")
+    this.getUsername();
   }
 
   getSystem(){
@@ -40,5 +44,9 @@ export class SystemComponent implements OnInit {
       PDF.addImage(FILEURI, 'PNG', 0, position, fileWidth, fileHeight)
       PDF.save(tableID +'.pdf');
   });
+  }
+
+  getUsername(){
+    this.systemService.getUserByUsername(this.username!)
   }
 }

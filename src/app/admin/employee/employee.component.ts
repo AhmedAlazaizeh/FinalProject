@@ -13,10 +13,14 @@ import html2canvas from 'html2canvas';
 })
 export class EmployeeComponent implements OnInit {
 
+  username = localStorage.getItem("username")
+
   constructor(private dialog: MatDialog, public employeeService: EmployeeService) { }
 
   ngOnInit(): void {
     this.getEmployeeList()
+    var ID = localStorage.getItem("userID")
+    this.getUsername();
   }
 
   opendialog(){
@@ -46,5 +50,9 @@ export class EmployeeComponent implements OnInit {
       PDF.addImage(FILEURI, 'PNG', 0, position, fileWidth, fileHeight)
       PDF.save(tableID +'.pdf');
   });
+  }
+
+  getUsername(){
+    this.employeeService.getUserByUsername(this.username!)
   }
 }
