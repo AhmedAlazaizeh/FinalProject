@@ -90,7 +90,7 @@
                   <tr>
                     <th>Order Date</th>
                     <th>Order Value</th>
-                    <th>Customer</th>
+                    <th>Customer Name</th>
                     <th>Product Title</th>
                   </tr>
                 </thead>
@@ -134,9 +134,9 @@
                     <td>{{item.lName}}</td>
                     <td>{{item.email}}</td>
                     <td>{{item.phoneNumber}}</td>
-                    <td>{{item.salary}}</td>
+                    <td>$ {{item.salary}}</td>
                     <td>{{item.deduction * 100 | number: '1.0-0'}} %</td>
-                    <td>{{item.netSalary}}</td>
+                    <td>$ {{item.netSalary}}</td>
                   </tr>
                 </tbody>
               </table>
