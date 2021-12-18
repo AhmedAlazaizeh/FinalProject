@@ -67,10 +67,9 @@ export class EmployeeComponent implements OnInit {
   });
   }
 
-  deleteEmployee(userId:number){
-      this.employeeService.deleteEmployee(userId);
+  deleteEmployee(ID: number){
+      this.employeeService.deleteEmployee(ID);
       window.location.reload();
-
   }
 
   getUsername(){
