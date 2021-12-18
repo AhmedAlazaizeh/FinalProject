@@ -32,16 +32,16 @@
                 </tr>
               </thead>
               <tbody *ngFor="let item of employeeService.employeeList">
-                <tr >
+                <tr>
                   <td>{{item.fName}}</td>
                   <td>{{item.lName}}</td>
                   <td>{{item.email}}</td>
                   <td>{{item.phoneNumber}}</td>
                   <td>$ {{item.salary}}</td>
                   <td>{{item.employmentDate | date }}</td>
-                  <td>
-                    <a (click)="populateForm(item.userID, item.fName, item.lName, item.email, item.phoneNumber, item.username, item.password, item.longitude, item.latitude, item.salary, item.employmentDate, item.roleID)" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                    <a (click)="openDeleteDialog(item.userID);" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                  <td style="width: 90px;">
+                    <a (click)="populateForm(item.userID, item.fName, item.lName, item.email, item.phoneNumber, item.username, item.password, item.longitude, item.latitude, item.salary, item.employmentDate, item.roleID)" class="edit" data-toggle="modal"><i class="material-icons mr-1" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                    <a (click)="openDeleteDialog(item.userID);" class="delete" data-toggle="modal"><i class="material-icons ml-1" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
                   </td>
                 </tr>
               </tbody>
