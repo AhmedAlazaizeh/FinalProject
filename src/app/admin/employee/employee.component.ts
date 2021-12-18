@@ -13,13 +13,20 @@ import html2canvas from 'html2canvas';
 })
 export class EmployeeComponent implements OnInit {
 
-  UserId: number=0;
-  fName: string='';
-  lName: string='';
-  email :string='';
-  phoneNumber : string='';
-  salary: any;
-  employmentDate: any;
+  @ViewChild('callAPIDialog') callAPIDialog!: TemplateRef<any>;
+
+  UserID: number = 0;
+  FName: string = "";
+  LName: string = "";
+  Email: string = "";
+  PhoneNumber: string = "";
+  Salary: any;
+  EmploymentDate: any;
+  Password: string = ""
+  Usernamee: string = ""
+  Longitude: string = ""
+  Latitude: string = ""
+  RoleID: number = 0
 
   username = localStorage.getItem("username")
 
@@ -68,6 +75,30 @@ export class EmployeeComponent implements OnInit {
 
   getUsername(){
     this.employeeService.getUserByUsername(this.username!)
+  }
+
+  populateForm(userID: number, fName: string, lName: string, email: string, phoneNumber: string, username: string, password: string, longitude: string, latitude: string, salary: number, employmentDate: Date, roleID: number)
+    {
+
+   this.UserID = userID
+   this.FName = fName
+   this.LName = lName
+   this.Email = email
+   this.PhoneNumber = phoneNumber
+   this.Usernamee = username
+   this.Password = password
+   this.Longitude = longitude
+   this.Latitude = latitude
+   this.Salary = salary
+   this.EmploymentDate = employmentDate
+   this.RoleID = roleID
+
+   this.dialog.open(this.callAPIDialog);
+  }
+
+  updateEmployee(data: any){
+    this.employeeService.updateEmployee(data)
+    window.location.reload();
   }
 }
 
