@@ -5,6 +5,7 @@ import { EmployeeService } from 'src/app/services/admin/employee.service';
 import * as XLSX from 'xlsx';
 import jspdf from 'jspdf';
 import html2canvas from 'html2canvas';
+import { Toast, ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-employee',
@@ -31,7 +32,7 @@ export class EmployeeComponent implements OnInit {
 
   username = localStorage.getItem("username")
 
-  constructor(private dialog: MatDialog, public employeeService: EmployeeService) { }
+  constructor(private dialog: MatDialog, public employeeService: EmployeeService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.getEmployeeList()
@@ -102,10 +103,7 @@ export class EmployeeComponent implements OnInit {
       if (result !== undefined) {
           if (result === 'yes') {
             this.deleteEmployee(ID)
-              // TODO: Replace the following line with your code.
-              console.log('User clicked yes.');
           } else if (result === 'no') {
-              // TODO: Replace the following line with your code.
               console.log('User clicked no.');
           }
       }
