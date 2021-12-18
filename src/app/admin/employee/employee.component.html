@@ -68,71 +68,60 @@
 
 <!-----------------------------My Edit Form ------------------------ -->
 <ng-template #callAPIDialog>
-  <div mat-dialog-content>
+  <div style="height: 225px;" mat-dialog-content>
       <div class="body">
                   <form #uupdateEmployee="ngForm" (ngSubmit)="updateEmployee(uupdateEmployee.value); uupdateEmployee.resetForm()">
                       <div>
-                          <label>Trainer Id</label>
                           <input  required  type="hidden" #userID="ngModel" matInput name="userID" [(ngModel)]="UserID">
                       </div>
                        <div>
-                          <label>First Name</label>
                           <input required type="text" #fName="ngModel" matInput name="fName" [(ngModel)]="FName">
+                          <label class="ml-1">First Name</label>
                           <span *ngIf="fName.invalid && fName.touched">fName is required</span>
                       </div>
                      <div>
-                          <label>Last Name</label>
+
                           <input required type="text" #lName="ngModel" matInput name="lName" [(ngModel)]="LName">
+                          <label class="ml-1">Last Name</label>
                           <span *ngIf="lName.invalid && lName.touched">Last Name is required</span>
                       </div>
                       <div>
+
                           <input required type="text" #email="ngModel" matInput name="email" [(ngModel)]="Email">
-                          <label>Email</label>
+                          <label class="ml-1">Email</label>
                           <span *ngIf="email.invalid && email.touched">email is required</span>
                       </div>
                       <div>
                           <input required type="text"  #phoneNumber="ngModel" matInput name="phoneNumber" [(ngModel)]="PhoneNumber">
-                          <label>Phone Number</label>
+                          <label class="ml-1">Phone Number</label>
                           <span *ngIf="phoneNumber.invalid && phoneNumber.touched">phoneNumber is required</span>
                       </div>
                       <div>
-                          <input required type="text"  #username="ngModel" matInput name="username" [(ngModel)]="Usernamee">
-                          <label>username</label>
-                          <span *ngIf="username.invalid && username.touched">username is required</span>
+                          <input required type="hidden"  #username="ngModel" matInput name="username" [(ngModel)]="Usernamee">
                       </div>
                       <div>
-                          <input required type="text"  #password="ngModel" matInput name="password" [(ngModel)]="Password">
-                          <label>Password</label>
-                          <span *ngIf="password.invalid && password.touched">password is required</span>
+                          <input required type="hidden"  #password="ngModel" matInput name="password" [(ngModel)]="Password">
                       </div>
                       <div>
-                          <input required type="text"  #longitude="ngModel" matInput name="longitude" [(ngModel)]="Longitude">
-                          <label>longitude</label>
-                          <span *ngIf="longitude.invalid && longitude.touched">longitude is required</span>
+                          <input required type="hidden"  #longitude="ngModel" matInput name="longitude" [(ngModel)]="Longitude">
                       </div>
                       <div>
-                          <input required type="text"  #latitude="ngModel" matInput name="latitude" [(ngModel)]="Latitude">
-                          <label>latitude</label>
-                          <span *ngIf="latitude.invalid && latitude.touched">latitude is required</span>
+                          <input required type="hidden"  #latitude="ngModel" matInput name="latitude" [(ngModel)]="Latitude">
                       </div>
                       <div>
                           <input required type="number"  #salary="ngModel" matInput name="salary" [(ngModel)]="Salary">
-                          <label>salary</label>
+                          <label class="ml-1">salary</label>
                           <span *ngIf="salary.invalid && salary.touched">salary is required</span>
                       </div>
                       <div>
-                          <input required type="datetime"  #employmentDate="ngModel" matInput name="employmentDate" [(ngModel)]="EmploymentDate">
-                          <label>employmentDate</label>
-                          <span *ngIf="employmentDate.invalid && employmentDate.touched">employmentDate is required</span>
+                          <input required type="hidden"  #employmentDate="ngModel" matInput name="employmentDate" [(ngModel)]="EmploymentDate">
                       </div>
                       <div>
-                          <input required type="number"  #roleID="ngModel" matInput name="roleID" [(ngModel)]="RoleID">
-                          <label>roleID</label>
-                          <span *ngIf="roleID.invalid && roleID.touched">roleID is required</span>
+                          <input required type="hidden"  #roleID="ngModel" matInput name="roleID" [(ngModel)]="RoleID">
                       </div>
                         <mat-dialog-actions >
-                          <button class="btn btn-primary" matDialogClose="yes">Cancel</button>
-                          <button  class="btn btn-success btn-jittery" matDialogClose="no" type="submit">Update Trainer</button>
+                          <button style="background-color: #009688" class="btn m-1" matDialogClose="yes">Cancel</button>
+                          <button style="background-color: #009688"  class="btn m-1 btn-jittery" matDialogClose="no" type="submit">Update</button>
                       </mat-dialog-actions >
                   </form>
               </div>
