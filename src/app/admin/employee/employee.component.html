@@ -127,4 +127,11 @@
               </div>
           </div>
   </ng-template>
-
+    <!------------------------------- My Delete Form-------------------------------->
+    <ng-template #callConfirmDeleteDialog>
+      <h2 matDialogTitle>Are You Sure You Want to Delete This ?</h2>
+      <mat-dialog-actions >
+          <button  class="btn btn-primary" mat-button matDialogClose="no">Cancel</button>
+          <button class="btn btn-danger" mat-button matDialogClose="yes">Delete</button>
+      </mat-dialog-actions>
+    </ng-template>
