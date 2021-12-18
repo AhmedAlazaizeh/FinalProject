@@ -14,6 +14,7 @@ import html2canvas from 'html2canvas';
 export class EmployeeComponent implements OnInit {
 
   @ViewChild('callAPIDialog') callAPIDialog!: TemplateRef<any>;
+  @ViewChild('callConfirmDeleteDialog') callConfirmDeleteDialog!: TemplateRef<any>;
 
   UserID: number = 0;
   FName: string = "";
@@ -67,11 +68,6 @@ export class EmployeeComponent implements OnInit {
   });
   }
 
-  deleteEmployee(ID: number){
-      this.employeeService.deleteEmployee(ID);
-      window.location.reload();
-  }
-
   getUsername(){
     this.employeeService.getUserByUsername(this.username!)
   }
@@ -99,5 +95,26 @@ export class EmployeeComponent implements OnInit {
     this.employeeService.updateEmployee(data)
     window.location.reload();
   }
+
+  openDeleteDialog(ID: number) {
+    let dialogRef =  this.dialog.open(this.callConfirmDeleteDialog);
+    dialogRef.afterClosed().subscribe(result => {
+      if (result !== undefined) {
+          if (result === 'yes') {
+            this.deleteEmployee(ID)
+              // TODO: Replace the following line with your code.
+              console.log('User clicked yes.');
+          } else if (result === 'no') {
+              // TODO: Replace the following line with your code.
+              console.log('User clicked no.');
+          }
+      }
+  })
+  }
+
+  deleteEmployee(ID: number){
+    this.employeeService.deleteEmployee(ID);
+    window.location.reload();
+}
 }
 

@@ -41,6 +41,7 @@
                   <td>{{item.employmentDate | date }}</td>
                   <td>
                     <a (click)="populateForm(item.userID, item.fName, item.lName, item.email, item.phoneNumber, item.username, item.password, item.longitude, item.latitude, item.salary, item.employmentDate, item.roleID)" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                    <a (click)="openDeleteDialog(item.userID);" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
                   </td>
                 </tr>
               </tbody>
@@ -128,10 +129,12 @@
           </div>
   </ng-template>
     <!------------------------------- My Delete Form-------------------------------->
-    <ng-template #callConfirmDeleteDialog>
-      <h2 matDialogTitle>Are You Sure You Want to Delete This ?</h2>
-      <mat-dialog-actions >
-          <button  class="btn btn-primary" mat-button matDialogClose="no">Cancel</button>
-          <button class="btn btn-danger" mat-button matDialogClose="yes">Delete</button>
-      </mat-dialog-actions>
-    </ng-template>
+  <ng-template #callConfirmDeleteDialog>
+    <h2 matDialogTitle>Are You Sure You Want to Delete This ?</h2>
+    <mat-dialog-actions >
+      <div>
+        <button style="background-color: #009688" class="btn m-1" mat-button matDialogClose="no">Cancel</button>
+        <button class="btn m-1 btn-danger" mat-button matDialogClose="yes">Delete</button>
+      </div>
+    </mat-dialog-actions>
+  </ng-template>
