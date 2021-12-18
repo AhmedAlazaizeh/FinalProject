@@ -76,7 +76,7 @@
           </div>
         </div>
       </div>
-      <div class="tile mb-2 p-1 col-2 mt-3">
+      <div class="tile mb-2 p-1 col-2 mt-3 pl-2">
         <button style="background-color: #009688; font-size: 9px;" class="m-2 btn" (click)="exportToExcel('Orders')">export as excel</button>
         <button style="background-color: #009688; font-size: 9px;" class="m-2 btn" (click)="exportToPDF('Orders')">export as PDF</button>
       </div>
@@ -107,7 +107,7 @@
           </div>
         </div>
       </div>
-      <div class="tile mb-2 p-1 col-2 mt-3">
+      <div class="tile mb-2 p-1 col-2 mt-3 pl-2">
         <button style="background-color: #009688; font-size: 9px;" class="m-2 btn" (click)="exportToExcel('Employees')">export as excel</button>
         <button style="background-color: #009688; font-size: 9px;" class="m-2 btn" (click)="exportToPDF('Employees')">export as PDF</button>
       </div>
@@ -148,8 +148,8 @@
 <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
 <aside class="app-sidebar">
   <div class="app-sidebar__user">
-    <div>
-      <h1 class="app-sidebar__user-name">John Doe</h1>
+    <div  *ngFor="let item of homeService.data1">
+      <h1 class="app-sidebar__user-name">{{item.fName}} {{item.lName}}</h1>
     </div>
   </div>
   <ul class="app-menu">

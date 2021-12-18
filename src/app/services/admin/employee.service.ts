@@ -11,7 +11,7 @@ import { MatSpinner } from '@angular/material/progress-spinner';
 })
 export class EmployeeService {
 
-
+  data1: any | string = [{}]
   employeeList:any = [{}]
 
 
@@ -68,5 +68,14 @@ export class EmployeeService {
       this.toastr.error('Somthing wrong!!')
 
     })
+  }
+
+  getUserByUsername(username: string){
+    if (username != null) {
+      this.http.get("https://localhost:44309/api/User/getUserByUsername/" + username).subscribe((Response: any)=>{this.data1=Response})
+    }else{
+      this.data1 = null
+    }
+
   }
 }

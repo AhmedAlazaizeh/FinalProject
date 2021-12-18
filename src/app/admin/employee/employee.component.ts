@@ -13,6 +13,7 @@ import html2canvas from 'html2canvas';
 })
 export class EmployeeComponent implements OnInit {
 
+<<<<<<< HEAD
 
   @ViewChild('callCreateDialog') callCreateDialog!: TemplateRef<any>;
   @ViewChild('callAPIDialog') callAPIDialog!: TemplateRef<any>;
@@ -26,11 +27,16 @@ export class EmployeeComponent implements OnInit {
   salary: any;
   employmentDate: any;
 
+=======
+  username = localStorage.getItem("username")
+>>>>>>> ac645c0c4154782d042b4d8b325e709986ac343b
 
   constructor(private dialog: MatDialog, public employeeService: EmployeeService) { }
 
   ngOnInit(): void {
     this.getEmployeeList()
+    var ID = localStorage.getItem("userID")
+    this.getUsername();
   }
 
   opendialog(){
@@ -62,6 +68,7 @@ export class EmployeeComponent implements OnInit {
   });
   }
 
+<<<<<<< HEAD
 
   openDeleteDialog(userId:number) {
     let dialogRef =  this.dialog.open(this.callConfirmDeleteDialog);
@@ -105,5 +112,10 @@ export class EmployeeComponent implements OnInit {
 
 
 
+=======
+  getUsername(){
+    this.employeeService.getUserByUsername(this.username!)
+  }
+>>>>>>> ac645c0c4154782d042b4d8b325e709986ac343b
 }
 

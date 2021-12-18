@@ -17,7 +17,6 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
     var ID = localStorage.getItem("userID")
-    console.log(ID)
     this.getUsername();
     this.getCartCount(ID)
   }
