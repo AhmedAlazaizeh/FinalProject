@@ -6,7 +6,7 @@
     <div class="row">
       <div class="col-lg-12">
         <div class="order_details_iner">
-          <h3>Order Details</h3>
+          <h3>My Orders</h3>
           <table class="table table-borderless">
             <thead>
               <tr>
@@ -16,16 +16,16 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <th colspan="2"><span>Pixelstore fresh Blackberry</span></th>
-                <th>12 Mar 2021</th>
-                <th> <span>$720.00</span></th>
+              <tr *ngFor="let item of ordersService.userOrderList">
+                <th colspan="2"><span>{{item.productTitle}}</span></th>
+                <th>{{item.orderDate | date}}</th>
+                <th> <span>$ {{item.price}}</span></th>
               </tr>
             </tbody>
             <tfoot>
-              <tr>
+              <tr *ngFor="let item of ordersService.sumOfMyOrdersData | keyvalue">
                 <th scope="col" colspan="3">Total</th>
-                <th scope="col">$ 300</th>
+                <th scope="col">$ {{item.value}}</th>
               </tr>
             </tfoot>
           </table>
