@@ -14,18 +14,24 @@
     <div class="row">
 <table class="table">
   <thead>
-      <td> ID </td>
-      <td> First Name </td>
-      <td> Last Name</td>
-      <td>Email</td>
-      <td>Phone Number</td>
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Email</th>
+      <th>Phone Number</th>
+      <th>Salary</th>
+      <th>Deduction Percentage</th>
+      <th>Net Salary</th>
+    </tr>
   </thead>
   <tr *ngFor="let item of employeesService.data">
-        <td>{{ item.userID }}</td>
-        <td>{{ item.fName }}</td>
-        <td>{{ item.lName }}</td>
-        <td>{{ item.email }}</td>
-        <td>{{ item.phoneNumber }}</td>
+    <td>{{item.fName}}</td>
+    <td>{{item.lName}}</td>
+    <td>{{item.email}}</td>
+    <td>{{item.phoneNumber}}</td>
+    <td>$ {{item.salary}}</td>
+    <td>{{item.deduction * 100 | number: '1.0-0'}} %</td>
+    <td>$ {{item.netSalary}}</td>
   </tr>
   </table>
 <!-- Sidebar menu-->
