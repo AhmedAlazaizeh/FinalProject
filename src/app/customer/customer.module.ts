@@ -16,7 +16,6 @@ import { ShopComponent } from './shop/shop.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { CartComponent } from './cart/cart.component';
 import { CheckoutComponent } from './checkout/checkout.component';
-import { ConfirmationComponent } from './confirmation/confirmation.component';
 import { ToastrModule } from 'ngx-toastr';
 
 //Angular Material Components
@@ -68,8 +67,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     ShopComponent,
     ProductDetailsComponent,
     CartComponent,
-    CheckoutComponent,
-    ConfirmationComponent
+    CheckoutComponent
   ],
   imports: [
     CommonModule,
