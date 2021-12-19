@@ -1,126 +1,100 @@
-<p>checkout works!</p>
-
 <body>
-    <app-header></app-header>
-    <main>
-        <!--================Checkout Area =================-->
+  <app-header></app-header>
+  <main>
+    <!--================Checkout Area =================-->
     <section class="checkout_area section_padding">
       <div class="container">
-          <div class="billing_details">
-              <div class="row">
-                  <div class="col-lg-8">
-                      <h3>Payment Details</h3>
-                      <form class="row contact_form" action="#" method="post" novalidate="novalidate">
-                          <div class="col-md-6 form-group p_star">
-                              <input type="text" class="form-control" id="first" name="name" placeholder="Name On Card" />
-                          </div>
-                          <div class="col-md-6 form-group p_star">
-                              <input type="text" class="form-control" id="last" name="name" placeholder="Card Number" />
+        <div class="billing_details">
+          <div class="row">
+            <div class="col-lg-8">
+              <h3>Payment Details</h3>
+              <form id="paymentForm" class="row contact_form" [formGroup]="paymentForm" (ngSubmit)="pay()">
 
-                          </div>
-                          <div class="col-md-6 form-group p_star">
-                              <input type="text" class="form-control" id="number" name="number" placeholder="Experation Date" />
+                <div class="col-md-6 form-group p_star">
+                  <input type="text" class="form-control" id="first" name="name" placeholder="Name On Card" />
+                </div>
 
-                          </div>
-                          <div class="col-md-6 form-group p_star">
-                              <input type="text" class="form-control" id="email" name="compemailany" placeholder="CVV" />
-                          </div>
-                      </form><br /><br />
-                      <h3>Shipping Details</h3>
-                      <form class="row contact_form" action="#" method="post" novalidate="novalidate">
-                          <div class="col-md-6 form-group p_star">
-                              <input type="text" class="form-control" id="first" name="name" placeholder="First Name" />
-                          </div>
-                          <div class="col-md-6 form-group p_star">
-                              <input type="text" class="form-control" id="last" name="name" placeholder="Last name" />
+                <div class="col-md-6 form-group p_star">
+                  <input formControlName="cardNumber" type="text" class="form-control" id="last" name="name" placeholder="Card Number" />
 
-                          </div>
-                          <div class="col-md-6 form-group p_star">
-                              <input type="text" class="form-control" id="number" name="number" placeholder="Phone number" />
+                </div>
+                <div class="col-md-6 form-group p_star">
+                  <input formControlName="expDate" type="text" class="form-control" id="number" name="number" placeholder="Experation Date" />
 
-                          </div>
-                          <div class="col-md-6 form-group p_star">
-                              <input type="text" class="form-control" id="email" name="compemailany" placeholder="Email Address" />
-                          </div>
-                          <div class="col-md-12 form-group p_star">
-                              <input type="text" class="form-control" id="add1" name="add1" placeholder="Address line 01" />
-                          </div>
-                          <div class="col-md-12 form-group p_star">
-                              <input type="text" class="form-control" id="add2" name="add2" placeholder="Address line 02" />
-                          </div>
-                          <div class="col-md-12 form-group p_star">
-                              <input type="text" class="form-control" id="city" name="city" placeholder="Town/City" />
-                          </div>
-                          <div class="col-md-12 form-group">
-                              <input type="text" class="form-control" id="zip" name="zip" placeholder="Postcode/ZIP" />
-                          </div>
-                          <div class="col-md-12 form-group">
-                              <textarea class="form-control" name="message" id="message" rows="1"
-                                        placeholder="Order Notes"></textarea>
-                          </div>
-                      </form>
-                  </div>
-                  <div class="col-lg-4">
-                      <div class="order_box">
-                          <h2>Your Order</h2>
-                          <ul class="list">
-                              <li>
-                                  <a>
-                                      Product
-                                      <span>Total</span>
-                                  </a>
-                              </li>
-                                      <li>
-                                          <a>
-                                              @item.Advertisement.AdvTitle
-                                              <span class="middle"></span>
-                                              <span class="last">@item.Advertisement.Price $</span>
-                                          </a>
-                                      </li>
-                          </ul>
-                          <ul class="list list_2">
-                              <li>
-                                  <a>
-                                      Subtotal
-                                      <span>@total $</span>
-                                  </a>
-                              </li>
-                              <li>
-                                  <a>
-                                      Coupon Discount
-                                      <span>@discountValue $</span>
-                                  </a>
-                              </li>
-                              <li>
-                                  <a>
-                                      Total
-                                      <span>@finalTotal $</span>
-                                  </a>
-                              </li>
-                          </ul>
-                          <div class="creat_account">
-                              <input type="checkbox" id="f-option4" name="selector" required />
-                              <label for="f-option4">I’ve read and accept the </label>
-                              <a href="#">terms & conditions*</a>
-                          </div>
-                          <a class="btn_3" asp-controller="Orders" asp-action="Edit" >Pay</a>
-                      </div>
-                  </div>
+                </div>
+                <div class="col-md-6 form-group p_star">
+                  <input formControlName="CVV" type="text" class="form-control" id="email" name="compemailany" placeholder="CVV" />
+                </div>
+              </form><br /><br />
+              <h3>Contact Details</h3>
+              <form class="row contact_form" *ngFor="let item of checkoutService.data1">
+                <div class="col-md-6 form-group p_star">
+                  <input type="text" class="form-control" id="first" name="name" placeholder="First Name" value="{{item.fName}}"/>
+                </div>
+                <div class="col-md-6 form-group p_star">
+                  <input type="text" class="form-control" id="last" name="name" placeholder="Last name" value="{{item.lName}}"/>
+                </div>
+                <div class="col-md-6 form-group p_star">
+                  <input type="text" class="form-control" id="number" name="number" placeholder="Phone number" value="{{item.phoneNumber}}"/>
+                </div>
+                <div class="col-md-6 form-group p_star">
+                  <input type="text" class="form-control" id="email" name="compemailany" placeholder="Email Address" value="{{item.email}}"/>
+                </div>
+                <div class="col-md-12 form-group">
+                  <textarea class="form-control" name="message" id="message" rows="1"
+                    placeholder="Order Notes"></textarea>
+                </div>
+              </form>
+            </div>
+            <div class="col-lg-4">
+              <div class="order_box">
+                <h2>Your Order</h2>
+                <ul  class="list">
+                  <li>
+                    <a>
+                      Product
+                      <span>Total</span>
+                    </a>
+                  </li>
+                  <li  *ngFor="let item of checkoutService.cartList">
+                    <a>
+                      {{item.productTitle}}
+                      <span class="middle"></span>
+                      <span class="last">$ {{item.price}}</span>
+                    </a>
+                  </li>
+                </ul>
+                <ul *ngFor="let item of checkoutService.sumOfCart | keyvalue" class="list list_2">
+                  <li>
+                    <a>
+                      Total
+                      <span>$ {{item.value}}</span>
+                    </a>
+                  </li>
+                </ul>
+                <div class="creat_account">
+                  <input type="checkbox" id="isAccept" name="isAccept" required/>
+                  <label for="f-option4">I’ve read and accept the </label>
+                  <a href="#"> terms & conditions*</a>
+                </div>
+                <button style="width: 285px;" class="btn_3" type="submit" form="paymentForm">Pay</button>
               </div>
+            </div>
           </div>
-      </div>
-  </section>
-  <!--================End Checkout Area =================-->
-    </main>
-    <app-footer></app-footer>
-    <!--? Search model Begin -->
-    <div class="search-model-box">
-        <div class="h-100 d-flex align-items-center justify-content-center">
-            <div class="search-close-btn">+</div>
-            <form class="search-model-form">
-                <input type="text" id="search-input" placeholder="Searching key.....">
-            </form>
         </div>
+      </div>
+    </section>
+    <!--================End Checkout Area =================-->
+  </main>
+  <app-footer></app-footer>
+  <!--? Search model Begin -->
+  <div class="search-model-box">
+    <div class="h-100 d-flex align-items-center justify-content-center">
+      <div class="search-close-btn">+</div>
+      <form class="search-model-form">
+        <input type="text" id="search-input" placeholder="Searching key.....">
+      </form>
     </div>
-    <!-- Search model end -->
-    </body>
+  </div>
+  <!-- Search model end -->
+</body>
