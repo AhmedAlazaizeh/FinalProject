@@ -5,108 +5,160 @@
   <main class="app-content">
     <div class="app-title">
       <div>
-        <h2 class="p-0 m-0"><i></i>Accountant</h2>
+        <h2 class="p-0 m-0"><i></i> Accountant</h2>
       </div>
     </div>
     <div class="row">
+      <div class="col-md-6 col-lg-3">
+        <div class="widget-small primary coloured-icon"><i class="icon fa fa-id-card fa-3x"></i>
+          <div class="info">
+            <h4>Employees</h4>
+            <p><b *ngFor="let item of homeService.countOfEmployees | keyvalue">{{item.value}}</b></p>
+          </div>
+        </div>
+      </div>
       <div class="col-md-6 col-lg-3">
         <div class="widget-small primary coloured-icon"><i class="icon fa fa-users fa-3x"></i>
           <div class="info">
-            <h4>Users</h4>
-            <p><b>5</b></p>
+            <h4>Customers</h4>
+            <p><b *ngFor="let item of homeService.countOfCustomers | keyvalue">{{item.value}}</b></p>
           </div>
         </div>
       </div>
       <div class="col-md-6 col-lg-3">
-        <div class="widget-small info coloured-icon"><i class="icon fa fa-thumbs-o-up fa-3x"></i>
+        <div class="widget-small primary coloured-icon"><i class="icon fa fa-briefcase fa-3x"></i>
           <div class="info">
-            <h4>Likes</h4>
-            <p><b>25</b></p>
+            <h4>Influncers</h4>
+            <p><b *ngFor="let item of homeService.countOfInfluncers | keyvalue">{{item.value}}</b></p>
           </div>
         </div>
       </div>
       <div class="col-md-6 col-lg-3">
-        <div class="widget-small warning coloured-icon"><i class="icon fa fa-files-o fa-3x"></i>
+        <div class="widget-small primary coloured-icon"><i class="icon fa fa-thumbs-o-up fa-3x"></i>
           <div class="info">
-            <h4>Uploades</h4>
-            <p><b>10</b></p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-3">
-        <div class="widget-small danger coloured-icon"><i class="icon fa fa-star fa-3x"></i>
-          <div class="info">
-            <h4>Stars</h4>
-            <p><b>500</b></p>
+            <h4>Feedbacks</h4>
+            <p><b *ngFor="let item of homeService.countOfFeedback | keyvalue">{{item.value}}</b></p>
           </div>
         </div>
       </div>
     </div>
     <div class="row">
-      <div class="col-md-6">
-        <div class="tile">
-          <h3 class="tile-title">Monthly Sales</h3>
-          <div class="embed-responsive embed-responsive-16by9">
-            <canvas class="embed-responsive-item" id="lineChartDemo"></canvas>
+      <div class="col-md-6 col-lg-3">
+        <div class="widget-small primary coloured-icon"><i class="icon fa fa-bar-chart fa-3x"></i>
+          <div class="info">
+            <h4>Sales</h4>
+            <p><b *ngFor="let item of homeService.sumOfSales | keyvalue">$ {{item.value}}</b></p>
           </div>
         </div>
       </div>
-      <div class="col-md-6">
-        <div class="tile">
-          <h3 class="tile-title">Support Requests</h3>
-          <div class="embed-responsive embed-responsive-16by9">
-            <canvas class="embed-responsive-item" id="pieChartDemo"></canvas>
+      <div class="col-md-6 col-lg-3">
+        <div class="widget-small primary coloured-icon"><i class="icon fa fa-money fa-3x"></i>
+          <div class="info">
+            <h4>Revune</h4>
+            <p><b *ngFor="let item of homeService.sumOfRevune | keyvalue">$ {{item.value}}</b></p>
           </div>
         </div>
       </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="widget-small primary coloured-icon"><i class="icon fa fa-shopping-bag fa-3x"></i>
+          <div class="info">
+            <h4>Orders</h4>
+            <p><b *ngFor="let item of homeService.countOfOrders | keyvalue">{{item.value}}</b></p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="widget-small primary coloured-icon"><i class="icon fa fa-check fa-3x"></i>
+          <div class="info">
+            <h4>Available Products</h4>
+            <p><b *ngFor="let item of homeService.countOfActiveProducts | keyvalue">{{item.value}}</b></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="tile mb-2 p-1 col-2 mt-3 pl-2">
+      <button style="background-color: #009688; font-size: 9px;" class="m-2 btn" (click)="exportToExcel('Orders')">export as excel</button>
+      <button style="background-color: #009688; font-size: 9px;" class="m-2 btn" (click)="exportToPDF('Orders')">export as PDF</button>
     </div>
     <div class="row">
-      <div class="col-md-6">
+      <div class="col-md-12">
         <div class="tile">
-          <h3 class="tile-title">Features</h3>
-          <ul>
-            <li>Built with Bootstrap 4, SASS and PUG.js</li>
-            <li>Fully responsive and modular code</li>
-            <li>Seven pages including login, user profile and print friendly invoice page</li>
-            <li>Smart integration of forgot password on login page</li>
-            <li>Chart.js integration to display responsive charts</li>
-            <li>Widgets to effectively display statistics</li>
-            <li>Data tables with sort, search and paginate functionality</li>
-            <li>Custom form elements like toggle buttons, auto-complete, tags and date-picker</li>
-            <li>A inbuilt toast library for providing meaningful response messages to user's actions</li>
-          </ul>
-          <p>Vali is a free and responsive admin theme built with Bootstrap 4, SASS and PUG.js. It's fully customizable and modular.</p>
-          <p>Vali is is light-weight, expendable and good looking theme. The theme has all the features required in a dashboard theme but this features are built like plug and play module. Take a look at the <a href="http://pratikborsadiya.in/blog/vali-admin" target="_blank">documentation</a> about customizing the theme colors and functionality.</p>
-          <p class="mt-4 mb-4"><a class="btn btn-primary mr-2 mb-2" href="http://pratikborsadiya.in/blog/vali-admin" target="_blank"><i class="fa fa-file"></i>Docs</a><a class="btn btn-info mr-2 mb-2" href="https://github.com/pratikborsadiya/vali-admin" target="_blank"><i class="fa fa-github"></i>GitHub</a><a class="btn btn-success mr-2 mb-2" href="https://github.com/pratikborsadiya/vali-admin/archive/master.zip" target="_blank"><i class="fa fa-download"></i>Download</a></p>
+          <div class="tile-body">
+            <h2>Orders</h2>
+            <table class="table table-hover table-bordered" id="Orders">
+              <thead>
+                <tr>
+                  <th>Order Date</th>
+                  <th>Order Value</th>
+                  <th>Customer Name</th>
+                  <th>Product Title</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of homeService.orderListData">
+                  <td>{{item.orderDate | date}}</td>
+                  <td>$ {{item.orderValue}}</td>
+                  <td>{{item.fName}} {{item.lName}}</td>
+                  <td>{{item.productTitle}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
-      <div class="col-md-6">
-        <div class="tile">
-          <h3 class="tile-title">Compatibility with frameworks</h3>
-          <p>This theme is not built for a specific framework or technology like Angular or React etc. But due to it's modular nature it's very easy to incorporate it into any front-end or back-end framework like Angular, React or Laravel.</p>
-          <p>Go to <a href="http://pratikborsadiya.in/blog/vali-admin" target="_blank">documentation</a> for more details about integrating this theme with various frameworks.</p>
-          <p>The source code is available on GitHub. If anything is missing or weird please report it as an issue on <a href="https://github.com/pratikborsadiya/vali-admin" target="_blank">GitHub</a>. If you want to contribute to this theme pull requests are always welcome.</p>
-        </div>
-      </div>
-            <!-- Sidebar menu-->
-            <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
-            <aside class="app-sidebar">
-              <div class="app-sidebar__user">
-                <div>
-                  <h1 class="app-sidebar__user-name">John Doe</h1>
-                </div>
-              </div>
-              <ul class="app-menu">
-                <li><a class="app-menu__item active" routerLink="/Accountant/"><i class="app-menu__icon fa fa-home"></i><span
-                      class="app-menu__label">Home</span></a></li>
-                <li><a class="app-menu__item" routerLink="/Accountant/employees"><i
-                      class="app-menu__icon fa fa-users"></i><span class="app-menu__label">Employees</span></a></li>
-                <li><a class="app-menu__item" routerLink="/Accountant/customers"><i
-                      class="app-menu__icon fa fa-thumbs-o-up"></i><span class="app-menu__label">Customers</span></a></li>
-                <li><a class="app-menu__item" routerLink="/Accountant/influncers"><i
-                      class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">Influncers</span></a></li>
-              </ul>
-            </aside>
     </div>
+    <div class="tile mb-2 p-1 col-2 mt-3 pl-2">
+      <button style="background-color: #009688; font-size: 9px;" class="m-2 btn" (click)="exportToExcel('Employees')">export as excel</button>
+      <button style="background-color: #009688; font-size: 9px;" class="m-2 btn" (click)="exportToPDF('Employees')">export as PDF</button>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="tile">
+          <div class="tile-body">
+            <h2>Employees | Financials</h2>
+            <table class="table table-hover table-bordered" id="Employees">
+              <thead>
+                <tr>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+                  <th>Email</th>
+                  <th>Phone Number</th>
+                  <th>Salary</th>
+                  <th>Deduction Percentage</th>
+                  <th>Net Salary</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of homeService.financialData">
+                  <td>{{item.fName}}</td>
+                  <td>{{item.lName}}</td>
+                  <td>{{item.email}}</td>
+                  <td>{{item.phoneNumber}}</td>
+                  <td>$ {{item.salary}}</td>
+                  <td>{{item.deduction * 100 | number: '1.0-0'}} %</td>
+                  <td>$ {{item.netSalary}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+<!-- Sidebar menu-->
+<div class="app-sidebar__overlay" data-toggle="sidebar"></div>
+<aside class="app-sidebar">
+<div class="app-sidebar__user">
+  <div  *ngFor="let item of homeService.data1">
+    <h1 class="app-sidebar__user-name">{{item.fName}} {{item.lName}}</h1>
+  </div>
+</div>
+<ul class="app-menu">
+  <li><a class="app-menu__item active" routerLink="/Accountant/"><i class="app-menu__icon fa fa-home"></i><span class="app-menu__label">Home</span></a></li>
+  <li><a class="app-menu__item" routerLink="/Accountant/employee"><i class="app-menu__icon fa fa-users"></i><span class="app-menu__label">Employee</span></a></li>
+  <li><a class="app-menu__item" routerLink="/Accountant/feedback"><i class="app-menu__icon fa fa-thumbs-o-up"></i><span class="app-menu__label">Feedback</span></a></li>
+  <li><a class="app-menu__item" routerLink="/Accountant/system"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">System</span></a></li>
+</ul>
+</aside>
   </main>
+
 </body>
