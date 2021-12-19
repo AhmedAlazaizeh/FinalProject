@@ -4,70 +4,65 @@
     <!--================login_part Area =================-->
     <section class="login_part pt-0">
       <div class="container pt-0">
-            <div class="login_part_form pt-0">
-                <div class="row">
-                  <div class="col-4 mx-5">
-                    <form style="display: flex; flex-direction: column;" [formGroup]="registerform"
-                      (ngSubmit)="addRegister()" class="form-contact contact_form" id="contactForm">
-                      <mat-form-field>
-                      <div class="col-12 form-group p_star">
-
-                          <input formControlName="fName" matInput type="text" class="form-control" value=""
-                            placeholder="First Name">
-
-
-                      </div>
-                    </mat-form-field>
-                      <mat-form-field>
-                      <div class="col-12 form-group p_star">
-
-
-                          <input formControlName="lName" matInput type="text" class="form-control" value=""
-                            placeholder="Last Name">
-
-                      </div>
-                    </mat-form-field>
-                      <mat-form-field>
-                        <div class="col-md-12 form-group p_star">
-                          <input formControlName="email" matInput type="text" class="form-control" value=""
-                            placeholder="Email">
-                        </div>
-                      </mat-form-field>
-                      <mat-form-field>
-                        <div class="col-md-12 form-group p_star">
-                          <input formControlName="phoneNumber" matInput type="text" class="form-control" value=""
-                            placeholder="Phone Number">
-                        </div>
-                      </mat-form-field>
-                      <mat-form-field>
-                        <div class="col-md-12 form-group p_star">
-                          <input formControlName="username" matInput type="text" class="form-control" value=""
-                            placeholder="Username">
-                        </div>
-                      </mat-form-field>
-                      <mat-form-field>
-                        <div class="col-md-12 form-group p_star">
-                          <input formControlName="password" matInput type="password" class="form-control" id="password"
-                            name="password" value="" placeholder="Password">
-                        </div>
-                      </mat-form-field>
-                      <br /><br /><br />
-                      <button type="submit" [disabled]="registerform.invalid" value="Create" class="btn_3 mt-0"
-                        mat-flat-button>
-                        Register
-                      </button>
-                    </form>
+        <div class="login_part_form pt-0">
+          <div class="row">
+            <div class="col-4 mx-5">
+              <form style="display: flex; flex-direction: column;" [formGroup]="registerform" (ngSubmit)="addRegister()"
+                class="form-contact contact_form" id="contactForm">
+                <mat-form-field>
+                  <div class="col-12 form-group p_star">
+                    <input formControlName="fName" matInput type="text" class="form-control" value="ahmed"
+                      placeholder="First Name">
                   </div>
-                  <div class="col-6 mx-3 mt-5">
-                    <app-google-map class="clearfix" (setSearchedMarkerplace)="getSearchedMarkerplace($event)"
-                    (setDroppedMarkerLocation)="getDroppedMarkerLocation($event)" [adressNameFilled]="addressTitle"
-                    [latFilled]="latitude" [lngFilled]="longitude" adressType="geocode">
+                </mat-form-field>
+                <mat-form-field>
+                  <div class="col-12 form-group p_star">
+                    <input formControlName="lName" matInput type="text" class="form-control" value=""
+                      placeholder="Last Name">
 
-                  </app-google-map>
-                </div>
-                </div>
-              </div>
+                  </div>
+                </mat-form-field>
+                <mat-form-field>
+                  <div class="col-md-12 form-group p_star">
+                    <input formControlName="email" matInput type="text" class="form-control" value=""
+                      placeholder="Email">
+                  </div>
+                </mat-form-field>
+                <mat-form-field>
+                  <div class="col-md-12 form-group p_star">
+                    <input formControlName="phoneNumber" matInput type="text" class="form-control" value=""
+                      placeholder="Phone Number">
+                  </div>
+                </mat-form-field>
+                <mat-form-field>
+                  <div class="col-md-12 form-group p_star">
+                    <input formControlName="username" matInput type="text" class="form-control" value=""
+                      placeholder="Username">
+                  </div>
+                </mat-form-field>
+                <mat-form-field>
+                  <div class="col-md-12 form-group p_star">
+                    <input formControlName="password" matInput type="password" class="form-control" id="password"
+                      name="password" value="" placeholder="Password">
+                  </div>
+                </mat-form-field>
+                <br /><br /><br />
+                <button type="submit" [disabled]="registerform.invalid" value="Create" class="btn_3 mt-0"
+                  mat-flat-button>
+                  Register
+                </button>
+              </form>
             </div>
+            <div class="col-6 mx-3 mt-5">
+              <app-google-map class="clearfix" (setSearchedMarkerplace)="getSearchedMarkerplace($event)"
+                (setDroppedMarkerLocation)="getDroppedMarkerLocation($event)" [adressNameFilled]="addressTitle"
+                [latFilled]="latitude" [lngFilled]="longitude" adressType="geocode">
+
+              </app-google-map>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
     <!--================login_part end =================-->
   </main>
@@ -83,23 +78,3 @@
   </div>
   <!-- Search model end -->
 </body>
-
-
-
-<!-- =======example from the lecture (Don't delete)========= -->
-<!-- <form [formGroup]="registerform" (ngSubmit)="getall()">
-
-    <mat-form-field class="example-full-width">
-        <mat-label>username</mat-label>
-        <input matInput formControlName="username" type="text"/>
-        <mat-hint> Field is required</mat-hint>
-    </mat-form-field>
-
-    <mat-form-field class="example-full-width">
-        <mat-label>password</mat-label>
-        <input matInput formControlName="password" type="text"/>
-        <mat-hint> Field is required</mat-hint>
-    </mat-form-field>
-    <h1>saefrsefsef</h1>
-    <button mat-flat-button type="submit" [disabled]= "registerform.invalid"> Register </button>
-</form> -->
