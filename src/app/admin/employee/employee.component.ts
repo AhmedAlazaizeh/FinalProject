@@ -5,7 +5,7 @@ import { EmployeeService } from 'src/app/services/admin/employee.service';
 import * as XLSX from 'xlsx';
 import jspdf from 'jspdf';
 import html2canvas from 'html2canvas';
-import { Toast, ToastrService } from 'ngx-toastr';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-employee',
