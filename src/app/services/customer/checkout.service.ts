@@ -52,4 +52,18 @@ export class CheckoutService {
         localStorage.setItem("paymentFlag", "False")
       })
   }
+
+  clearCart(ID: number){
+
+    const headerDict = {
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+    };
+
+    const requestOptions = {
+      headers: new HttpHeaders(headerDict),
+    };
+
+    this.http.post("https://localhost:44309/api/Order/clearCart/" + ID, requestOptions).subscribe((Response: any)=>{console.log(Response)})
+  }
 }

@@ -29,6 +29,7 @@ x: Number = Number(localStorage.getItem("sumOfCart"))
     this.getUsername();
     this.getCartList(ID)
     this.getSumOfCart(ID)
+    this.x = Number(localStorage.getItem("sumOfCart"))
     localStorage.setItem("paymentButtonFlag", "0")
   }
 
@@ -47,7 +48,10 @@ x: Number = Number(localStorage.getItem("sumOfCart"))
     if (localStorage.getItem("paymentButtonFlag") == "1") {
       if (localStorage.getItem("paymentFlag") == "True") {
         alert("payed!")
-        this.toastr.success("Payed Successfuly", "Thank You!")
+        this.toastr.success("Payed Successfuly", " Your Order Has Been Received, Thank You!")
+        this.router.navigate(["/"])
+        var ID = Number(localStorage.getItem("userID"))
+        this.clearCart(ID)
       }else{
         alert("not payed!")
         this.toastr.error("There Was An Error!","Check Your Card Info Or Balance")
@@ -58,5 +62,9 @@ x: Number = Number(localStorage.getItem("sumOfCart"))
 
   getUsername(){
     this.checkoutService.getUserByUsername(this.username!)
+  }
+
+  clearCart(ID: number){
+    this.checkoutService.clearCart(ID)
   }
 }
