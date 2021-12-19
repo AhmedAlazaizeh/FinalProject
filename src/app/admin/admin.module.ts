@@ -8,7 +8,7 @@ import { FeedbackComponent } from './feedback/feedback.component';
 import { SystemComponent } from './system/system.component';
 import { ProfileComponent } from './profile/profile.component';
 import { HeaderComponent } from './header/header.component';
-import {MatDialogModule} from '@angular/material/dialog';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [

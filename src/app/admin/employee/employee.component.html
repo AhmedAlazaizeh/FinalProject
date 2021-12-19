@@ -6,8 +6,6 @@
     <div class="app-title">
       <div>
         <h2 class="p-0 m-0"><i></i> Admin | Employees</h2>
-
-<button (click)="opendialog()">Okkk</button>
       </div>
     </div>
     <div class="tile mb-2 p-1 col-2 mt-3 pl-2">
@@ -32,15 +30,16 @@
                 </tr>
               </thead>
               <tbody *ngFor="let item of employeeService.employeeList">
-                <tr >
+                <tr>
                   <td>{{item.fName}}</td>
                   <td>{{item.lName}}</td>
                   <td>{{item.email}}</td>
                   <td>{{item.phoneNumber}}</td>
                   <td>$ {{item.salary}}</td>
                   <td>{{item.employmentDate | date }}</td>
-                  <td>
-                    <a (click)="populateForm(item.userID, item.fName, item.lName, item.email, item.phoneNumber, item.username, item.password, item.longitude, item.latitude, item.salary, item.employmentDate, item.roleID)" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                  <td style="width: 90px;">
+                    <a (click)="populateForm(item.userID, item.fName, item.lName, item.email, item.phoneNumber, item.username, item.password, item.longitude, item.latitude, item.salary, item.employmentDate, item.roleID)" class="edit" data-toggle="modal"><i class="material-icons mx-1" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                    <a (click)="openDeleteDialog(item.userID);" class="delete" data-toggle="modal"><i class="material-icons mx-1" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
                   </td>
                 </tr>
               </tbody>
@@ -127,4 +126,13 @@
               </div>
           </div>
   </ng-template>
-
+    <!------------------------------- My Delete Form-------------------------------->
+  <ng-template #callConfirmDeleteDialog>
+    <h2 matDialogTitle>Sure you want to delete?</h2>
+    <mat-dialog-actions >
+      <div>
+        <button style="background-color: #009688" class="btn m-1" mat-button matDialogClose="no">Cancel</button>
+        <button class="btn m-1 btn-danger" mat-button matDialogClose="yes">Delete</button>
+      </div>
+    </mat-dialog-actions>
+  </ng-template>

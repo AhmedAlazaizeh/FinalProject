@@ -5,6 +5,7 @@ import { EmployeeService } from 'src/app/services/admin/employee.service';
 import * as XLSX from 'xlsx';
 import jspdf from 'jspdf';
 import html2canvas from 'html2canvas';
+import { Toast, ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-employee',
@@ -14,6 +15,7 @@ import html2canvas from 'html2canvas';
 export class EmployeeComponent implements OnInit {
 
   @ViewChild('callAPIDialog') callAPIDialog!: TemplateRef<any>;
+  @ViewChild('callConfirmDeleteDialog') callConfirmDeleteDialog!: TemplateRef<any>;
 
   UserID: number = 0;
   FName: string = "";
@@ -30,7 +32,7 @@ export class EmployeeComponent implements OnInit {
 
   username = localStorage.getItem("username")
 
-  constructor(private dialog: MatDialog, public employeeService: EmployeeService) { }
+  constructor(private dialog: MatDialog, public employeeService: EmployeeService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.getEmployeeList()
@@ -67,12 +69,6 @@ export class EmployeeComponent implements OnInit {
   });
   }
 
-  deleteEmployee(userId:number){
-      this.employeeService.deleteEmployee(userId);
-      window.location.reload();
-
-  }
-
   getUsername(){
     this.employeeService.getUserByUsername(this.username!)
   }
@@ -100,5 +96,23 @@ export class EmployeeComponent implements OnInit {
     this.employeeService.updateEmployee(data)
     window.location.reload();
   }
+
+  openDeleteDialog(ID: number) {
+    let dialogRef =  this.dialog.open(this.callConfirmDeleteDialog);
+    dialogRef.afterClosed().subscribe(result => {
+      if (result !== undefined) {
+          if (result === 'yes') {
+            this.deleteEmployee(ID)
+          } else if (result === 'no') {
+              console.log('User clicked no.');
+          }
+      }
+  })
+  }
+
+  deleteEmployee(ID: number){
+    this.employeeService.deleteEmployee(ID);
+    window.location.reload();
+}
 }
 
