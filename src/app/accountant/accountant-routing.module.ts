@@ -9,23 +9,23 @@ import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
   {
-    path: "",
+    path: '',
     component: HomeComponent
   },
   {
-    path: "employees",
+    path: 'employees',
     component: EmployeesComponent
   },
   {
-    path: "customers",
+    path: 'customers',
     component: CustomersComponent
   },
   {
-    path: "influncers",
+    path: 'influncers',
     component: InfluncersComponent
   },
   {
-    path: "profile",
+    path: 'profile',
     component: ProfileComponent
   }
 ];
