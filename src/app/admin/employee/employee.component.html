@@ -26,7 +26,9 @@
                   <th>Phone Number</th>
                   <th>Salary</th>
                   <th>Employment Date</th>
-                  <th></th>
+                  <th style="text-align: center;">
+                    <a (click)="openAddEmployeeDialog()" class="add" data-toggle="modal"><i class="material-icons mx-1" data-toggle="tooltip" title="Add">&#xe7fe;</i></a>
+                </th>
                 </tr>
               </thead>
               <tbody *ngFor="let item of employeeService.employeeList">
@@ -128,11 +130,74 @@
   </ng-template>
     <!------------------------------- My Delete Form-------------------------------->
   <ng-template #callConfirmDeleteDialog>
-    <h2 matDialogTitle>Sure you want to delete?</h2>
     <mat-dialog-actions >
       <div>
         <button style="background-color: #009688" class="btn m-1" mat-button matDialogClose="no">Cancel</button>
         <button class="btn m-1 btn-danger" mat-button matDialogClose="yes">Delete</button>
       </div>
     </mat-dialog-actions>
+  </ng-template>
+  <!-- ---------------------------ADD---------------------------- -->
+  <ng-template #addEmployeeDialog>
+    <div style="height: 315px;" mat-dialog-content>
+      <div class="body">
+        <form [formGroup]="addEmployeeForm" (ngSubmit)="addEmployee()" class="form-contact contact_form" id="contactForm" novalidate="novalidate">
+          <div class="row">
+            <mat-form-field>
+              <div class="col-12 form-group">
+                <input formControlName="fName" matInput type="text" class="form-control" value=""
+                  placeholder="First Name">
+              </div>
+            </mat-form-field>
+            <mat-form-field>
+              <div class="col-12 form-group p_star">
+                <input formControlName="lName" matInput type="text" class="form-control" value=""
+                  placeholder="Last Name">
+              </div>
+            </mat-form-field>
+            <mat-form-field>
+              <div class="col-md-12 form-group p_star">
+                <input formControlName="email" matInput type="text" class="form-control" value=""
+                  placeholder="Email">
+              </div>
+            </mat-form-field>
+            <mat-form-field>
+              <div class="col-md-12 form-group p_star">
+                <input formControlName="phoneNumber" matInput type="text" class="form-control" value=""
+                  placeholder="Phone Number">
+              </div>
+            </mat-form-field>
+          </div>
+          <div class="row">
+            <mat-form-field>
+              <div class="col-md-12 form-group p_star">
+                <input formControlName="username" matInput type="text" class="form-control" value=""
+                  placeholder="Username">
+              </div>
+            </mat-form-field>
+            <mat-form-field>
+              <div class="col-md-12 form-group p_star">
+                <input formControlName="password" matInput type="password" class="form-control" id="password"
+                  name="password" value="" placeholder="Password">
+              </div>
+            </mat-form-field>
+            <mat-form-field>
+              <div class="col-md-12 form-group p_star">
+                <input formControlName="salary" matInput type="number" class="form-control" id="salary"
+                  name="salary" value="" placeholder="Salary">
+              </div>
+            </mat-form-field>
+            <mat-form-field>
+              <select style="width: 150px; height: 48px; margin-left: 12px;" placeholder="Role" class="form-control" matInput formControlName="roleID" name="roleID" id="roleID">
+                <option value="2">Accountant</option>
+                <option value="3">Delivery</option>
+              </select>
+            </mat-form-field>
+          </div>
+            <mat-dialog-actions >
+              <button [disabled]="addEmployeeForm.invalid" style="background-color: #009688"  class="btn mx-2 btn-jittery" matDialogClose="no" type="submit">Add</button>
+          </mat-dialog-actions >
+        </form>
+      </div>
+    </div>
   </ng-template>

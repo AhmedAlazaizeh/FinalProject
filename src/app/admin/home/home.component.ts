@@ -3,6 +3,7 @@ import { HomeService } from 'src/app/services/admin/home.service';
 import * as XLSX from 'xlsx';
 import jspdf from 'jspdf';
 import html2canvas from 'html2canvas';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-home',
@@ -95,4 +96,5 @@ export class HomeComponent implements OnInit {
   getUsername(){
     this.homeService.getUserByUsername(this.username!)
   }
+
 }

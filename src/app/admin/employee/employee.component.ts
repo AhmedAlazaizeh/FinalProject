@@ -6,6 +6,7 @@ import * as XLSX from 'xlsx';
 import jspdf from 'jspdf';
 import html2canvas from 'html2canvas';
 import { ToastrService } from 'ngx-toastr';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-employee',
@@ -16,6 +17,20 @@ export class EmployeeComponent implements OnInit {
 
   @ViewChild('callAPIDialog') callAPIDialog!: TemplateRef<any>;
   @ViewChild('callConfirmDeleteDialog') callConfirmDeleteDialog!: TemplateRef<any>;
+  @ViewChild('addEmployeeDialog') addEmployeeDialog!: TemplateRef<any>;
+
+  addEmployeeForm: FormGroup = new FormGroup({
+    fName: new FormControl("", [Validators.required]),
+    lName: new FormControl("", [Validators.required]),
+    email: new FormControl("", [Validators.required]),
+    phoneNumber: new FormControl("", [Validators.required]),
+    roleID: new FormControl("", [Validators.required]),
+    username: new FormControl("", [Validators.required]),
+    password: new FormControl("", [Validators.required]),
+    salary: new FormControl("", [Validators.required]),
+    longitude: new FormControl("00"),
+    latitude: new FormControl("00")
+  })
 
   UserID: number = 0;
   FName: string = "";
@@ -113,6 +128,19 @@ export class EmployeeComponent implements OnInit {
   deleteEmployee(ID: number){
     this.employeeService.deleteEmployee(ID);
     window.location.reload();
-}
+  }
+
+  openAddEmployeeDialog(){
+    this.addEmployeeForm.reset()
+    this.dialog.open(this.addEmployeeDialog);
+  }
+
+  addEmployee(){
+    this.addEmployeeForm.patchValue({
+      roleID: Number(this.addEmployeeForm.get('roleID')!.value)
+    });
+    this.employeeService.addEmployee(this.addEmployeeForm.value)
+    console.log(this.addEmployeeForm.value)
+  }
 }
 
