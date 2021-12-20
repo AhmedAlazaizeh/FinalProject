@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { lastValueFrom } from 'rxjs';
 import { RegisterService } from 'src/app/services/auth/register.service';
 
@@ -32,11 +34,10 @@ export class RegisterComponent implements OnInit {
     password: new FormControl('', [Validators.required]),
     longitude: new FormControl(this.lon),
     latitude: new FormControl(this.lat),
-    salary: new FormControl(0),
-    employmentDate: new FormControl("2000-01-01")
+    salary: new FormControl(0)
   })
 
-  constructor(public registerServiec: RegisterService) { }
+  constructor(public registerServiec: RegisterService, private router: Router, private toaster: ToastrService) { }
 
   ngOnInit(): void {
   }
@@ -44,11 +45,9 @@ export class RegisterComponent implements OnInit {
   addRegister(){
     console.log(this.registerform.value)
     this.registerServiec.addRegister(this.registerform.value)
+    this.toaster.success("Registered Successfuly!")
+    this.router.navigate(["/Auth"])
   }
-
-
-
-
 
 //google Map Config
  getSearchedMarkerplace(place: any) {
