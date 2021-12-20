@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { Toast, ToastrService } from 'ngx-toastr';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root'
@@ -37,9 +37,6 @@ export class ProfileService {
     localStorage.setItem("latitude", Response["latitude"])
     localStorage.setItem("employmentDate", Response["employmentDate"])
     localStorage.setItem("roleID", Response["roleID"])
-    if (Response["salary"] == null) {
-      localStorage.setItem("salary", Response["salary"])
-    }
     localStorage.setItem("salary", Response["salary"])
   })
   }

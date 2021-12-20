@@ -41,7 +41,7 @@ export class ProfileComponent implements OnInit {
     this.phoneNumber = localStorage.getItem("phoneNumber")!
     this.username = localStorage.getItem("username")!
     this.password = localStorage.getItem("password")!
-    this.salary = 0
+    this.salary = Number(localStorage.getItem("salary"))
     this.employmentDate = localStorage.getItem("employmentDate")!
     this.longitude = localStorage.getItem("longitude")!
     this.latitude = localStorage.getItem("latitude")!
@@ -55,8 +55,8 @@ export class ProfileComponent implements OnInit {
       phoneNumber: new FormControl(this.phoneNumber),
       username: new FormControl(this.username),
       password: new FormControl(this.password),
-      salary: new FormControl(0),
-      employmentDate: new FormControl("1000-01-01"),
+      salary: new FormControl(this.salary),
+      employmentDate: new FormControl(this.employmentDate),
       longitude: new FormControl(this.longitude),
       latitude: new FormControl(this.latitude),
       roleID: new FormControl(this.roleID)
