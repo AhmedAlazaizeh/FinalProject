@@ -1,1 +1,53 @@
-<p>profile works!</p>
+<body>
+  <app-header></app-header>
+  <main style="background-color: #FFFFFF;" class="app-content">
+    <div class="app-title">
+      <div>
+        <h2 class="p-0 m-0"><i></i> Accountant | Update My Info</h2>
+      </div>
+    </div>
+    <section class="sample-text-area m-0">
+      <div class="container">
+        <div class="row justify-content-center">
+          <form [formGroup]="updateForm" (ngSubmit)="updateUser()" class="col-8" style="font-family: Josefin Sans, sans-serif">
+            <div class="mt-10 form-group my-4">
+                <label class="control-label">First Name</label>
+                <input formControlName="fName" class="single-input form-control" value={{fName}} name="fname">
+            </div>
+            <div class="mt-10 form-group my-4">
+                <label class="control-label">Last Name</label>
+                <input formControlName="lName" class="single-input form-control" value={{lName}} name="lname">
+            </div>
+            <div class="mt-10 form-group my-4">
+                <label class="control-label">Email</label>
+                <input formControlName="email" class="single-input form-control" value={{email}} name="email">
+            </div>
+            <div class="mt-10 form-group my-4">
+                <label class="control-label">Phone Number</label>
+                <input formControlName="phoneNumber" class="single-input form-control" value={{phoneNumber}} name="phonenumber">
+            </div>
+            <div class="form-group my-5">
+              <button style="background-color: #009688"  class="btn m-1 btn-jittery" type="submit">Update</button>
+            </div>
+        </form>
+        </div>
+      </div>
+    </section>
+<!-- Sidebar menu-->
+<div class="app-sidebar__overlay" data-toggle="sidebar"></div>
+<aside class="app-sidebar">
+<div class="app-sidebar__user">
+  <div  *ngFor="let item of profileService.data1">
+    <h1 class="app-sidebar__user-name">{{item.fName}} {{item.lName}}</h1>
+  </div>
+</div>
+<ul class="app-menu">
+  <li><a class="app-menu__item" routerLink="/Accountant/"><i class="app-menu__icon fa fa-home"></i><span class="app-menu__label">Home</span></a></li>
+  <li><a class="app-menu__item" routerLink="/Accountant/employees"><i class="app-menu__icon fa fa-users"></i><span class="app-menu__label">Employee</span></a></li>
+  <li><a class="app-menu__item" routerLink="/Accountant/customers"><i class="app-menu__icon fa fa-thumbs-o-up"></i><span class="app-menu__label">Customers</span></a></li>
+  <li><a class="app-menu__item" routerLink="/Accountant/influncers"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">Influncers</span></a></li>
+</ul>
+</aside>
+  </main>
+
+</body>

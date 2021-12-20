@@ -5,7 +5,8 @@ import { DeliveryRoutingModule } from './delivery-routing.module';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
-
+import { MatDialogModule } from '@angular/material/dialog';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,9 @@ import { ProfileComponent } from './profile/profile.component';
   ],
   imports: [
     CommonModule,
-    DeliveryRoutingModule
+    DeliveryRoutingModule,
+    ReactiveFormsModule,
+    MatDialogModule
   ]
 })
 export class DeliveryModule { }

@@ -8,7 +8,8 @@ import { InfluncersComponent } from './influncers/influncers.component';
 import { EmployeesComponent } from './employees/employees.component';
 import { HeaderComponent } from './header/header.component';
 import { ProfileComponent } from './profile/profile.component';
-
+import { MatDialogModule } from '@angular/material/dialog';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,10 +19,13 @@ import { ProfileComponent } from './profile/profile.component';
     EmployeesComponent,
     HeaderComponent,
     ProfileComponent
+
   ],
   imports: [
     CommonModule,
-    AccountantRoutingModule
+    AccountantRoutingModule,
+    MatDialogModule,
+    ReactiveFormsModule
   ]
 })
 export class AccountantModule { }
