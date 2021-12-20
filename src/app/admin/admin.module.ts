@@ -9,6 +9,7 @@ import { SystemComponent } from './system/system.component';
 import { ProfileComponent } from './profile/profile.component';
 import { HeaderComponent } from './header/header.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     CommonModule,
     AdminRoutingModule,
     FormsModule,
-    MatDialogModule
+    MatDialogModule,
+    ReactiveFormsModule
   ]
 })
 export class AdminModule { }

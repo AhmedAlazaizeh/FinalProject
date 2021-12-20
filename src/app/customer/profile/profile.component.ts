@@ -63,10 +63,6 @@ export class ProfileComponent implements OnInit {
       latitude: new FormControl(this.latitude),
       roleID: new FormControl(this.roleID)
     })
-    if (this.userID != Number(localStorage.getItem("userID"))) {
-      window.location.reload()
-    }
-
   }
 
   getUserByID(ID: any){
