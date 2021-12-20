@@ -16,7 +16,9 @@ export class EmployeesComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    this.getFinancialList()
   }
+
   exportToExcel(tableID: string){
     let element = document.getElementById(tableID);
     const ws: XLSX.WorkSheet =XLSX.utils.table_to_sheet(element);
@@ -36,5 +38,9 @@ export class EmployeesComponent implements OnInit {
       PDF.addImage(FILEURI, 'PNG', 0, position, fileWidth, fileHeight)
       PDF.save(tableID +'.pdf');
   });
+  }
+
+  getFinancialList(){
+    this.employeesService.getFinancialList()
   }
 }

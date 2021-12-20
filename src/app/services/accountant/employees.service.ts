@@ -7,6 +7,7 @@ import { HttpClient } from '@angular/common/http';
 export class EmployeesService {
 
   data: any = [{}]
+  financialData: any = [{}]
 
   constructor(private http: HttpClient) { }
 
@@ -14,4 +15,7 @@ export class EmployeesService {
     this.http.get("https://localhost:44309/api/User/employeeList").subscribe((Response: any)=>{this.data=Response})
   }
 
+  getFinancialList(){
+    this.http.get("https://localhost:44309/api/User/GetFinancial").subscribe((Response: any)=>{this.financialData=Response})
+  }
 }

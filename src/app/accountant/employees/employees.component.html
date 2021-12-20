@@ -7,33 +7,43 @@
         <h2 class="p-0 m-0"><i></i> Accountant | Employees</h2>
       </div>
     </div>
-    <div class="tile mb-2 p-1 col-2 mt-3">
+    <div class="tile mb-2 p-1 col-2 mt-3 pl-2">
       <button style="background-color: #009688; font-size: 9px;" class="m-2 btn" (click)="exportToExcel('Employees')">export as excel</button>
       <button style="background-color: #009688; font-size: 9px;" class="m-2 btn" (click)="exportToPDF('Employees')">export as PDF</button>
     </div>
     <div class="row">
-<table class="table">
-  <thead>
-    <tr>
-      <th>First Name</th>
-      <th>Last Name</th>
-      <th>Email</th>
-      <th>Phone Number</th>
-      <th>Salary</th>
-      <th>Deduction Percentage</th>
-      <th>Net Salary</th>
-    </tr>
-  </thead>
-  <tr *ngFor="let item of employeesService.data">
-    <td>{{item.fName}}</td>
-    <td>{{item.lName}}</td>
-    <td>{{item.email}}</td>
-    <td>{{item.phoneNumber}}</td>
-    <td>$ {{item.salary}}</td>
-    <td>{{item.deduction * 100 | number: '1.0-0'}} %</td>
-    <td>$ {{item.netSalary}}</td>
-  </tr>
-  </table>
+      <div class="col-md-12">
+        <div class="tile">
+          <div class="tile-body">
+            <h2>Employees | Financials</h2>
+            <table class="table table-hover table-bordered" id="Employees">
+              <thead>
+                <tr>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+                  <th>Email</th>
+                  <th>Phone Number</th>
+                  <th>Salary</th>
+                  <th>Deduction Percentage</th>
+                  <th>Net Salary</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of employeesService.financialData">
+                  <td>{{item.fName}}</td>
+                  <td>{{item.lName}}</td>
+                  <td>{{item.email}}</td>
+                  <td>{{item.phoneNumber}}</td>
+                  <td>$ {{item.salary}}</td>
+                  <td>{{item.deduction * 100 | number: '1.0-0'}} %</td>
+                  <td>$ {{item.netSalary}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
 <!-- Sidebar menu-->
 <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
 <aside class="app-sidebar">
@@ -53,7 +63,6 @@
           class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">Influncers</span></a></li>
   </ul>
 </aside>
-</div>
 </main>
 </body>
 
