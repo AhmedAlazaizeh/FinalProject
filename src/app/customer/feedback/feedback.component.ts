@@ -23,6 +23,12 @@ export class FeedbackComponent implements OnInit {
   }
 
   feedbackSent(){
+    if (localStorage.getItem("userID") === null) {
+      this.feedbackForm.patchValue({
+        userID: 1
+      });
+    }
+    console.log(this.feedbackForm.value)
     this.feedbackService.addFeedback(this.feedbackForm.value)
     this.router.navigate([""])
     this.toastr.success( "Feedback sent");

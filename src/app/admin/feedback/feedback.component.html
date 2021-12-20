@@ -20,16 +20,15 @@
             <table class="table table-hover table-bordered" id="Feedback">
               <thead>
                 <tr>
-                  <th>First Name</th>
-                  <th>Last Name</th>
+                  <th>Name</th>
                   <th>Feedback</th>
                   <th style="text-align: center;">Approve</th>
                 </tr>
               </thead>
               <tbody *ngFor="let item of feedbackService.feedbackData">
                 <tr >
-                  <td>{{item.fName}}</td>
-                  <td>{{item.lName}}</td>
+                  <td *ngIf="item.userID !== 1">{{item.fName}} {{item.lName}}</td>
+                  <td *ngIf="item.userID === 1">Guest</td>
                   <td>{{item.feedbackBody}}</td>
                   <td *ngIf="item.isApproved === false" style="text-align: center; width: 100px;">
                     <a style="cursor: pointer;" (click)="approveFeedback(item.feedbackID)" class="approve"><i class="material-icons mx-1" data-toggle="tooltip" title="Approve">&#xe835;</i></a>
