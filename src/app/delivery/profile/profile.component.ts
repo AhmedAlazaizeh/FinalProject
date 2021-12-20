@@ -55,7 +55,7 @@ export class ProfileComponent implements OnInit {
       phoneNumber: new FormControl(this.phoneNumber),
       username: new FormControl(this.username),
       password: new FormControl(this.password),
-      salary: new FormControl(0),
+      salary: new FormControl(this.salary),
       employmentDate: new FormControl(this.employmentDate),
       longitude: new FormControl(this.longitude),
       latitude: new FormControl(this.latitude),
