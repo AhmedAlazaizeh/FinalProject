@@ -22,6 +22,14 @@ export class FeedbackService {
     }else{
       this.data1 = null
     }
-
   }
+
+  approveFeedback(ID: number){
+    this.http.get("https://localhost:44309/api/Feedback/Approve/" + ID).subscribe((Response: any)=>{})
+  }
+
+  disapproveFeedback(ID: number){
+    this.http.get("https://localhost:44309/api/Feedback/Disapprove/" + ID).subscribe((Response: any)=>{})
+  }
+
 }

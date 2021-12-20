@@ -49,4 +49,14 @@ export class FeedbackComponent implements OnInit {
   getUsername(){
     this.feedbackService.getUserByUsername(this.username!)
   }
+
+  approveFeedback(ID: any){
+    this.feedbackService.approveFeedback(ID)
+    window.location.reload()
+  }
+
+  disapproveFeedback(ID: any){
+    this.feedbackService.disapproveFeedback(ID)
+    window.location.reload()
+  }
 }
