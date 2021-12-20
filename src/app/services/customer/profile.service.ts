@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
@@ -25,13 +26,16 @@ export class ProfileService {
     localStorage.setItem("latitude", Response["latitude"])
     localStorage.setItem("employmentDate", Response["employmentDate"])
     localStorage.setItem("roleID", Response["roleID"])
+    if (Response["salary"] == null) {
+      localStorage.setItem("salary", Response["salary"])
+    }
     localStorage.setItem("salary", Response["salary"])
   })
   }
 
-  updateUser(userID: number, fName: string, lName: string, email: string, phoneNumber: string, username: string, password: string, roleID: number, latitude: string, longitude: string, employmentDate: Date){
+  updateUser(form: FormGroup){
 
-    this.http.put('https://localhost:44309/api/User/UpdateUser', {userID: userID, fName: fName, lName: lName, email: email, phoneNumber: phoneNumber, username: username, password: password, roleID: roleID, longitude: longitude, latitude: latitude, employmentDate: employmentDate}).subscribe((result)=>{
+    this.http.put('https://localhost:44309/api/User/Update', form).subscribe((Response)=>{
 
     this.toastr.success('Info Updated');
 
@@ -40,7 +44,7 @@ export class ProfileService {
      console.log(err);
      this.toastr.error(err);
 
-      })
+    })
   }
 
 }
