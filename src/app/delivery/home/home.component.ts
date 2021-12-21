@@ -18,4 +18,14 @@ export class HomeComponent implements OnInit {
   getOrderList(){
     this.homeService.getOrderLsit()
   }
+
+  delivered(ID: number){
+    this.homeService.delivered(ID)
+    window.location.reload()
+  }
+
+  notDelivered(ID: number){
+    this.homeService.notDelivered(ID)
+    window.location.reload()
+  }
 }
