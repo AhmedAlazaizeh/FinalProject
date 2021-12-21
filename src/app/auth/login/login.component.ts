@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
   })
 
 
-  constructor(private loginService: LoginService, private router: Router) { }
+  constructor(private loginService: LoginService, private router: Router, private toastr: ToastrService) { }
 
   ngOnInit(): void {
     localStorage.clear()
@@ -32,6 +32,7 @@ export class LoginComponent implements OnInit {
     localStorage.clear()
     this.loginService.getToken(this.loginForm.value)
     this.returnedToken = jwtDecode(this.loginService.token)
+    localStorage.setItem("userID", this.returnedToken.userID)
 
     console.log(this.returnedToken.role)
     console.log(this.returnedToken.unique_name)
@@ -42,31 +43,35 @@ export class LoginComponent implements OnInit {
           localStorage.setItem("username", this.returnedToken.unique_name)
           localStorage.setItem("role", this.returnedToken.role)
           this.router.navigate(["Admin"])
+          this.toastr.success("Logged In Successfully!");
           break;
 
         case "Customer":
           localStorage.setItem("username", this.returnedToken.unique_name)
           localStorage.setItem("role", this.returnedToken.role)
-          localStorage.setItem("role", this.returnedToken.role)
           this.router.navigate([""])
+          this.toastr.success("Logged In Successfully!");
           break;
 
         case "Accountant":
           localStorage.setItem("username", this.returnedToken.unique_name)
           localStorage.setItem("role", this.returnedToken.role)
           this.router.navigate(["Accountant"])
+          this.toastr.success("Logged In Successfully!");
           break;
 
         case "Developer":
           localStorage.setItem("username", this.returnedToken.unique_name)
           localStorage.setItem("role", this.returnedToken.role)
           this.router.navigate(["Developer"])
+          this.toastr.success("Logged In Successfully!");
           break;
 
         case "Influncer":
           localStorage.setItem("username", this.returnedToken.unique_name)
           localStorage.setItem("role", this.returnedToken.role)
           this.router.navigate(["Influncer"])
+          this.toastr.success("Logged In Successfully!");
           break;
 
         default:

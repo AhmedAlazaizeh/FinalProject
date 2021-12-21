@@ -1,3 +1,4 @@
+
 <html>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -21,3 +22,124 @@
 	</table>
 </body>
 </html>
+=======
+<p>test works!</p>
+<input type="text" id="firstName" [(ngModel)]="firstName">
+
+<button (click)="getName()">send</button>
+
+
+<!-- form -->
+<form [formGroup]="testform" (ngSubmit)="getall()">
+
+  <mat-form-field class="example-full-width">
+      <mat-label>Name</mat-label>
+      <input matInput formControlName="name" type="text"/>
+      <mat-hint> Field is required</mat-hint>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Gender</mat-label>
+    <mat-select>
+      <mat-option value="Male"> Male </mat-option>
+      <mat-option value="Female">Female</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <button mat-flat-button type="submit" [disabled]= "testform.invalid"> Register </button>
+</form>
+
+
+<!-- Toaster -->
+<button (click) = "showToaster()" >button</button>
+
+
+<!-- using ngModel (Two Way Data Binding)-->
+<input type="text" placeholder="x" [(ngModel)]="x">
+<h1>x: {{x}}</h1>
+
+<table>
+  <thead>
+    <td></td>
+  </thead>
+  <tr *ngFor="let item of testService.data">
+    <td *ngFor="let item1 of item | keyvalue" >{{ item1.key }} = {{item1.value}}</td>
+  </tr>
+</table>
+
+<br><br><br><br>
+<table class="table-dark">
+  <thead>
+      <td> ID </td>
+      <td> Name </td>
+  </thead>
+  <tr *ngFor="let item of testService.data">
+        <td>{{ item.userID }}</td>
+        <td>{{ item.fName }}</td>
+        <!-- <button class="btn btn-danger" (click)="matdialogclick(item.userID)">Edit</button> -->
+  </tr>
+  </table>
+
+<h1 *ngFor="let item of testService.dataCount | keyvalue">{{item.value}}</h1>
+
+<hr>
+<input [(ngModel)]="fName" type="text"/>
+<input [(ngModel)]="lName" type="text"/>
+<input [(ngModel)]="email" type="text"/>
+<input [(ngModel)]="phoneNumber" type="text"/>
+<input [(ngModel)]="username" type="text"/>
+<input [(ngModel)]="password" type="text"/>
+<input [(ngModel)]="roleID" type="number"/>
+
+<button type="submit" (click)="addUser()">Submit</button>
+
+
+<!-- ==================================================== -->
+
+<h1>=======================================================================================</h1>
+<form [formGroup]="addUserWithForm" (ngSubmit)="addUserWithFormTS()">
+
+  <input formControlName="fName" type="text"/>
+  <input formControlName="lName" type="text"/>
+  <input formControlName="email" type="text"/>
+  <input formControlName="phoneNumber" type="text"/>
+  <input formControlName="username" type="text"/>
+  <input formControlName="password" type="text"/>
+  <input formControlName="employmentDate" type="text"/>
+  <input formControlName="salary" type="number"/>
+  <input formControlName="roleID" type="number"/>
+
+  <button mat-flat-button type="submit"> Submit </button>
+</form>
+
+<h1>input</h1>
+<form [formGroup]="getUserForm" (ngSubmit)="getUser()">
+<input formControlName="ID" type="number"/>
+<button type="submit">get user</button>
+</form>
+<table>
+  <thead>
+    <td></td>
+  </thead>
+  <tr *ngFor="let item of testService.data | keyvalue">
+    <td *ngFor="let item1 of item | keyvalue" >{{ item1.key }} = {{item1.value}}</td>
+  </tr>
+</table>
+
+
+<div class="mat-elevation-z8">
+ <mat-table [dataSource]="listData">
+   <ng-container  matColumnDef="fName">
+     <mat-header-cell *matHeaderCellDef>Full Name</mat-header-cell>
+     <mat-cell *matCellDef="let element">{{element.fName}}</mat-cell>
+   </ng-container>
+   <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+   <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+ </mat-table>
+</div>
+
+<h1>===============================================================================================================</h1>
+<h1>===============================================================================================================</h1>
+
+<input #imageInput type="file" accept="image/*" ngModel="imageInput" (change)="processFile(imageInput.files)">
+

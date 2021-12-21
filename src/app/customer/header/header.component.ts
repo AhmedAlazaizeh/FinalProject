@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { HeaderService } from 'src/app/services/customer/header.service';
 
 @Component({
@@ -12,10 +13,13 @@ export class HeaderComponent implements OnInit {
   usernameReturned: any
 
   username = localStorage.getItem("username")
-  constructor(private router: Router, public headerService: HeaderService) { }
+  constructor(private router: Router, public headerService: HeaderService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
-      this.getUsername();
+    var ID = localStorage.getItem("userID")
+    console.log(ID)
+    this.getUsername();
+    this.getCartCount(ID)
   }
 
   logOut(){
@@ -24,6 +28,10 @@ export class HeaderComponent implements OnInit {
   }
 
   getUsername(){
-    this.usernameReturned = this.headerService.getUsername()
+    this.headerService.getUserByUsername(this.username!)
+  }
+
+  getCartCount(ID: any){
+    this.headerService.getCartCount(ID)
   }
 }

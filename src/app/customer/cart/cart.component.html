@@ -8,35 +8,35 @@
             <table class="table">
               <thead>
                 <tr>
-                  <th scope="col">Advertisement</th>
-                  <th scope="col">Designer</th>
+                  <th scope="col">Product</th>
+                  <th scope="col">Influncer</th>
                   <th scope="col"></th>
                   <th scope="col">Price</th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
+                <tr *ngFor="let item of cartService.cartList">
                   <td>
                     <div class="media">
                       <div class="d-flex">
                         <img src="" alt="" />
                       </div>
                       <div class="media-body">
-                        <p>item.Advertisement.AdvTitle</p>
+                        <p>{{item.productTitle}}</p>
                       </div>
                     </div>
                   </td>
                   <td>
-                    <h5></h5>
+                    <h5>{{item.fName}} {{item.lName}}</h5>
                   </td>
                   <td>
                     <h5></h5>
                   </td>
                   <td>
-                    <h5>item.OrderValue</h5>
+                    <h5>$ {{item.price}}</h5>
                   </td>
                 </tr>
-                <tr>
+                <tr *ngFor="let item of cartService.sumOfCart | keyvalue">
                   <td></td>
                   <td>
                     <h5>Subtotal</h5>
@@ -44,26 +44,14 @@
                   <td>
                   </td>
                   <td>
-                    <h5>cartTotal</h5>
-                  </td>
-                </tr>
-                <tr class="bottom_button">
-                  <td>
-                  </td>
-                  <td></td>
-                  <td></td>
-                  <td>
-                    <div class="cupon_text float-right">
-                      <input style="border-color:#415094; color:#777777;text-align:center" type="text" name="couponCode"
-                        value="" placeholder="Enter Coupon Code" />
-                    </div>
+                    <h5>$ {{item.value}}</h5>
                   </td>
                 </tr>
               </tbody>
             </table>
             <div class="checkout_btn_inner float-right">
-              <a class="btn_1" href="#">Continue Shopping</a>
-              <a class="btn_1 checkout_btn_1" href="#">Proceed to checkout</a>
+              <a class="btn_3 mx-2" routerLink="/shop">Continue Shopping</a>
+              <a class="btn_3 checkout_btn_1 mx-2" href="#">Proceed to checkout</a>
             </div>
           </div>
         </div>

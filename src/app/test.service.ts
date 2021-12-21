@@ -21,6 +21,20 @@ export class TestService {
     this.http.get("https://localhost:44309/api/User/GetAll").subscribe((Response: any)=>{this.data=Response})
   }
 
+  updateUser(form: FormGroup){
+
+    const headerDict = {
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+    };
+
+    const requestOptions = {
+      headers: new HttpHeaders(headerDict),
+    };
+
+      this.http.post("https://localhost:44309/api/User/Update", form, requestOptions).subscribe((res)=>{console.log(res)})
+  }
+
   getCountOfEmployees(){
     this.http.get("https://localhost:44309/api/User/countOfEmployees").subscribe((Response: any)=>{this.dataCount=Response})
   }
