@@ -7,9 +7,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
+  public response= {dbPath: ''};
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  public uploadFinished = (event:any) => {
+  this.response = event;
+  }
+
+  submit(data: any){
+
+  data.cV = this.response.dbPath;
+  console.log(data.cV);
+
+  }
 }

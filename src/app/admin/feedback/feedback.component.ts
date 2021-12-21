@@ -51,7 +51,6 @@ export class FeedbackComponent implements OnInit {
   }
 
   approveFeedback(ID: any){
-    alert(ID)
     this.feedbackService.approveFeedback(ID)
     window.location.reload()
   }

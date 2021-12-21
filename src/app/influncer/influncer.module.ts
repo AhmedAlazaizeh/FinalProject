@@ -8,13 +8,15 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { ProfileComponent } from './profile/profile.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ReactiveFormsModule } from '@angular/forms';
+import { UploadComponent } from './upload/upload.component';
 
 @NgModule({
   declarations: [
     HomeComponent,
     HeaderComponent,
     SidebarComponent,
-    ProfileComponent
+    ProfileComponent,
+    UploadComponent
   ],
   imports: [
     CommonModule,

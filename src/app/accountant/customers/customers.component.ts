@@ -64,6 +64,7 @@ export class CustomersComponent implements OnInit {
   sendEmailToCustomer(){
     var emailBody: string = this.emailCustomerForm.get('emailBody')!.value
     var email = localStorage.getItem("customerEmail")
+
     this.toaster.success("Email Sent!")
   }
 }
