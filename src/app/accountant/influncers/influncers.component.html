@@ -8,24 +8,43 @@
         <h2 class="p-0 m-0"><i></i> Accountant | Influncers</h2>
       </div>
     </div>
+    <div style="width: auto;" class="tile mb-2 p-1 mt-3 pl-2">
+      <button style="background-color: #009688; font-size: 12px;" class="m-2 btn" (click)="exportToExcel('Influncers')">export as excel</button>
+      <button style="background-color: #009688; font-size: 12px;" class="m-2 btn" (click)="exportToPDF('Influncers')">export as PDF</button>
+    </div>
     <div class="row">
-      <table class="table">
-        <thead>
-          <td> ID </td>
-          <td> First Name </td>
-          <td> Last Name</td>
-          <td>Email</td>
-          <td>Phone Number</td>
-        </thead>
-        <tr *ngFor="let item of influncersService.data">
-          <td>{{ item.userID }}</td>
-          <td>{{ item.fName }}</td>
-          <td>{{ item.lName }}</td>
-          <td>{{ item.email }}</td>
-          <td>{{ item.phoneNumber }}</td>
-        </tr>
-      </table>
-
+      <div class="col-md-12">
+        <div class="tile">
+          <div class="tile-body">
+            <h2>Influncers</h2>
+            <table class="table table-hover table-bordered" id="Influncers">
+              <thead>
+                <tr>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+                  <th>Email</th>
+                  <th>Phone Number</th>
+                  <th>Products Sold</th>
+                  <th>Sales</th>
+                  <th>Revune</th>
+                </tr>
+              </thead>
+              <tbody *ngFor="let item of influncersService.influncersData">
+                <tr>
+                  <td>{{item.fName}}</td>
+                  <td>{{item.lName}}</td>
+                  <td>{{item.email}}</td>
+                  <td>{{item.phoneNumber}}</td>
+                  <td>{{item.countOfOrders}}</td>
+                  <td>$ {{item.sumOfOrders}}</td>
+                  <td>$ {{item.sumOfRevune}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
 <!-- Sidebar menu-->
 <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
 <aside class="app-sidebar">
@@ -45,6 +64,5 @@
                 class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">Influncers</span></a></li>
         </ul>
       </aside>
-    </div>
   </main>
 </body>
