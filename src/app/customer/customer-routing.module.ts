@@ -19,6 +19,10 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
+    path: 'product-details',
+    component: HomeComponent
+  },
+  {
     path: 'test',
     component: TestComponent
   },

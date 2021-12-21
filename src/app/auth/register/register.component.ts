@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl,  Validators } from '@angular/forms';
 import { isPlatformWorkerApp } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -24,7 +25,7 @@ export class RegisterComponent implements OnInit {
     
 
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -36,6 +37,9 @@ export class RegisterComponent implements OnInit {
 
     
     }
+    goToLoginPage(){
+      this.router.navigate(['']);
+      }
    
     
 }

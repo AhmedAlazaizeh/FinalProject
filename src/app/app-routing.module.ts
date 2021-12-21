@@ -35,6 +35,10 @@ const routes: Routes = [
   {
     path: 'Auth',
     loadChildren : () => AuthModule
+  },
+  {
+    path: 'Customer',
+    loadChildren : () => CustomerModule
   }
 ];
 

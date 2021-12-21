@@ -37,8 +37,8 @@
                                                <mat-form-field > 
                                                    <mat-label>Email</mat-label>
                                                     <input matInput formControlName="email" style="font-size: x-large;" placeholder="Ex.pat@example.com">
-                                                    <mat-error *ngIf="registerForm.controls['email'].hasError('required')">
-                                                       
+                                                    <mat-error *ngIf="!registerForm.controls['email'].hasError('required') && registerForm.controls['email'].hasError('email')">
+                                                        Please enter a valid email address
                                                         </mat-error>
                                                     
                                                      </mat-form-field >
@@ -75,7 +75,9 @@
                                             <mat-form-field >
                                                 <mat-label>Password</mat-label>
                                                 <input type="password" matInput formControlName="password" style="font-size: xlarge;">
-                                             
+                                                <mat-error *ngIf="registerForm.controls['password'].hasError('minlength') && !registerForm.controls['password'].hasError('required')">
+                                                Please enter a valid password 
+                                                </mat-error>
                                                 <mat-error *ngIf="registerForm.controls['password'].hasError('required')">
                                                 
                                                 </mat-error>
@@ -95,12 +97,18 @@
                                                 
                                              </mat-error>
 
+                                             <mat-error *ngIf="registerForm.controls['passwordConfirm'].hasError('required') " >Confirm password is required 
+                                              </mat-error >
+
                                                 </mat-form-field >
                                           </div>
 
                                       <br /><br /><br />
-                                      <button mat-raised-button color="primary" type="submit">Next</button>
-                                              
+                                      <button mat-raised-button color="primary"[disabled] = "!registerForm.valid" >  Register</button >
+                                      <div >
+                                      <p (click)="goToLoginPage()" style="cursor:  pointer; text-align: center;font-size: 1.7em;margin-top: 40px; ">Already have an account ? Login here </p>
+                                      </div >
+                                        
                                          
                                       </form>
                                   </div>

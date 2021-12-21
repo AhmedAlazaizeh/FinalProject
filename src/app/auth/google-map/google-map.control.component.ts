@@ -88,6 +88,7 @@ export class GoogleMapControlComponent {
         });
       navigator.geolocation.getCurrentPosition((position) => {
         this.ShowLocation(position, this.map);
+        console.log(position.coords)
       });
 
 
