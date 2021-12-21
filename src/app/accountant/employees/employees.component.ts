@@ -11,12 +11,16 @@ import html2canvas from 'html2canvas';
 })
 export class EmployeesComponent implements OnInit {
 
+  username = localStorage.getItem("username")
+
   constructor(public employeesService: EmployeesService) {
     this.employeesService.employeeList();
    }
 
   ngOnInit(): void {
     this.getFinancialList()
+    var ID = localStorage.getItem("userID")
+    this.getUsername();
   }
 
   exportToExcel(tableID: string){
@@ -42,5 +46,9 @@ export class EmployeesComponent implements OnInit {
 
   getFinancialList(){
     this.employeesService.getFinancialList()
+  }
+
+  getUsername(){
+    this.employeesService.getUserByUsername(this.username!)
   }
 }

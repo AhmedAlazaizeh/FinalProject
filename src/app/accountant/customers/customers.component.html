@@ -8,29 +8,47 @@
         <h2 class="p-0 m-0"><i></i> Accountant | Customers</h2>
       </div>
     </div>
+    <div class="tile mb-2 p-1 col-2 mt-3 pl-2">
+      <button style="background-color: #009688; font-size: 9px;" class="m-2 btn" (click)="exportToExcel('Customers')">export as excel</button>
+      <button style="background-color: #009688; font-size: 9px;" class="m-2 btn" (click)="exportToPDF('Customers')">export as PDF</button>
+    </div>
     <div class="row">
-      <table class="table">
-        <thead>
-          <td> ID </td>
-          <td> First Name </td>
-          <td> Last Name</td>
-          <td>Email</td>
-          <td>Phone Number</td>
-        </thead>
-        <tr *ngFor="let item of customerService.data">
-          <td>{{ item.userID }}</td>
-          <td>{{ item.fName }}</td>
-          <td>{{ item.lName }}</td>
-          <td>{{ item.email }}</td>
-          <td>{{ item.phoneNumber }}</td>
-        </tr>
-      </table>
+      <div class="col-md-12">
+        <div class="tile">
+          <div class="tile-body">
+            <h2>Customers</h2>
+            <table class="table table-hover table-bordered" id="Customers">
+              <thead>
+                <tr>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+                  <th>Email</th>
+                  <th>Phone Number</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of customerService.data">
+                  <td>{{item.fName}}</td>
+                  <td>{{item.lName}}</td>
+                  <td>{{item.email}}</td>
+                  <td>{{item.phoneNumber}}</td>
+                  <td style="text-align: center; width: 100px;">
+                    <a style="cursor: pointer;" (click)="openEmailDialog(item.email)" class="senEmail" data-toggle="modal"><i class="material-icons mx-1" data-toggle="tooltip" title="Contact By Email">&#xe0d0;</i></a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
       <!-- Sidebar menu-->
       <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
       <aside class="app-sidebar">
         <div class="app-sidebar__user">
-          <div>
-            <h1 class="app-sidebar__user-name">John Doe</h1>
+          <div *ngFor="let item of customerService.data1">
+            <h1 class="app-sidebar__user-name">{{item.fName}} {{item.lName}}</h1>
           </div>
         </div>
         <ul class="app-menu">
@@ -44,6 +62,26 @@
                 class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">Influncers</span></a></li>
         </ul>
       </aside>
-    </div>
   </main>
 </body>
+<!-- ---------------------------ADD---------------------------- -->
+<ng-template #emailDialog>
+  <div style="height: 310px; width: 650px;" mat-dialog-content>
+    <div class="body">
+      <form [formGroup]="emailCustomerForm" (ngSubmit)="sendEmailToCustomer()" class="form-contact contact_form" id="contactForm" novalidate="novalidate">
+          <mat-form-field>
+            <div class="row">
+                <div class="col-12">
+                    <div style="width: 600px;" class="form-group p-0 m-0">
+                        <textarea formControlName="emailBody" matInput  class="form-control" cols="30" rows="9" onfocus="this.placeholder = 'Write Your Message Here'" onblur="this.placeholder = 'Write Your Message Here'" placeholder=" Write Your Message Here"></textarea>
+                    </div>
+                </div>
+            </div>
+          </mat-form-field>
+          <mat-dialog-actions >
+            <button [disabled]="emailCustomerForm.invalid" style="background-color: #009688"  class="btn mx-2 btn-jittery" matDialogClose="no" type="submit">Send</button>
+        </mat-dialog-actions >
+      </form>
+    </div>
+  </div>
+</ng-template>

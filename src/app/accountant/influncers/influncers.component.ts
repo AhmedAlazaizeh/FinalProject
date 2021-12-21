@@ -8,11 +8,18 @@ import { InfluncersService } from 'src/app/services/accountant/influncers.servic
 })
 export class InfluncersComponent implements OnInit {
 
+  username = localStorage.getItem("username")
+
   constructor(public influncersService: InfluncersService) {
     this.influncersService.influncersList();
   }
 
   ngOnInit(): void {
+    var ID = localStorage.getItem("userID")
+    this.getUsername();
   }
 
+  getUsername(){
+    this.influncersService.getUserByUsername(this.username!)
+  }
 }
