@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { SystemService } from 'src/app/services/admin/system.service';
 import * as XLSX from 'xlsx';
 import jspdf from 'jspdf';
 import html2canvas from 'html2canvas';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-system',
@@ -11,9 +12,20 @@ import html2canvas from 'html2canvas';
 })
 export class SystemComponent implements OnInit {
 
+  @ViewChild('callAPIDialog') callAPIDialog!: TemplateRef<any>;
+
   username = localStorage.getItem("username")
 
-  constructor(public systemService: SystemService) { }
+  IAmAnInfluncerID: number = 0
+  AboutUs: string = ""
+  OurVision: string = ""
+  Email: string = ""
+  PhoneNumber: string = ""
+  Address: string = ""
+  Logo: string = ""
+  AddedBy: number = 0
+
+  constructor(private dialog: MatDialog, public systemService: SystemService) { }
 
   ngOnInit(): void {
     this.getSystem()
@@ -48,5 +60,25 @@ export class SystemComponent implements OnInit {
 
   getUsername(){
     this.systemService.getUserByUsername(this.username!)
+  }
+
+  populateForm(iAmAnInfluncerID: number, aboutUs: string, ourVision: string, email: string, phoneNumber: string, address: string, logo: string, addedBy: number)
+  {
+
+ this.IAmAnInfluncerID = 2
+ this.AboutUs = aboutUs
+ this.OurVision = ourVision
+ this.Email = email
+ this.PhoneNumber = phoneNumber
+ this.Address = address
+ this.Logo = logo
+ this.AddedBy = 1
+
+ this.dialog.open(this.callAPIDialog);
+  }
+
+  updateSystem(data: any){
+    this.systemService.updateSystem(data)
+    window.location.reload();
   }
 }

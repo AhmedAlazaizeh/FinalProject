@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ export class SystemService {
 
   systemData: any = [{}]
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private toastr: ToastrService) { }
 
   getAllSystem(){
     this.http.get("https://localhost:44309/api/IAmAnInfluncer/GetAll").subscribe((Response: any)=>{this.systemData=Response})
@@ -22,6 +23,19 @@ export class SystemService {
     }else{
       this.data1 = null
     }
+  }
 
+  updateSystem(data: any){
+    this.http.put('https://localhost:44309/api/IAmAnInfluncer/Update',data).subscribe((result)=>{
+    this.toastr.success('System Info Updated');
+     console.log(data);
+
+   },err=>{
+
+     console.log(err);
+     console.log(data);
+     this.toastr.error(err);
+
+      })
   }
 }
