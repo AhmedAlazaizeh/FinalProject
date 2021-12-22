@@ -34,8 +34,6 @@ export class UploadComponent implements OnInit {
 
     }
 
-
-
     let fileToUpload = <File>files[0];
 
     const formData = new FormData();
@@ -44,7 +42,7 @@ export class UploadComponent implements OnInit {
 
 
 
-    this.http.post('https://localhost:44383/api/Hiring/upload', formData, {reportProgress: true, observe: 'events'})
+    this.http.post('https://localhost:44309/api/Product/Upload', formData, {reportProgress: true, observe: 'events'})
 
       .subscribe(event => {
 
@@ -59,11 +57,6 @@ export class UploadComponent implements OnInit {
           this.onUploadFinished.emit(event.body);
 
         }
-
       });
-
-
-
   }
-
 }
