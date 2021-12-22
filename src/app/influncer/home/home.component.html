@@ -14,15 +14,15 @@
       <div class="col-md-12">
         <div class="tile">
           <div class="tile-body">
-            <h2>Employees</h2>
+            <h2>My Products</h2>
             <table class="table table-hover table-bordered" id="Products">
               <thead>
                 <tr>
+                  <th style="text-align: center;">Image</th>
                   <th>Product Title</th>
                   <th>Description</th>
-                  <th>Price</th>
                   <th>Added Date</th>
-                  <th style="text-align: center;">Image</th>
+                  <th>Price</th>
                   <th style="text-align: center;">
                     <a style="cursor: pointer;" (click)="openAddProductDialog()" class="add" data-toggle="modal"><i class="material-icons mx-1 mt-1" data-toggle="tooltip" title="Add">&#xE145;</i></a>
                 </th>
@@ -30,11 +30,11 @@
               </thead>
               <tbody *ngFor="let item of homeService.myProductsData">
                 <tr>
+                  <td style="text-align: center;"><img [src]="createImgPath(item.image)" alt="profile picture" style="width:60px; height:60px;"></td>
                   <td>{{item.productTitle}}</td>
                   <td>{{item.description}}</td>
-                  <td>$ {{item.price}}</td>
                   <td>{{item.addedDate | date}}</td>
-                  <td style="text-align: center;"><img [src]="createImgPath(item.image)" alt="profile picture" style="width:60px; height:60px;"></td>
+                  <td>$ {{item.price}}</td>
                   <td style="width: 90px; vertical-align: middle;">
                     <a style="cursor: pointer; vertical-align: middle;" (click)="populateForm(item.productID, item.productTitle, item.description, item.price, item.image)" class="edit" data-toggle="modal"><i class="material-icons mx-1" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
                     <a style="cursor: pointer; vertical-align: middle;" (click)="openDeleteDialog(item.productID);" class="delete" data-toggle="modal"><i class="material-icons mx-1" data-toggle="tooltip" title="Delete">&#xE872;</i></a>

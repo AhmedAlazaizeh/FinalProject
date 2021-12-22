@@ -9,19 +9,17 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { CustomerModule } from './customer/customer.module';
-import { TestComponent } from './customer/test/test.component';
 import { HomeComponent } from './customer/home/home.component';
 import { ToastrModule } from 'ngx-toastr';
 import { HttpClientModule } from '@angular/common/http';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatTableModule } from '@angular/material/table';
-import { QadummiComponent } from './qadummi/qadummi.component';
+import { NgChartsModule } from 'ng2-charts';
 
 
 @NgModule({
   declarations: [
-    AppComponent,
-    QadummiComponent,
+    AppComponent
   ],
   //entryComponents:[GetByIDDialogComponent],
   imports: [
@@ -36,7 +34,8 @@ import { QadummiComponent } from './qadummi/qadummi.component';
     ToastrModule.forRoot({progressBar:true,progressAnimation:"increasing"}),
     HttpClientModule,
     MatDialogModule,
-    MatTableModule
+    MatTableModule,
+    NgChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

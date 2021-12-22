@@ -9,7 +9,6 @@ import { AccountantGuard } from './guards/accountant/accountant.guard';
 import { AccountantModule } from './accountant/accountant.module';
 import { InfluncerGuard } from './guards/influncer/influncer.guard';
 import { DeliveryModule } from './delivery/delivery.module';
-import { QadummiComponent } from './qadummi/qadummi.component';
 
 const routes: Routes = [
   {
@@ -35,10 +34,6 @@ const routes: Routes = [
   {
     path: 'Auth',
     loadChildren : () => AuthModule
-  },
-  {
-    path: 'Q',
-    component: QadummiComponent
   }
 ];
 

@@ -10,16 +10,11 @@ import { OrdersComponent } from './orders/orders.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ShopComponent } from './shop/shop.component';
-import { TestComponent } from './test/test.component';
 
 const routes: Routes = [
   {
     path: '',
     component: HomeComponent
-  },
-  {
-    path: 'test',
-    component: TestComponent
   },
   {
     path: 'contactus',

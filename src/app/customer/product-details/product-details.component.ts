@@ -41,4 +41,8 @@ export class ProductDetailsComponent implements OnInit {
     this.toastr.success("Item Added To cart!")
     this.router.navigate(["/shop"])
   }
+
+  public createImgPath = (serverPath: string) => {
+    return "https://localhost:44309/" + serverPath;
+    }
 }

@@ -36,4 +36,8 @@ export class HomeComponent implements OnInit {
     localStorage.setItem("productID", ID)
     this.router.navigate(["productDetails"])
   }
+
+  public createImgPath = (serverPath: string) => {
+    return "https://localhost:44309/" + serverPath;
+    }
 }

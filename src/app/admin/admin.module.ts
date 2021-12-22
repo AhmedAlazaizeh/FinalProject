@@ -14,6 +14,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
+import { NgChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -22,8 +23,7 @@ import { MatInputModule } from '@angular/material/input';
     FeedbackComponent,
     SystemComponent,
     ProfileComponent,
-    HeaderComponent,
-
+    HeaderComponent
   ],
   imports: [
     CommonModule,
@@ -34,6 +34,7 @@ import { MatInputModule } from '@angular/material/input';
     MatIconModule,
     MatFormFieldModule,
     MatSelectModule,
+    NgChartsModule
   ]
 })
 export class AdminModule { }

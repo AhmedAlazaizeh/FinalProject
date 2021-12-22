@@ -21,6 +21,6 @@ export class ShopService {
   }
 
   getLatestProducts(){
-    this.http.get("https://localhost:44309/api/Product/latestProducts").subscribe((Response: any)=>{this.latestProductsData=Response})
+    this.http.get("https://localhost:44309/api/Product/latestProductsAll").subscribe((Response: any)=>{this.latestProductsData=Response})
   }
 }

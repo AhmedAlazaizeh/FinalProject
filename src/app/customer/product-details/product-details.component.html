@@ -3,27 +3,27 @@
     <app-header></app-header>
     <main>
     <!--================Single Product Area =================-->
-    <div class="product_image_area">
+    <div class="product_image_area mt-3">
       <div class="container">
-          <div class="row justify-content-center">
+          <div  *ngFor="let item of productService.productDetails" class="col-lg-8" class="row justify-content-center">
               <div class="col-10" style="justify-content:center;display:flex">
                   <div >
                       <div class="single_product_img" style="justify-content:center;display:flex">
-                          <img src="" alt="Alternate Text" width="60%" />
+                        <img [src]="createImgPath(item.image)" alt="profile picture" style="width:400px; height:400px;">
                       </div>
                   </div>
               </div>
-              <div *ngFor="let item of productService.productDetails" class="col-lg-8">
-                  <div class="single_product_text text-center">
+              <div>
+                  <div class="single_product_text text-center mt-5">
                       <h3>
                           {{item.productTitle}}
                       </h3>
                       <p>
                           {{item.description}}
                       </p>
-                      <div class="card_area">
-                          <div class="add_to_cart">
-                              <p>$ {{item.price}}</p>
+                      <div class="card_area mt-2">
+                          <div class="add_to_cart mt-2">
+                              <p class="my-4">$ {{item.price}}</p>
                                       <button *ngIf="loggedUserID != null" (click)="addToCart()" class="btn_3">add to cart</button>
                                       <a *ngIf="loggedUserID == null" asp-controller="Orders" asp-action="Create" asp-route-id="@Model.AdvertisementId" class="btn_3" style="pointer-events:none;color:#ccc;border-color:#ccc">add to cart</a>
                                       <br />

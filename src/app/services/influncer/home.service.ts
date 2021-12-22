@@ -21,12 +21,12 @@ export class HomeService {
     this.http.put('https://localhost:44309/api/Product/Update',data).subscribe((result)=>{
 
     this.toastr.success('Product Updated');
-     console.log(data);
+     console.log("11111");
 
    },err=>{
 
      console.log(err);
-     console.log(data);
+     console.log("2222");
      this.toastr.error(err);
 
       })
