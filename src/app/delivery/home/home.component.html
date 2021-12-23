@@ -20,9 +20,7 @@
                   <th>Order Value</th>
                   <th>Customer</th>
                   <th>Product Title</th>
-                  <th>longitude</th>
-                  <th>latitude</th>
-                  <th>View Location</th>
+                  <th style="text-align: center;">Address</th>
                   <th style="text-align: center;">Delivered?</th>
                 </tr>
               </thead>
@@ -32,10 +30,8 @@
                   <td>$ {{item.orderValue}}</td>
                   <td>{{item.fName}} {{item.lName}}</td>
                   <td>{{item.productTitle}}</td>
-                  <td>{{item.longitude}}</td>
-                  <td>{{item.latitude}}</td>
-                  <td>
-                    <a style="cursor: pointer;" (click)="openMapDialog()" class="delete" data-toggle="modal"><i class="material-icons mx-1" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                  <td style="text-align: center; width: 100px;">
+                    <a style="cursor: pointer;" (click)="openMapDialog(item.latitude, item.longitude, item.fName, item.lName)" class="Location" data-toggle="modal"><i class="material-icons mx-1" data-toggle="tooltip" title="Location">&#xe0c8;</i></a>
                   </td>
                   <td *ngIf="item.isDelivered === false" style="text-align: center; width: 100px;">
                     <a style="cursor: pointer;" (click)="delivered(item.orderID)" class="approve"><i class="material-icons mx-1" data-toggle="tooltip" title="Mark as delivered">&#xe835;</i></a>
@@ -69,8 +65,8 @@
 <ng-template #mapDialog>
   <mat-dialog-actions >
     <div>
+      <h2 style="text-align: center;">{{usersAddress}}'s Address</h2>
       <app-google-map class="clearfix" adressType="geocode">
-
     </app-google-map>
     </div>
   </mat-dialog-actions>

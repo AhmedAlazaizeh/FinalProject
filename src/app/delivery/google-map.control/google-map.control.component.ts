@@ -16,20 +16,24 @@ export class GoogleMap implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.showMap()
+    var lat: Number = Number(localStorage.getItem("lat"))!
+    var lng: Number = Number(localStorage.getItem("lng"))!
+    var mapProp = {
+      center: new google.maps.LatLng(lat, lng),
+      zoom: 8,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+    this.map = new google.maps.Map(this.gmapElement.nativeElement, mapProp);
+    var myLatlng = new google.maps.LatLng(lat, lng);
+    this.addMarkerDropped(myLatlng);
   }
 
-  public showMap():void{
-
-    var myLatlng = new google.maps.LatLng(35.1, 52.6);
+  addMarkerDropped(location: any) {
     var marker = new google.maps.Marker({
-      position: myLatlng,
+      position: location,
       map: this.map,
       title: this.title,
-      draggable: true
+      draggable: false,
     });
-    marker.setAnimation(google.maps.Animation.BOUNCE);
-    this.markers.push(marker);
-    console.log(myLatlng)
   }
 }

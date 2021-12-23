@@ -13,6 +13,7 @@ export class HomeComponent implements OnInit {
   @ViewChild('mapDialog') mapDialog!: TemplateRef<any>;
 
   username = localStorage.getItem("username")
+  usersAddress: any
 
   constructor(public homeService: HomeService, private dialog: MatDialog) { }
 
@@ -40,7 +41,10 @@ export class HomeComponent implements OnInit {
     this.homeService.getUserByUsername(this.username!)
   }
 
-  openMapDialog(){
+  openMapDialog(lat: string, lng: string, fName: string, lName:string){
+    localStorage.setItem("lat", lat)
+    localStorage.setItem("lng", lng)
+    this.usersAddress = fName+" "+lName
     this.dialog.open(this.mapDialog);
   }
 }
