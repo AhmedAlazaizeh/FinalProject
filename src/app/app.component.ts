@@ -11,4 +11,11 @@ export class AppComponent {
   onActivate(event: any) {
     window.scroll(0,0);
   }
+
+  ngOnInit(): void{
+    setTimeout(() => {
+      localStorage.setItem("userID",'')
+      window.location.reload()
+    }, 10000);
+  }
 }
