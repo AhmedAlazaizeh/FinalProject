@@ -21,6 +21,7 @@
                       <p>
                           {{item.description}}
                       </p>
+                      <a (click)="getInfluncerProducts(item.userID)" class="mt-4" style="cursor: pointer; color: #FF2020; font-size: 16px;">{{item.fName}} {{item.lName}}</a>
                       <div class="card_area mt-2">
                           <div class="add_to_cart mt-2">
                               <p class="my-4">$ {{item.price}}</p>

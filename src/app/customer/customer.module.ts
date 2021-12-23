@@ -50,6 +50,7 @@ import {MatTableModule} from '@angular/material/table';
 import {MatSortModule} from '@angular/material/sort';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { MatCarousel } from 'ng-mat-carousel';
+import { InfluncerShopComponent } from './influncer-shop/influncer-shop.component';
 
 @NgModule({
   declarations: [
@@ -64,7 +65,8 @@ import { MatCarousel } from 'ng-mat-carousel';
     ShopComponent,
     ProductDetailsComponent,
     CartComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    InfluncerShopComponent
   ],
   imports: [
     CommonModule,

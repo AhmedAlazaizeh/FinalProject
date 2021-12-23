@@ -34,5 +34,5 @@ export class ShopComponent implements OnInit {
 
   public createImgPath = (serverPath: string) => {
     return "https://localhost:44309/" + serverPath;
-    }
+  }
 }

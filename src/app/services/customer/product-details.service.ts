@@ -9,6 +9,7 @@ export class ProductDetailsService {
 
   productDetails: any = [{}]
 
+
   constructor(public http: HttpClient) { }
 
   async getDetails(ID: number){
@@ -28,5 +29,7 @@ export class ProductDetailsService {
     };
 
     this.http.post("https://localhost:44309/api/Order/Add", form, requestOptions).subscribe((res)=>{console.log(res)})
-    }
+  }
+
+
 }

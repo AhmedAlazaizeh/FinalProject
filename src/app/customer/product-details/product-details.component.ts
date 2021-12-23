@@ -44,5 +44,10 @@ export class ProductDetailsComponent implements OnInit {
 
   public createImgPath = (serverPath: string) => {
     return "https://localhost:44309/" + serverPath;
-    }
+  }
+
+  getInfluncerProducts(ID: any){
+    localStorage.setItem("influncerIDForProducts", ID)
+    this.router.navigate(["influncerShop"])
+  }
 }

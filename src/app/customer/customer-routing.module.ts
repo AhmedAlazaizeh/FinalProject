@@ -6,6 +6,7 @@ import { CheckoutComponent } from './checkout/checkout.component';
 import { ContactusComponent } from './contactus/contactus.component';
 import { FeedbackComponent } from './feedback/feedback.component';
 import { HomeComponent } from './home/home.component';
+import { InfluncerShopComponent } from './influncer-shop/influncer-shop.component';
 import { OrdersComponent } from './orders/orders.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { ProfileComponent } from './profile/profile.component';
@@ -51,6 +52,10 @@ const routes: Routes = [
   {
     path: 'checkout',
     component: CheckoutComponent
+  },
+  {
+    path: 'influncerShop',
+    component: InfluncerShopComponent
   }
 ];
 
