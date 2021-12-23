@@ -25,10 +25,11 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     localStorage.clear()
+    localStorage.clear()
   }
 
   logedin(){
-
+    localStorage.clear()
     localStorage.clear()
     this.loginService.getToken(this.loginForm.value)
     this.returnedToken = jwtDecode(this.loginService.token)

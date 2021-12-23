@@ -10,6 +10,7 @@ import { AccountantModule } from './accountant/accountant.module';
 import { InfluncerGuard } from './guards/influncer/influncer.guard';
 import { DeliveryModule } from './delivery/delivery.module';
 import { TestComponent } from './test/test.component';
+import { DeliveryGuard } from './guards/delivery/delivery.guard';
 
 const routes: Routes = [
   {
@@ -18,19 +19,19 @@ const routes: Routes = [
   },
   {
     path: 'Admin',
-    loadChildren : () => AdminModule//, canActivate:[AdminGuard]
+    loadChildren : () => AdminModule, canActivate:[AdminGuard]
   },
   {
     path: 'Delivery',
-    loadChildren : () => DeliveryModule//, canActivate:[DeliveryModule]
+    loadChildren : () => DeliveryModule, canActivate:[DeliveryGuard]
   },
   {
     path: 'Influncer',
-    loadChildren : () => InfluncerModule//, canActivate:[InfluncerGuard]
+    loadChildren : () => InfluncerModule, canActivate:[InfluncerGuard]
   },
   {
     path: 'Accountant',
-    loadChildren : () => AccountantModule//, canActivate:[AccountantGuard]
+    loadChildren : () => AccountantModule, canActivate:[AccountantGuard]
   },
   {
     path: 'Auth',
