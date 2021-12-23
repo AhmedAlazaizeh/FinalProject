@@ -49,11 +49,11 @@
 <!-- Sidebar menu-->
 <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
 <aside class="app-sidebar">
-<div class="app-sidebar__user">
-  <div  *ngFor="let item of homeService.data1">
-    <h1 class="app-sidebar__user-name">{{item.fName}} {{item.lName}}</h1>
+  <div class="app-sidebar__user">
+    <div  *ngFor="let item of homeService.data1">
+      <h1 class="app-sidebar__user-name">{{item.fName}} {{item.lName}}</h1>
+    </div>
   </div>
-</div>
 <ul class="app-menu">
   <li><a class="app-menu__item active" routerLink="/Delivery/"><i class="app-menu__icon fa fa-home"></i><span class="app-menu__label">Home</span></a></li>
 </ul>

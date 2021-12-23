@@ -64,7 +64,7 @@ export class ProfileComponent implements OnInit {
   }
 
   getUsername(){
-    this.profileService.getUserByUsername(this.username!)
+    this.profileService.getUserByUsername(this.usernamee!)
   }
 
   getUserByID(ID: any){
@@ -74,7 +74,7 @@ export class ProfileComponent implements OnInit {
   updateUser(){
     console.log(this.updateForm.value)
     this.profileService.updateUser(this.updateForm.value)
-    this.router.navigate(["/Admin"])
+    this.router.navigate(["/Delivery"])
   }
 
 }

@@ -24,18 +24,16 @@ export class ProfileService {
   getUserByID(ID: number){
     this.http.get("https://localhost:44309/api/User/getUser/" + ID).subscribe((Response:any)=>{this.data=Response
 
-    localStorage.setItem("userID", Response["userID"])
-    localStorage.setItem("fName", Response["fName"])
-    localStorage.setItem("lName", Response["lName"])
-    localStorage.setItem("email", Response["email"])
-    localStorage.setItem("phoneNumber", Response["phoneNumber"])
-    localStorage.setItem("username", Response["username"])
-    localStorage.setItem("password", Response["password"])
-    localStorage.setItem("longitude", Response["longitude"])
-    localStorage.setItem("latitude", Response["latitude"])
-    localStorage.setItem("employmentDate", Response["employmentDate"])
-    localStorage.setItem("roleID", Response["roleID"])
-    localStorage.setItem("salary", Response["salary"])
+    localStorage.setItem("fName", Response[0]["fName"])
+    localStorage.setItem("lName", Response[0]["lName"])
+    localStorage.setItem("email", Response[0]["email"])
+    localStorage.setItem("phoneNumber", Response[0]["phoneNumber"])
+    localStorage.setItem("password", Response[0]["password"])
+    localStorage.setItem("longitude", Response[0]["longitude"])
+    localStorage.setItem("latitude", Response[0]["latitude"])
+    localStorage.setItem("employmentDate", Response[0]["employmentDate"])
+    localStorage.setItem("roleID", Response[0]["roleID"])
+    localStorage.setItem("salary", Response[0]["salary"])
   })
   }
 

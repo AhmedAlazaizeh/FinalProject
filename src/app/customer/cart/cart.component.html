@@ -8,6 +8,7 @@
             <table class="table">
               <thead>
                 <tr>
+
                   <th scope="col">Product</th>
                   <th scope="col">Influncer</th>
                   <th scope="col"></th>
@@ -16,16 +17,18 @@
               </thead>
               <tbody>
                 <tr *ngFor="let item of cartService.cartList">
+
                   <td>
                     <div class="media">
                       <div class="d-flex">
-                        <img src="" alt="" />
+                        <img [src]="createImgPath(item.image)" alt="profile picture" style="width:100px; height:100px;">
                       </div>
                       <div class="media-body">
                         <p>{{item.productTitle}}</p>
                       </div>
                     </div>
                   </td>
+
                   <td>
                     <h5>{{item.fName}} {{item.lName}}</h5>
                   </td>
@@ -37,6 +40,7 @@
                   </td>
                 </tr>
                 <tr *ngFor="let item of cartService.sumOfCart | keyvalue">
+
                   <td></td>
                   <td>
                     <h5>Subtotal</h5>

@@ -21,6 +21,7 @@ export class HomeService {
     }else{
       this.data1 = null
     }
+
   }
 
   delivered(ID: number){

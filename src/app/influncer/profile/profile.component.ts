@@ -65,7 +65,7 @@ export class ProfileComponent implements OnInit {
   }
 
   getUsername(){
-    this.profileService.getUserByUsername(this.username!)
+    this.profileService.getUserByUsername(this.usernamee!)
   }
 
   getUserByID(ID: any){

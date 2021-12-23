@@ -22,6 +22,7 @@ export class ProfileComponent implements OnInit {
   longitude: string = localStorage.getItem("longitude")!
   latitude: string = localStorage.getItem("latitude")!
   employmentDate: any = localStorage.getItem("employmentDate")!
+  image: any = localStorage.getItem("image")!
 
   usernamee = localStorage.getItem("username")
 
@@ -36,6 +37,7 @@ export class ProfileComponent implements OnInit {
 
     this.userID = Number(localStorage.getItem("userID"))!
     this.fName = localStorage.getItem("fName")!
+    //alert(localStorage.getItem("fName"))
     this.lName = localStorage.getItem("lName")!
     this.email = localStorage.getItem("email")!
     this.phoneNumber = localStorage.getItem("phoneNumber")!
@@ -46,6 +48,7 @@ export class ProfileComponent implements OnInit {
     this.longitude = localStorage.getItem("longitude")!
     this.latitude = localStorage.getItem("latitude")!
     this.roleID = Number(localStorage.getItem("roleID"))!
+    this.image = localStorage.getItem("image")!
 
     this.updateForm = new FormGroup({
       userID: new FormControl(this.userID),
@@ -59,12 +62,13 @@ export class ProfileComponent implements OnInit {
       employmentDate: new FormControl(this.employmentDate),
       longitude: new FormControl(this.longitude),
       latitude: new FormControl(this.latitude),
-      roleID: new FormControl(this.roleID)
+      roleID: new FormControl(this.roleID),
+      image: new FormControl(this.image)
     })
   }
 
   getUsername(){
-    this.profileService.getUserByUsername(this.username!)
+    this.profileService.getUserByUsername(this.usernamee!)
   }
 
   getUserByID(ID: any){

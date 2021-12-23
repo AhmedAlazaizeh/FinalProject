@@ -23,4 +23,8 @@ export class CartComponent implements OnInit {
   getSumOfCart(ID: any){
     this.cartService.getSumOfCart(ID)
   }
+
+  public createImgPath = (serverPath: string) => {
+    return "https://localhost:44309/" + serverPath;
+  }
 }

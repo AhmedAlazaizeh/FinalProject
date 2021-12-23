@@ -9,10 +9,15 @@ import { HomeService } from 'src/app/services/Delivery/home.service';
 })
 export class HomeComponent implements OnInit {
 
+
+  username = localStorage.getItem("username")
+
   constructor(public homeService: HomeService) { }
 
   ngOnInit(): void {
     this.getOrderList()
+    var ID = localStorage.getItem("userID")
+    this.getUsername();
   }
 
   getOrderList(){
@@ -27,5 +32,9 @@ export class HomeComponent implements OnInit {
   notDelivered(ID: number){
     this.homeService.notDelivered(ID)
     window.location.reload()
+  }
+
+  getUsername(){
+    this.homeService.getUserByUsername(this.username!)
   }
 }
