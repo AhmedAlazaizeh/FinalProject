@@ -19,7 +19,6 @@ export class ProfileService {
     }else{
       this.data1 = null
     }
-
   }
 
   getUserByID(ID: number){

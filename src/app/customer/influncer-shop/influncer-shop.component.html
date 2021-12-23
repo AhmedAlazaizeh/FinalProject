@@ -1,6 +1,10 @@
 <body>
   <app-header></app-header>
   <main>
+    <div class="mt-5" style="text-align: center;" *ngFor="let item1 of influncerShopService.data">
+      <img style="border-radius: 50%; width: 250px; height: 250px;" [src]="createImgPath(item1.image)" alt="profile picture">
+      <h1 style="font-weight: bolder; font-size: 26px;" class="mt-5">{{item1.fName}} {{item1.lName}}</h1>
+    </div>
     <!-- Latest Products Start -->
     <section class="popular-items pt-5">
       <div class="container">

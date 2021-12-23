@@ -18,6 +18,7 @@ export class HomeComponent implements OnInit {
     this.getAllProducts()
     this.getLatestProducts()
     this.getApprovedFeedback()
+    this.getListOfInfluncers()
   }
 
   getAllProducts(){
@@ -39,5 +40,14 @@ export class HomeComponent implements OnInit {
 
   public createImgPath = (serverPath: string) => {
     return "https://localhost:44309/" + serverPath;
-    }
+  }
+
+  getListOfInfluncers(){
+    this.homeService.getInfluncersInfo()
+  }
+
+  getInfluncerProducts(ID: any){
+    localStorage.setItem("influncerIDForProducts", ID)
+    this.router.navigate(["influncerShop"])
+  }
 }

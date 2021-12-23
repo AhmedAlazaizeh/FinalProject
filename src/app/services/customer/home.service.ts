@@ -10,6 +10,7 @@ export class HomeService {
   latestProductsData: any = [{}]
   userData: any = [{}]
   approvedFeedbackData: any = [{}]
+  influncersData: any = [{}]
 
   constructor(private http:HttpClient) { }
 
@@ -28,5 +29,9 @@ export class HomeService {
 
   getApprovedFeedback(){
     this.http.get("https://localhost:44309/api/Feedback/approvedFeedback").subscribe((Response: any)=>{this.approvedFeedbackData=Response})
+  }
+
+  getInfluncersInfo(){
+    this.http.get("https://localhost:44309/api/User/influncersList").subscribe((Response: any)=>{this.influncersData=Response})
   }
 }

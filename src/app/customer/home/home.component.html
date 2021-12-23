@@ -10,7 +10,7 @@
                         <div class="row justify-content-between align-items-center">
                             <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8">
                                 <div class="hero__caption">
-                                    <h1 >Select Your New Perfect Style</h1>
+                                    <h1 style="font-size: 70px;" >Shop for famous influencers' merch.</h1>
                                     <p data-animation="fadeInLeft" data-delay=".7s" data-duration="2000ms">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat is aute irure.</p>
                                     <!-- Hero-btn -->
                                     <div class="hero__btn" data-animation="fadeInLeft" data-delay=".8s" data-duration="2000ms">
@@ -29,9 +29,8 @@
             </div>
         </div>
         <!-- slider Area End-->
-
         <!-- ? New Product Start -->
-        <section class="new-product-area section-padding30">
+        <section style="margin-top: 200px;" class="new-product-area">
             <div class="container">
                 <!-- Section tittle -->
                 <div class="row">
@@ -45,7 +44,7 @@
                       <div *ngFor="let item of homeService.latestProductsData" class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
                         <div class="single-new-pro mb-30 text-center">
                             <div class="product-img">
-                              <img [src]="createImgPath(item.image)" alt="profile picture" style="width:350px; height:350px;">
+                              <img (click)="productDetails(item.productID)" [src]="createImgPath(item.image)" alt="profile picture" style="width:350px; height:350px; cursor: pointer;">
                             </div>
                             <div class="product-caption">
                                 <h3><a style="cursor: pointer;" (click)="productDetails(item.productID)">{{item.productTitle}}</a></h3>
@@ -57,15 +56,40 @@
             </div>
         </section>
         <!--  New Product End -->
+        <!-- Top Influncers -->
+        <section style="margin-top: 200px;" class="new-product-area">
+          <div class="container">
+              <!-- Section tittle -->
+              <div class="row">
+                  <div class="col-xl-12">
+                      <div class="section-tittle mb-70">
+                          <h2  style="font-family: Josefin Sans,sans-serif; font-size: 48px;">Top Influncers</h2>
+                      </div>
+                  </div>
+              </div>
+              <div class="row">
+                    <div *ngFor="let item of homeService.influncersData" class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
+                      <div class="single-new-pro mb-30 text-center">
+                          <div class="product-img">
+                            <img style="border-radius: 50%; width: 350px; height: 350px; cursor: pointer;" (click)="getInfluncerProducts(item.userID)" [src]="createImgPath(item.image)" alt="profile picture">
+                          </div>
+                          <div class="product-caption">
+                              <h3><a style="cursor: pointer;" (click)="getInfluncerProducts(item.userID)">{{item.fName}} {{item.lName}}</a></h3>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </section>
         <!--? Popular Items Start -->
-        <div class="popular-items section-padding30">
+        <div style="margin-top: 200px;" class="popular-items">
             <div class="container">
                 <!-- Section tittle -->
                 <div class="row justify-content-center">
                     <div class="col-xl-7 col-lg-8 col-md-10">
                         <div class="section-tittle mb-70 text-center">
                             <h2>Popular Items</h2>
-                            <p>Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.</p>
+                            <p>Check out these most popular collection form our top popular influencers.</p>
                         </div>
                     </div>
                 </div>
@@ -74,7 +98,7 @@
                     <div *ngFor="let item of homeService.allProductsData" class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
                       <div class="single-popular-items mb-50 text-center">
                           <div class="popular-img">
-                            <img [src]="createImgPath(item.image)" alt="profile picture" style="width:350px; height:350px;">
+                            <img (click)="productDetails(item.productID)" [src]="createImgPath(item.image)" alt="profile picture" style="width:350px; height:350px; cursor: pointer;">
                               <div class="img-cap">
                                   <a (click)="productDetails(item.productID)"><span>Details</span></a>
                               </div>
@@ -83,7 +107,7 @@
                               </div> -->
                           </div>
                           <div class="popular-caption">
-                              <h3><a href="product_details.html">{{item.productTitle}}</a></h3>
+                              <h3><a style="cursor: pointer;" (click)="productDetails(item.productID)">{{item.productTitle}}</a></h3>
                               <span>$ {{item.price}}</span>
                           </div>
                       </div>
@@ -99,7 +123,7 @@
         </div>
         <!-- Popular Items End -->
         <!--? Watch Choice  Start-->
-        <div class="testimonials-clean">
+        <div style="margin-top: 200px;" class="testimonials-clean">
           <div class="container">
               <div class="intro">
                   <h2 class="text-center">Testimonials </h2>

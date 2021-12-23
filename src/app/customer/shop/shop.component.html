@@ -40,7 +40,7 @@
                 <div *ngFor="let item of shopService.latestProductsData" class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
                   <div class="single-popular-items mb-50 text-center">
                       <div class="popular-img">
-                        <img [src]="createImgPath(item.image)" alt="profile picture" style="width:350px; height:350px;">
+                        <img (click)="productDetails(item.productID)" [src]="createImgPath(item.image)" alt="profile picture" style="width:350px; height:350px; cursor: pointer;">
                           <div class="img-cap">
                             <a (click)="productDetails(item.productID)"><span>Details</span></a>
                           </div>
@@ -59,7 +59,7 @@
                 <div *ngFor="let item of shopService.priceLowToHighData" class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
                   <div class="single-popular-items mb-50 text-center">
                       <div class="popular-img">
-                        <img [src]="createImgPath(item.image)" alt="profile picture" style="width:350px; height:350px;">
+                        <img (click)="productDetails(item.productID)" [src]="createImgPath(item.image)" alt="profile picture" style="width:350px; height:350px; cursor: pointer;">
                           <div class="img-cap">
                               <span>Details</span>
                           </div>
@@ -78,7 +78,7 @@
                 <div *ngFor="let item of shopService.priceHighToLowData" class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
                   <div class="single-popular-items mb-50 text-center">
                       <div class="popular-img">
-                        <img [src]="createImgPath(item.image)" alt="profile picture" style="width:350px; height:350px;">
+                        <img (click)="productDetails(item.productID)" [src]="createImgPath(item.image)" alt="profile picture" style="width:350px; height:350px; cursor: pointer;">
                           <div class="img-cap">
                               <span>Details</span>
                           </div>

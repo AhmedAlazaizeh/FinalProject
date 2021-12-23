@@ -14,10 +14,15 @@ export class InfluncerShopComponent implements OnInit {
   ngOnInit(): void {
     var influncerID = localStorage.getItem("influncerIDForProducts")
     this.getInfluncereProducts(influncerID)
+    this.getInfluncerInfo(influncerID)
   }
 
   getInfluncereProducts(ID: any){
     this.influncerShopService.getInfluncerProducts(ID)
+  }
+
+  getInfluncerInfo(ID: any){
+    this.influncerShopService.getUser(ID)
   }
 
   public createImgPath = (serverPath: string) => {
