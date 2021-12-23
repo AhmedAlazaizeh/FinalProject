@@ -17,15 +17,15 @@ export class HomeComponent implements OnInit {
 
   public barChartOptions = {
     scaleShowVerticalLines: false,
-    responsive: true,
+    responsive: true
   };
 
-  public barChartLabels = ['2006', '2007', '2008', '2009', '2010', '2011', '2012'];
-  public barChartType = 'bar';
+  public barChartLabels = ['Jan', 'Mar', 'May', 'Jul', 'Sep', 'Nov'];
+  // public barChartType = 'bar';
   public barChartLegend = true;
   public barChartData = [
-    {data: [65, 59, 80, 81, 56, 55, 40], label: 'Sales'},
-    {data: [65, 59, 80, 81, 56, 55, 40], label: 'Revune'}
+    {data: [630, 590, 800, 870, 560, 850, 400], label: 'Sales', backgroundColor: "#007D7F"},
+    {data: [94.5, 88.5, 120, 130.5, 84, 127.5, 60], label: 'Revune', backgroundColor: "#009681"}
   ];
 
   ngOnInit(): void {

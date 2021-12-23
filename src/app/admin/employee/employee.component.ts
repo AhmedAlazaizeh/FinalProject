@@ -141,6 +141,7 @@ export class EmployeeComponent implements OnInit {
     });
     this.employeeService.addEmployee(this.addEmployeeForm.value)
     console.log(this.addEmployeeForm.value)
+    window.location.reload()
   }
 }
 
