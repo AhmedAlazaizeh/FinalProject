@@ -27,6 +27,10 @@ export class FeedbackComponent implements OnInit {
       this.feedbackForm.patchValue({
         userID: 1
       });
+    }else{
+      this.feedbackForm.patchValue({
+        userID: Number(localStorage.getItem("userID"))
+      });
     }
     console.log(this.feedbackForm.value)
     this.feedbackService.addFeedback(this.feedbackForm.value)

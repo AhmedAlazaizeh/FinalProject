@@ -71,7 +71,7 @@
                     <div *ngFor="let item of homeService.influncersData" class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
                       <div class="single-new-pro mb-30 text-center">
                           <div class="product-img">
-                            <img style="border-radius: 50%; width: 350px; height: 350px; cursor: pointer;" (click)="getInfluncerProducts(item.userID)" [src]="createImgPath(item.image)" alt="profile picture">
+                            <img style="border-radius: 50%; width: 350px; height: 350px; cursor: pointer; padding: 7px;" (click)="getInfluncerProducts(item.userID)" [src]="createImgPath(item.image)" alt="profile picture">
                           </div>
                           <div class="product-caption">
                               <h3><a style="cursor: pointer;" (click)="getInfluncerProducts(item.userID)">{{item.fName}} {{item.lName}}</a></h3>
@@ -137,7 +137,8 @@
                         </div>
                         <div class="author">
 
-                          <h5>{{item.fName}} {{item.lName}}</h5>
+                          <h5 *ngIf="item.userID !== 1" >{{item.fName}} {{item.lName}}</h5>
+                          <h5 *ngIf="item.userID === 1" >Guest</h5>
 
                         </div>
                       </div>
