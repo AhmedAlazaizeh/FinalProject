@@ -22,6 +22,7 @@
                   <th>Product Title</th>
                   <th>longitude</th>
                   <th>latitude</th>
+                  <th>View Location</th>
                   <th style="text-align: center;">Delivered?</th>
                 </tr>
               </thead>
@@ -33,6 +34,9 @@
                   <td>{{item.productTitle}}</td>
                   <td>{{item.longitude}}</td>
                   <td>{{item.latitude}}</td>
+                  <td>
+                    <a style="cursor: pointer;" (click)="openMapDialog()" class="delete" data-toggle="modal"><i class="material-icons mx-1" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                  </td>
                   <td *ngIf="item.isDelivered === false" style="text-align: center; width: 100px;">
                     <a style="cursor: pointer;" (click)="delivered(item.orderID)" class="approve"><i class="material-icons mx-1" data-toggle="tooltip" title="Mark as delivered">&#xe835;</i></a>
                   </td>
@@ -65,7 +69,9 @@
 <ng-template #mapDialog>
   <mat-dialog-actions >
     <div>
+      <app-google-map class="clearfix" adressType="geocode">
 
+    </app-google-map>
     </div>
   </mat-dialog-actions>
 </ng-template>

@@ -13,9 +13,5 @@ export class AppComponent {
   }
 
   ngOnInit(): void{
-    setTimeout(() => {
-      localStorage.setItem("userID",'')
-      window.location.reload()
-    }, 10000);
   }
 }
