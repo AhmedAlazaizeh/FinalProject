@@ -20,6 +20,11 @@ x: Number = Number(localStorage.getItem("sumOfCart"))
     cartSum: new FormControl(this.x)
   })
 
+  updateBalanceForm: FormGroup = new FormGroup({
+    userID: new FormControl(""),
+    payment: new FormControl("")
+  })
+
   username = localStorage.getItem("username")
 
   constructor(public checkoutService: CheckoutService, private router: Router, private toastr: ToastrService) { }
