@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { HomeService } from 'src/app/services/Delivery/home.service';
 
 
@@ -9,10 +10,12 @@ import { HomeService } from 'src/app/services/Delivery/home.service';
 })
 export class HomeComponent implements OnInit {
 
+  @ViewChild('mapDialog') mapDialog!: TemplateRef<any>;
 
   username = localStorage.getItem("username")
+  usersAddress: any
 
-  constructor(public homeService: HomeService) { }
+  constructor(public homeService: HomeService, private dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.getOrderList()
@@ -36,5 +39,12 @@ export class HomeComponent implements OnInit {
 
   getUsername(){
     this.homeService.getUserByUsername(this.username!)
+  }
+
+  openMapDialog(lat: string, lng: string, fName: string, lName:string){
+    localStorage.setItem("lat", lat)
+    localStorage.setItem("lng", lng)
+    this.usersAddress = fName+" "+lName
+    this.dialog.open(this.mapDialog);
   }
 }

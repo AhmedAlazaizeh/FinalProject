@@ -116,31 +116,34 @@
   </ng-template>
   <!-- ---------------------------ADD---------------------------- -->
   <ng-template #addProductDialog>
-    <div style="height: 315px;" mat-dialog-content>
+    <div style="height: 215px;" mat-dialog-content>
       <div class="body">
         <form [formGroup]="addProductForm" (ngSubmit)="addProduct()" class="form-contact contact_form" id="contactForm" novalidate="novalidate">
           <div class="row">
             <mat-form-field>
               <div class="col-12 form-group">
+                <label for="">Price</label>
                 <input formControlName="price" matInput type="number" class="form-control" value=""
                   placeholder="Price">
               </div>
             </mat-form-field>
             <mat-form-field>
               <div class="col-12 form-group p_star">
+                <label for="">Description</label>
                 <input formControlName="description" matInput type="text" class="form-control" value=""
                   placeholder="Description">
               </div>
             </mat-form-field>
             <mat-form-field>
               <div class="col-md-12 form-group p_star">
+                <label for="">Title</label>
                 <input formControlName="productTitle" matInput type="text" class="form-control" value=""
                   placeholder="Title">
               </div>
             </mat-form-field>
           </div>
-          <app-upload (onUploadFinished)="uploadFinished($event)"></app-upload>
             <mat-dialog-actions >
+              <app-upload (onUploadFinished)="uploadFinished($event)"></app-upload>
               <button [disabled]="addProductForm.invalid" style="background-color: #009688"  class="btn mx-2 btn-jittery" matDialogClose="no" type="submit">Add</button>
           </mat-dialog-actions >
         </form>
