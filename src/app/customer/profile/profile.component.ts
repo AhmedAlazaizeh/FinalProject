@@ -63,6 +63,7 @@ export class ProfileComponent implements OnInit {
       latitude: new FormControl(this.latitude),
       roleID: new FormControl(this.roleID)
     })
+    this.reload()
   }
 
   getUserByID(ID: any){
@@ -73,5 +74,11 @@ export class ProfileComponent implements OnInit {
     console.log(this.updateForm.value)
     this.profileService.updateUser(this.updateForm.value)
     this.router.navigate([""])
+  }
+
+  reload(){
+    if (this.fName == null) {
+      window.location.reload()
+    }
   }
 }

@@ -16,7 +16,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatTableModule } from '@angular/material/table';
 import { NgChartsModule } from 'ng2-charts';
 import { TestComponent } from './test/test.component';
-
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 @NgModule({
   declarations: [
@@ -37,7 +37,8 @@ import { TestComponent } from './test/test.component';
     HttpClientModule,
     MatDialogModule,
     MatTableModule,
-    NgChartsModule
+    NgChartsModule,
+    NgxSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent],

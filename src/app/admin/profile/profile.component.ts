@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { MatSpinner } from '@angular/material/progress-spinner';
 import { Router } from '@angular/router';
+import { NgxSpinner, NgxSpinnerService, Spinner } from 'ngx-spinner';
 import { ProfileService } from 'src/app/services/admin/profile.service';
 
 @Component({
@@ -28,9 +30,11 @@ export class ProfileComponent implements OnInit {
 
   updateForm: FormGroup = new FormGroup({})
 
-  constructor(public profileService: ProfileService, private router: Router) { }
+  constructor(public profileService: ProfileService, private router: Router, private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
+
+    this.spinner.show();
 
     var ID = localStorage.getItem("userID")
     this.getUserByID(ID)

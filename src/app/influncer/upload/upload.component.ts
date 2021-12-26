@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 import { HttpEventType, HttpClient } from '@angular/common/http';
+import { ToastrService } from 'ngx-toastr';
 
 
 
@@ -17,11 +18,7 @@ export class UploadComponent implements OnInit {
 
   @Output() public onUploadFinished = new EventEmitter();
 
-
-
-  constructor(private http: HttpClient) { }
-
-
+  constructor(private http: HttpClient, private toaster: ToastrService) { }
 
   ngOnInit() {
 
@@ -29,30 +26,21 @@ export class UploadComponent implements OnInit {
   public uploadFile = (files:any) => {
 
     if (files.length === 0) {
-
       return;
-
     }
 
     let fileToUpload = <File>files[0];
-
     const formData = new FormData();
-
     formData.append('file', fileToUpload, fileToUpload.name);
-
-
-
     this.http.post('https://localhost:44309/api/Product/Upload', formData, {reportProgress: true, observe: 'events'})
 
       .subscribe(event => {
 
-        if (event.type === HttpEventType.UploadProgress && event.total !=undefined  )
+        if (event.type === HttpEventType.UploadProgress && event.total !=undefined  ){
 
-          this.progress = Math.round(100 * event.loaded / event.total);
+          this.toaster.success("Uploaded!")
 
-        else if (event.type === HttpEventType.Response) {
-
-          this.message = 'Upload success.';
+        }else if (event.type === HttpEventType.Response) {
 
           this.onUploadFinished.emit(event.body);
 

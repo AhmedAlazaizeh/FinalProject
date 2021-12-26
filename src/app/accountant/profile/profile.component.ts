@@ -61,6 +61,7 @@ export class ProfileComponent implements OnInit {
       latitude: new FormControl(this.latitude),
       roleID: new FormControl(this.roleID)
     })
+    this.reload()
   }
 
   getUsername(){
@@ -77,4 +78,9 @@ export class ProfileComponent implements OnInit {
     this.router.navigate(["/Accountant"])
   }
 
+  reload(){
+    if (this.fName == null) {
+      window.location.reload()
+    }
+  }
 }
