@@ -13,6 +13,11 @@ import { HeaderService } from 'src/app/services/customer/header.service';
 export class HeaderComponent implements OnInit {
   @ViewChild('searchDialog') searchDialog!: TemplateRef<any>;
 
+  range = new FormGroup({
+    start: new FormControl(),
+    end: new FormControl(),
+  });
+
   usernameReturned: any
 
   searchForm: FormGroup = new FormGroup({
