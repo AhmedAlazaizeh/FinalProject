@@ -1,3 +1,4 @@
+import { ResourceLoader } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormsModule, Validators } from '@angular/forms';
 import { FormControl } from '@angular/forms';
@@ -24,8 +25,10 @@ export class LoginComponent implements OnInit {
   constructor(private loginService: LoginService, private router: Router, private toastr: ToastrService) { }
 
   ngOnInit(): void {
+    this.returnedToken = null
     localStorage.clear()
     localStorage.clear()
+    this.loginService.token = null
   }
 
   logedin(){
@@ -34,11 +37,10 @@ export class LoginComponent implements OnInit {
     this.loginService.getToken(this.loginForm.value)
     this.returnedToken = jwtDecode(this.loginService.token)
     localStorage.setItem("userID", this.returnedToken.userID)
+    localStorage.setItem("role", this.returnedToken.role)
+    console.log("login form: ",this.loginForm.value)
 
-    console.log(this.returnedToken.role)
-    console.log(this.returnedToken.unique_name)
-
-      switch (this.returnedToken.role) {
+      switch (localStorage.getItem("role")) {
 
         case "Admin":
           localStorage.setItem("username", this.returnedToken.unique_name)
@@ -76,6 +78,7 @@ export class LoginComponent implements OnInit {
           break;
 
         default:
+          this.toastr.error("Wronge username or password!")
         break;
       }
   }

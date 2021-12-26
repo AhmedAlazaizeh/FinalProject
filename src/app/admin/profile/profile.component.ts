@@ -31,13 +31,13 @@ export class ProfileComponent implements OnInit {
   constructor(public profileService: ProfileService, private router: Router) { }
 
   ngOnInit(): void {
+
     var ID = localStorage.getItem("userID")
     this.getUserByID(ID)
     this.getUsername();
 
     this.userID = Number(localStorage.getItem("userID"))!
     this.fName = localStorage.getItem("fName")!
-    //alert(localStorage.getItem("fName"))
     this.lName = localStorage.getItem("lName")!
     this.email = localStorage.getItem("email")!
     this.phoneNumber = localStorage.getItem("phoneNumber")!
@@ -65,6 +65,7 @@ export class ProfileComponent implements OnInit {
       roleID: new FormControl(this.roleID),
       image: new FormControl(this.image)
     })
+    this.reload()
   }
 
   getUsername(){
@@ -79,5 +80,11 @@ export class ProfileComponent implements OnInit {
     console.log(this.updateForm.value)
     this.profileService.updateUser(this.updateForm.value)
     this.router.navigate(["/Admin"])
+  }
+
+  reload(){
+    if (this.fName == null) {
+      window.location.reload()
+    }
   }
 }
