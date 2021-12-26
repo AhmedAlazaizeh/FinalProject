@@ -9,12 +9,18 @@ import { ShopService } from 'src/app/services/customer/shop.service';
 })
 export class ShopComponent implements OnInit {
 
+  searchedFor: string | any = null
+  searchFlag: boolean = false
+
   constructor(public shopService: ShopService, private router: Router) { }
 
   ngOnInit(): void {
+    this.getSearchResult()
     this.getLatestProducts();
     this.getPriceHighToLow();
     this.getPriceLowToHigh();
+    this.searchedFor = localStorage.getItem("searchedFor")
+    localStorage.removeItem("searchedFor")
   }
 
   getLatestProducts(){
@@ -34,5 +40,9 @@ export class ShopComponent implements OnInit {
 
   public createImgPath = (serverPath: string) => {
     return "https://localhost:44309/" + serverPath;
+  }
+
+  getSearchResult(){
+    this.shopService.searchProduct()
   }
 }

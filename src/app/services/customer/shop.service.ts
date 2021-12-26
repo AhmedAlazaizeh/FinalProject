@@ -9,6 +9,7 @@ export class ShopService {
   priceHighToLowData: any = [{}]
   priceLowToHighData: any = [{}]
   latestProductsData: any = [{}]
+  searchResult: any = [{}]
 
   constructor(private http:HttpClient) { }
 
@@ -22,5 +23,12 @@ export class ShopService {
 
   getLatestProducts(){
     this.http.get("https://localhost:44309/api/Product/latestProductsAll").subscribe((Response: any)=>{this.latestProductsData=Response})
+  }
+
+  searchProduct(){
+    var searchedFor: string = String(localStorage.getItem("searchedFor"))
+    this.http.get("https://localhost:44309/api/Product/SearchProduct/" + searchedFor).subscribe((Response: any)=>{this.searchResult=Response
+    console.log(Response)
+  })
   }
 }
