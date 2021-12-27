@@ -42,7 +42,7 @@
                     </div>
                 </div>
 
-              <div style="height: 456px;" class="swiffy-slider col-12 p-0 slider-item-show3 slider-nav-chevron slider-nav-autoplay slider-indicators-round slider-indicators-dark slider-indicators-highlight  slider-nav-dark slider-nav-outside slider-nav-visible slider-nav-page slider-indicators-outside"  data-slider-nav-autoplay-interval="2500">
+              <div style="height: 456px;" class="swiffy-slider col-12 p-0 slider-item-show3 slider-nav-chevron slider-nav-autoplay slider-indicators-round slider-indicators-dark slider-indicators-highlight  slider-nav-dark slider-nav-outside slider-nav-visible  slider-indicators-outside"  data-slider-nav-autoplay-interval="2500">
                 <ul class="slider-container">
                     <li *ngFor="let item of homeService.latestProductsData"><img (click)="productDetails(item.productID)" [src]="createImgPath(item.image)" style="max-width: 100%;height: auto; cursor: pointer;">
                       <h2 (click)="productDetails(item.productID)" style="text-align: center; padding-top: 10px; font-weight: bold; cursor: pointer;">{{item.productTitle}}</h2>
@@ -55,6 +55,12 @@
 
                 <div class="slider-indicators">
                     <button class="active"></button>
+                    <button></button>
+                    <button></button>
+                    <button></button>
+                    <button></button>
+                    <button></button>
+                    <button></button>
                     <button></button>
                     <button></button>
                 </div>
