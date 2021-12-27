@@ -4,8 +4,9 @@
         <!--? slider Area Start -->
         <div class="slider-area ">
             <div class="slider-active">
+
                 <!-- Single Slider -->
-                <div class="single-slider slider-height d-flex align-items-center slide-bg">
+                <div style="height: 500px;" class="single-slider d-flex align-items-center slide-bg">
                     <div class="container">
                         <div class="row justify-content-between align-items-center">
                             <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8">
@@ -20,7 +21,7 @@
                             </div>
                             <div class="col-xl-3 col-lg-3 col-md-4 col-sm-4 d-none d-sm-block">
                                 <div class="hero__img" data-animation="bounceIn" data-delay=".4s">
-                                    <img src="assets/img/hero/watch.png" alt="" class=" heartbeat">
+                                    <img style="max-width: 100%;" src="assets/img/hero/watch.png" alt="" class=" heartbeat">
                                 </div>
                             </div>
                         </div>
@@ -28,11 +29,11 @@
                 </div>
             </div>
         </div>
-        <!-- slider Area End-->
         <!-- ? New Product Start -->
-        <section style="margin-top: 200px;" class="new-product-area">
+        <section style="margin-top: 200px;" class="col-12">
             <div class="container">
                 <!-- Section tittle -->
+
                 <div class="row">
                     <div class="col-xl-12">
                         <div class="section-tittle mb-70">
@@ -40,7 +41,25 @@
                         </div>
                     </div>
                 </div>
-                <div class="row">
+
+              <div style="height: 456px;" class="swiffy-slider col-12 p-0 slider-item-show3 slider-nav-chevron slider-nav-autoplay slider-indicators-round slider-indicators-dark slider-indicators-highlight  slider-nav-dark slider-nav-outside slider-nav-visible slider-nav-page slider-indicators-outside"  data-slider-nav-autoplay-interval="2000">
+                <ul class="slider-container">
+                    <li *ngFor="let item of homeService.latestProductsData"><img (click)="productDetails(item.productID)" [src]="createImgPath(item.image)" style="max-width: 100%;height: auto; cursor: pointer;">
+                      <h2 (click)="productDetails(item.productID)" style="text-align: center; padding-top: 10px; font-weight: bold; cursor: pointer;">{{item.productTitle}}</h2>
+                      <h3 (click)="productDetails(item.productID)" style="text-align: center; cursor: pointer;">$ {{item.price}}</h3>
+                    </li>
+                </ul>
+
+                <button type="button" class="slider-nav"></button>
+                <button type="button" class="slider-nav slider-nav-next"></button>
+
+                <div class="slider-indicators">
+                    <button class="active"></button>
+                    <button></button>
+                    <button></button>
+                </div>
+              </div>
+                <!-- <div class="row">
                       <div *ngFor="let item of homeService.latestProductsData" class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
                         <div class="single-new-pro mb-30 text-center">
                             <div class="product-img">
@@ -52,7 +71,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
         </section>
         <!--  New Product End -->
@@ -146,6 +165,7 @@
                   </div>
                   </div>
                   </div>
+
 <br /><br /><br /><br /><br /><br /><br />
         <!-- Watch Choice  End-->
         <!--? Shop Method Start-->

@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -50,7 +50,7 @@ import {MatSortModule} from '@angular/material/sort';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { MatCarousel } from 'ng-mat-carousel';
 import { InfluncerShopComponent } from './influncer-shop/influncer-shop.component';
-import { MatDatepickerModule } from '@angular/material/datepicker';
+import { NgImageSliderModule } from 'ng-image-slider';
 
 @NgModule({
   declarations: [
@@ -80,7 +80,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
     ToastrModule.forRoot(),
     MatTableModule,
     MatDialogModule,
-    MatDatepickerModule
+    NgImageSliderModule
   ]
 })
 export class CustomerModule { }

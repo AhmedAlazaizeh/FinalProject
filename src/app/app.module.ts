@@ -17,11 +17,12 @@ import { MatTableModule } from '@angular/material/table';
 import { NgChartsModule } from 'ng2-charts';
 import { TestComponent } from './test/test.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { NgImageSliderModule } from 'ng-image-slider';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TestComponent
+    TestComponent,
   ],
   //entryComponents:[GetByIDDialogComponent],
   imports: [
@@ -42,6 +43,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
   ],
   providers: [],
   bootstrap: [AppComponent],
-  schemas:[CUSTOM_ELEMENTS_SCHEMA]
+  schemas:[CUSTOM_ELEMENTS_SCHEMA],
+  exports: [NgImageSliderModule]
 })
 export class AppModule { }
