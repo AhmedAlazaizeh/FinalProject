@@ -8,6 +8,8 @@ export class HeaderService {
   data: any | string
   data1: any | string = [{}]
   countOfCart: any = {}
+  favCount: any = {}
+  count: any
 
   un = localStorage.getItem("username")
   username = [{"username": this.un}]
@@ -39,5 +41,11 @@ export class HeaderService {
 
   getCartCount(ID: number){
     this.http.get("https://localhost:44309/api/Order/countOfCart/" + ID).subscribe((Response: any)=>{this.countOfCart=Response})
+  }
+
+  getCountOfFav(ID: number){
+    this.http.get("https://localhost:44309/api/Favorite/FavCount/" + ID).subscribe((Response: any)=>{this.favCount=Response
+    this.count = Response["favCount"]
+  })
   }
 }

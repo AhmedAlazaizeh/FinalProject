@@ -51,6 +51,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import { MatCarousel } from 'ng-mat-carousel';
 import { InfluncerShopComponent } from './influncer-shop/influncer-shop.component';
 import { NgImageSliderModule } from 'ng-image-slider';
+import { MyfavComponent } from './myfav/myfav.component';
 
 @NgModule({
   declarations: [
@@ -66,7 +67,8 @@ import { NgImageSliderModule } from 'ng-image-slider';
     ProductDetailsComponent,
     CartComponent,
     CheckoutComponent,
-    InfluncerShopComponent
+    InfluncerShopComponent,
+    MyfavComponent
   ],
   imports: [
     CommonModule,

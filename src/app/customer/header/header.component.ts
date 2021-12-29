@@ -31,6 +31,7 @@ export class HeaderComponent implements OnInit {
     var ID = localStorage.getItem("userID")
     this.getUsername();
     this.getCartCount(ID)
+    this.getFavCount(ID)
   }
 
   logOut(){
@@ -58,5 +59,9 @@ export class HeaderComponent implements OnInit {
 
     this.router.navigateByUrl('/', {skipLocationChange: true}).then(()=>
     this.router.navigate(["shop"]));
+  }
+
+  getFavCount(ID: any){
+    this.headerService.getCountOfFav(ID)
   }
 }

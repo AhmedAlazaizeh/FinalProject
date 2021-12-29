@@ -21,8 +21,10 @@
                                     <a  style="color:#ff2020">{{item.fName}}</a>
                                   </div>
                                     <ul class="submenu" style="cursor: pointer;">
-                                        <li><a routerLink="/orders">My Orders</a></li>
-                                        <li><a routerLink="/profile" >Edit My Profile</a></li>
+                                        <li><a routerLink="/orders">Orders</a></li>
+                                        <li *ngIf="headerService.count != 0" ><a routerLink="/myFav">Favorites</a></li>
+                                        <li *ngIf="headerService.count == 0" ><a style="cursor:not-allowed ;color: #ababab">Favorites</a></li>
+                                        <li><a routerLink="/profile" >Profile</a></li>
                                         <li><a (click)="logOut()" style="color:#ff2020;">Sign Out</a></li>
                                     </ul>
                                 </li>
@@ -39,7 +41,7 @@
                             </li>
                             <div *ngFor="let item of headerService.countOfCart | keyvalue">
                             <div *ngIf="item.value == 0 || item.value == null || username == null ;else elseFun">
-                                <li><span class="flaticon-shopping-cart" style="cursor:default;color:#808080"></span></li>
+                                <li><span class="flaticon-shopping-cart" style="cursor:not-allowed;color:#808080"></span></li>
                               </div>
                             </div>
                               <ng-template #elseFun>
