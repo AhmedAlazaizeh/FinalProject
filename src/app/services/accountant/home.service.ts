@@ -16,8 +16,11 @@ export class HomeService {
   countOfActiveProducts: any = {}
   orderListData: any = [{}]
   financialData: any = [{}]
-
+  salesChartData: any = [{}]
   data1: any | string = [{}]
+
+  monthsArray = ['','Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+  chartMonths: any = []
 
   un = localStorage.getItem("username")
   username = [{"username": this.un}]
@@ -74,5 +77,17 @@ export class HomeService {
       this.data1 = null
     }
 
+  }
+
+  getSalesChart(){
+    this.http.get("https://localhost:44309/api/Order/salesChart").subscribe((Response: any)=>{this.salesChartData=Response
+    //console.log(Response[0]['month'])
+    //console.log(this.salesChartData[0]['month'])
+
+    for (let index = 0; index < this.salesChartData.length; index++) {
+
+      this.chartMonths[index] = this.monthsArray[this.salesChartData[index]['month']]
+    }
+  })
   }
 }

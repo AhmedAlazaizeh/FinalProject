@@ -13,6 +13,8 @@ export class HomeComponent implements OnInit {
 
   username = localStorage.getItem("username")
 
+  chartMonths: any = []
+
   constructor(public homeService: HomeService) { }
 
   public barChartOptions = {
@@ -20,15 +22,16 @@ export class HomeComponent implements OnInit {
     responsive: true
   };
 
-  public barChartLabels = ['Jan', 'Mar', 'May', 'Jul', 'Sep', 'Nov'];
-  // public barChartType = 'bar';
+  public barChartLabels = this.chartMonths
+  public barChartType = 'bar';
   public barChartLegend = true;
   public barChartData = [
-    {data: [630, 590, 800, 870, 560, 850, 400], label: 'Sales', backgroundColor: "#007D7F"},
-    {data: [94.5, 88.5, 120, 130.5, 84, 127.5, 60], label: 'Revune', backgroundColor: "#009681"}
+    {data: [630, 590, 800, 870], label: 'Sales', backgroundColor: "#007D7F"},
+    {data: [94.5, 88.5, 120, 130.5], label: 'Revune', backgroundColor: "#009681"}
   ];
 
   ngOnInit(): void {
+    var ID = localStorage.getItem("userID")
     this.getCountOfEmployees()
     this.getCountOfCustomers()
     this.getCountOfInfluncers()
@@ -39,9 +42,14 @@ export class HomeComponent implements OnInit {
     this.getFinancialList()
     this.getCountOfOrders()
     this.getCountOfActiveProducts()
-
-    var ID = localStorage.getItem("userID")
     this.getUsername();
+    this.getSalesChart()
+
+    console.log(this.chartMonths)
+    if (this.chartMonths == []) {
+      console.log(this.chartMonths)
+      window.location.reload()
+    }
   }
 
   getCountOfEmployees(){
@@ -107,5 +115,10 @@ export class HomeComponent implements OnInit {
 
   getUsername(){
     this.homeService.getUserByUsername(this.username!)
+  }
+
+  getSalesChart(){
+    this.homeService.getSalesChart()
+    this.chartMonths = this.homeService.chartMonths
   }
 }
