@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { MyfavService } from 'src/app/services/customer/myfav.service';
 
 @Component({
@@ -10,7 +11,7 @@ import { MyfavService } from 'src/app/services/customer/myfav.service';
 })
 export class MyfavComponent implements OnInit {
 
-  constructor(public myfavService: MyfavService, private router: Router) { }
+  constructor(public myfavService: MyfavService, private router: Router, private toaster: ToastrService) { }
 
   favForm: FormGroup = new FormGroup({
     productID: new FormControl(""),
@@ -20,6 +21,7 @@ export class MyfavComponent implements OnInit {
   ngOnInit(): void {
     var ID = localStorage.getItem("userID")
     this.getFavList(ID)
+    this.getFavCount(ID)
   }
 
   public createImgPath = (serverPath: string) => {
@@ -50,7 +52,7 @@ export class MyfavComponent implements OnInit {
     });
     this.myfavService.removeFromFav(this.favForm.value)
     //this.ngOnInit()
-    window.location.reload()
+    this.checkIfEmpty()
   }
 
   checkIfFav(ID: Number){
@@ -63,4 +65,17 @@ export class MyfavComponent implements OnInit {
     return true
   }
 
+  checkIfEmpty(){
+    var count = this.myfavService.count
+    if (count == 1) {
+      this.router.navigate([""])
+      this.toaster.error("Favorite list is empty")
+    }else{
+      window.location.reload()
+    }
+  }
+
+  getFavCount(ID: any){
+    this.myfavService.getCountOfFav(ID)
+  }
 }

@@ -59,7 +59,7 @@ export class MyfavService {
 
     this.http.post("https://localhost:44309/api/Favorite/Delete", form, requestOptions).subscribe((res)=>{
 
-      this.toaster.success("Removed From Favorite!")
+
 
       },err =>{
 
