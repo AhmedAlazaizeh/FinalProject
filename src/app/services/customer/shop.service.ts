@@ -34,7 +34,10 @@ export class ShopService {
   searchProduct(){
     var searchedFor: string = String(localStorage.getItem("searchedFor"))
     this.http.get("https://localhost:44309/api/Product/SearchProduct/" + searchedFor).subscribe((Response: any)=>{this.searchResult=Response
-    console.log(Response)
+    console.log(searchedFor)
+    if (Response[0] == undefined && searchedFor != 'null') {
+      this.toaster.error("No matched result!")
+    }
   })
   }
 
