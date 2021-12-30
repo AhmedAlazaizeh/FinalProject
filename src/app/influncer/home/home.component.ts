@@ -44,13 +44,13 @@ export class HomeComponent implements OnInit {
   constructor(private dialog: MatDialog, private toastr: ToastrService, public homeService: HomeService) { }
 
   ngOnInit(): void {
-    var ID = localStorage.getItem("userID")
-    this.getMyProducts(ID)
+    var ID = Number(localStorage.getItem("userID"))
     this.getUsername();
-  }
-
-  public uploadFinished = (event:any) => {
-  this.response = event;
+    this.getMyOrders(ID)
+    this.getSumOfSales(ID)
+    this.getSumOfRevune(ID)
+    this.getCountOfOrders(ID)
+    this.getCountOfActiveProducts(ID)
   }
 
   exportToExcel(tableID: string){
@@ -74,70 +74,27 @@ export class HomeComponent implements OnInit {
   });
   }
 
-  populateForm(productID: number, productTitle: string, description: string, price: number, image: string)
-  {
-
-    this.ProductID = productID
-    this.UserID = Number(localStorage.getItem("userID"))
-    this.Price = price
-    this.Description = description
-    this.ProductTitle = productTitle
-    this.Image = image
-    this.CategoryID = 1
-    this.IsAvailable = true
-
-    this.dialog.open(this.callAPIDialog);
-  }
-
-  updateProduct(data: any){
-    console.log(data)
-    this.homeService.updateProduct(data)
-    window.location.reload();
-  }
-
-  openDeleteDialog(ID: number) {
-    let dialogRef =  this.dialog.open(this.callConfirmDeleteDialog);
-    dialogRef.afterClosed().subscribe(result => {
-      if (result !== undefined) {
-          if (result === 'yes') {
-            this.deleteProduct(ID)
-          } else if (result === 'no') {
-              console.log('User clicked no.');
-          }
-      }
-  })
-  }
-
-  deleteProduct(ID: number){
-    this.homeService.deleteProduct(ID);
-    window.location.reload();
-  }
-
-  openAddProductDialog(){
-    this.addProductForm.reset()
-    this.dialog.open(this.addProductDialog);
-  }
-
-  addProduct(){
-    this.addProductForm.patchValue({
-      image: this.response.dbPath,
-      categoryID: 1,
-      isAvailable: true,
-      userID: Number(localStorage.getItem("userID"))
-    });
-    this.homeService.addProduct(this.addProductForm.value)
-    window.location.reload()
-  }
-
-  getMyProducts(ID: any){
-    this.homeService.getMyProducts(ID)
-  }
-
-  public createImgPath = (serverPath: string) => {
-  return "https://localhost:44309/" + serverPath;
-  }
-
   getUsername(){
     this.homeService.getUserByUsername(this.username!)
+  }
+
+  getMyOrders(ID: any){
+    this.homeService.getMyOrders(ID)
+  }
+
+  getSumOfSales(ID: number){
+    this.homeService.getSumOfSales(ID)
+  }
+
+  getSumOfRevune(ID: number){
+    this.homeService.getSumOfRevune(ID)
+  }
+
+  getCountOfOrders(ID: number){
+    this.homeService.getCountOfOrders(ID)
+  }
+
+  getCountOfActiveProducts(ID: number){
+    this.homeService.getCountOfActiveProducts(ID)
   }
 }

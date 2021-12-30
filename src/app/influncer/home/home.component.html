@@ -6,39 +6,64 @@
         <h2 class="p-0 m-0"><i></i>Influncer</h2>
       </div>
     </div>
+    <div class="row">
+      <div class="col-md-6 col-lg-3">
+        <div class="widget-small primary coloured-icon"><i class="icon fa fa-bar-chart fa-3x"></i>
+          <div class="info">
+            <h4>Sales</h4>
+            <p><b *ngFor="let item of homeService.sumOfSales | keyvalue">$ {{item.value}}</b></p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="widget-small primary coloured-icon"><i class="icon fa fa-money fa-3x"></i>
+          <div class="info">
+            <h4>Revune</h4>
+            <p><b *ngFor="let item of homeService.sumOfRevune | keyvalue">$ {{item.value}}</b></p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="widget-small primary coloured-icon"><i class="icon fa fa-shopping-bag fa-3x"></i>
+          <div class="info">
+            <h4>Orders</h4>
+            <p><b *ngFor="let item of homeService.countOfOrders | keyvalue">{{item.value}}</b></p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="widget-small primary coloured-icon"><i class="icon fa fa-check fa-3x"></i>
+          <div class="info">
+            <h4>Products</h4>
+            <p><b *ngFor="let item of homeService.countOfActiveProducts | keyvalue">{{item.value}}</b></p>
+          </div>
+        </div>
+      </div>
+    </div>
     <div style="width: auto;" class="tile mb-2 p-1 mt-3 pl-2">
-      <button style="background-color: #009688; font-size: 12px;" class="m-2 btn" (click)="exportToExcel('Products')">export as excel</button>
-      <button style="background-color: #009688; font-size: 12px;" class="m-2 btn" (click)="exportToPDF('Products')">export as PDF</button>
+      <button style="background-color: #009688; font-size: 12px;" class="m-2 btn" (click)="exportToExcel('Orders')">export as excel</button>
+      <button style="background-color: #009688; font-size: 12px;" class="m-2 btn" (click)="exportToPDF('Orders')">export as PDF</button>
     </div>
     <div class="row">
       <div class="col-md-12">
         <div class="tile">
           <div class="tile-body">
-            <h2>My Products</h2>
-            <table class="table table-hover table-bordered" id="Products">
+            <h2>Orders</h2>
+            <table class="table table-hover table-bordered" id="Orders">
               <thead>
                 <tr>
-                  <th style="text-align: center;">Image</th>
                   <th>Product Title</th>
-                  <th>Description</th>
-                  <th>Added Date</th>
-                  <th>Price</th>
-                  <th style="text-align: center;">
-                    <a style="cursor: pointer;" (click)="openAddProductDialog()" class="add" data-toggle="modal"><i class="material-icons mx-1 mt-1" data-toggle="tooltip" title="Add">&#xE145;</i></a>
-                </th>
+                  <th>Order Date</th>
+                  <th>Order Value</th>
+                  <th>Customer Name</th>
                 </tr>
               </thead>
-              <tbody *ngFor="let item of homeService.myProductsData">
-                <tr>
-                  <td style="text-align: center;"><img [src]="createImgPath(item.image)" alt="profile picture" style="width:60px; height:60px;"></td>
+              <tbody>
+                <tr *ngFor="let item of homeService.myOrdersData">
                   <td>{{item.productTitle}}</td>
-                  <td>{{item.description}}</td>
-                  <td>{{item.addedDate | date}}</td>
-                  <td>$ {{item.price}}</td>
-                  <td style="width: 90px; vertical-align: middle;">
-                    <a style="cursor: pointer; vertical-align: middle;" (click)="populateForm(item.productID, item.productTitle, item.description, item.price, item.image)" class="edit" data-toggle="modal"><i class="material-icons mx-1" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                    <a style="cursor: pointer; vertical-align: middle;" (click)="openDeleteDialog(item.productID);" class="delete" data-toggle="modal"><i class="material-icons mx-1" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-                  </td>
+                  <td>{{item.orderDate | date}}</td>
+                  <td>$ {{item.orderValue}}</td>
+                  <td>{{item.fName}} {{item.lName}}</td>
                 </tr>
               </tbody>
             </table>
@@ -55,99 +80,8 @@
       </div>
 <ul class="app-menu">
   <li><a class="app-menu__item active" routerLink="/Influncer/"><i class="app-menu__icon fa fa-home"></i><span class="app-menu__label">Home</span></a></li>
+  <li><a class="app-menu__item" routerLink="/Influncer/products"><i class="app-menu__icon fa fa-home"></i><span class="app-menu__label">Products</span></a></li>
 </ul>
 </aside>
   </main>
 </body>
-
-
-<!-----------------------------My Edit Form ------------------------ -->
-<ng-template #callAPIDialog>
-  <div style="height: 165px;" mat-dialog-content>
-      <div class="body">
-                  <form #uupdateProduct="ngForm" (ngSubmit)="updateProduct(uupdateProduct.value); uupdateProduct.resetForm()">
-                      <div>
-                        <input style="width:300px;" required type="text" #productTitle="ngModel" matInput name="productTitle" [(ngModel)]="ProductTitle">
-                        <label class="ml-1">Title</label>
-                        <span *ngIf="productTitle.invalid && productTitle.touched">Title is required</span>
-                    </div>
-                      <div>
-                        <input style="width:300px;" required type="text" #description="ngModel" matInput name="description" [(ngModel)]="Description">
-                        <label class="ml-1">Description</label>
-                        <span *ngIf="description.invalid && description.touched">Description is required</span>
-                    </div>
-                       <div>
-                          <input style="width:300px;" required type="number" #price="ngModel" matInput name="price" [(ngModel)]="Price">
-                          <label class="ml-1">Price</label>
-                          <span *ngIf="price.invalid && price.touched">Price is required</span>
-                      </div>
-                      <div>
-                          <input required type="hidden"  #image="ngModel" matInput name="image" [(ngModel)]="Image">
-                      </div>
-                      <div>
-                        <input required  type="hidden" #isAvailable="ngModel" matInput name="isAvailable" [(ngModel)]="IsAvailable">
-                    </div>
-                    <div>
-                      <input required  type="hidden" #categoryID="ngModel" matInput name="categoryID" [(ngModel)]="CategoryID">
-                  </div>
-                  <div>
-                    <input required  type="hidden" #productID="ngModel" matInput name="productID" [(ngModel)]="ProductID">
-                </div>
-                <div>
-                  <input required  type="hidden" #userID="ngModel" matInput name="userID" [(ngModel)]="UserID">
-              </div>
-                        <mat-dialog-actions >
-                          <button style="background-color: #009688" class="btn m-1" matDialogClose="yes">Cancel</button>
-                          <button style="background-color: #009688"  class="btn m-1 btn-jittery" matDialogClose="no" type="submit">Update</button>
-                      </mat-dialog-actions >
-                  </form>
-              </div>
-          </div>
-  </ng-template>
-    <!------------------------------- My Delete Form-------------------------------->
-  <ng-template #callConfirmDeleteDialog>
-    <h2 matDialogTitle>Are You Sure?</h2>
-    <mat-dialog-actions >
-      <div>
-        <button style="background-color: #009688" class="btn m-1" mat-button matDialogClose="no">Cancel</button>
-        <button class="btn m-1 btn-danger" mat-button matDialogClose="yes">Delete</button>
-      </div>
-    </mat-dialog-actions>
-  </ng-template>
-  <!-- ---------------------------ADD---------------------------- -->
-  <ng-template #addProductDialog>
-    <div style="height: 215px;" mat-dialog-content>
-      <div class="body">
-        <form [formGroup]="addProductForm" (ngSubmit)="addProduct()" class="form-contact contact_form" id="contactForm" novalidate="novalidate">
-          <div class="row">
-            <mat-form-field>
-              <div class="col-12 form-group">
-                <label for="">Price</label>
-                <input formControlName="price" matInput type="number" class="form-control" value=""
-                  placeholder="Price">
-              </div>
-            </mat-form-field>
-            <mat-form-field>
-              <div class="col-12 form-group p_star">
-                <label for="">Description</label>
-                <input formControlName="description" matInput type="text" class="form-control" value=""
-                  placeholder="Description">
-              </div>
-            </mat-form-field>
-            <mat-form-field>
-              <div class="col-md-12 form-group p_star">
-                <label for="">Title</label>
-                <input formControlName="productTitle" matInput type="text" class="form-control" value=""
-                  placeholder="Title">
-              </div>
-            </mat-form-field>
-          </div>
-            <mat-dialog-actions >
-              <app-upload (onUploadFinished)="uploadFinished($event)"></app-upload>
-              <button [disabled]="addProductForm.invalid" style="background-color: #009688"  class="btn mx-2 btn-jittery" matDialogClose="no" type="submit">Add</button>
-          </mat-dialog-actions >
-        </form>
-      </div>
-    </div>
-  </ng-template>
-

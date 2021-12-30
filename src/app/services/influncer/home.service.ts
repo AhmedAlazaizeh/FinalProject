@@ -8,62 +8,18 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class HomeService {
 
-  myProductsData: any = [{}]
+  myOrdersData: any = [{}]
   data1: any | string = [{}]
+
+  sumOfSales: any = {}
+  sumOfRevune: any = {}
+  countOfOrders: any = {}
+  countOfActiveProducts: any = {}
 
   constructor(private http: HttpClient, private toastr: ToastrService) { }
 
-  getMyProducts(ID: number){
-    this.http.get("https://localhost:44309/api/Product/getMyProducts/" + ID).subscribe((Response: any)=>{this.myProductsData=Response})
-  }
-
-  updateProduct(data: any){
-    this.http.put('https://localhost:44309/api/Product/Update',data).subscribe((result)=>{
-
-    this.toastr.success('Product Updated');
-     console.log("11111");
-
-   },err=>{
-
-     console.log(err);
-     console.log("2222");
-     this.toastr.error(err);
-
-      })
-  }
-
-  deleteProduct(ID: number){
-    this.http.delete('https://localhost:44309/api/Product/Delete/' + ID).subscribe((date:any)=>{
-
-      this.toastr.success('Deleted!')
-
-    },err =>{
-
-      this.toastr.error('Somthing wrong!!')
-
-    })
-  }
-
-  addProduct(form: FormGroup){
-
-    const headerDict = {
-      'Content-Type': 'application/json',
-      Accept: 'application/json',
-    };
-
-    const requestOptions = {
-      headers: new HttpHeaders(headerDict)
-    };
-
-    this.http.post("https://localhost:44309/api/Product/Add", form, requestOptions).subscribe((res)=>{
-
-      this.toastr.success('Product Added!')
-
-      },err =>{
-
-      this.toastr.error('Somthing wrong!!')
-
-    })
+  getMyOrders(ID: number){
+    this.http.get("https://localhost:44309/api/Order/influncerOrdersList/" + ID).subscribe((Response: any)=>{this.myOrdersData=Response})
   }
 
   getUserByUsername(username: string){
@@ -72,6 +28,23 @@ export class HomeService {
     }else{
       this.data1 = null
     }
+  }
 
+  getSumOfSales(ID: number){
+    this.http.get("https://localhost:44309/api/Order/sumOfInfluncerSales/" + ID).subscribe((Response: any)=>{this.sumOfSales=Response})
+  }
+
+  getSumOfRevune(ID: number){
+    this.http.get("https://localhost:44309/api/Order/sumOfInfluncerRevune/" + ID).subscribe((Response: any)=>{
+      this.sumOfRevune["sumOfRevune"] = Math.round(Response["sumOfRevune"] * 100) / 100
+  })
+  }
+
+  getCountOfOrders(ID: number){
+    this.http.get("https://localhost:44309/api/Order/countOfInfluncerOrders/" + ID).subscribe((Response: any)=>{this.countOfOrders=Response})
+  }
+
+  getCountOfActiveProducts(ID: number){
+    this.http.get("https://localhost:44309/api/Product/countOfInfluncerProducts/" + ID).subscribe((Response: any)=>{this.countOfActiveProducts=Response})
   }
 }
