@@ -3,7 +3,7 @@
     <main>
     <!-- About Details Start -->
     <div *ngFor="let item of aboutService.data">
-    <div class="about-details pt-5">
+    <div style="padding-top:80px" class="about-details">
         <div class="container" style="display:flex;justify-content:center">
             <div class="row" style="display:flex;justify-content:center">
                 <div  class=" col-lg-8">
@@ -28,14 +28,4 @@
     <!-- About Details End -->
     </main>
     <app-footer></app-footer>
-    <!--? Search model Begin -->
-    <div class="search-model-box">
-        <div class="h-100 d-flex align-items-center justify-content-center">
-            <div class="search-close-btn">+</div>
-            <form class="search-model-form">
-                <input type="text" id="search-input" placeholder="Searching key.....">
-            </form>
-        </div>
-    </div>
-    <!-- Search model end -->
     </body>
