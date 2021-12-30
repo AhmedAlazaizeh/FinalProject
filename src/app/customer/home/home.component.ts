@@ -70,7 +70,6 @@ export class HomeComponent implements OnInit {
       productID: ID
     });
     this.homeService.addToFav(this.favForm.value)
-    //this.ngOnInit()
     window.location.reload()
   }
 
@@ -79,7 +78,6 @@ export class HomeComponent implements OnInit {
       productID: ID
     });
     this.homeService.removeFromFav(this.favForm.value)
-    //this.ngOnInit()
     window.location.reload()
   }
 
