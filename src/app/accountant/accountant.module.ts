@@ -13,6 +13,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { NgChartsModule } from 'ng2-charts';
 
+
 @NgModule({
   declarations: [
     HomeComponent,
@@ -21,7 +22,6 @@ import { NgChartsModule } from 'ng2-charts';
     EmployeesComponent,
     HeaderComponent,
     ProfileComponent
-
   ],
   imports: [
     CommonModule,

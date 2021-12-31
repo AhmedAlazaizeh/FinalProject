@@ -39,11 +39,11 @@ import { NgImageSliderModule } from 'ng-image-slider';
     MatDialogModule,
     MatTableModule,
     NgChartsModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
   schemas:[CUSTOM_ELEMENTS_SCHEMA],
-  exports: [NgImageSliderModule]
+  exports: [NgImageSliderModule, NgChartsModule]
 })
 export class AppModule { }

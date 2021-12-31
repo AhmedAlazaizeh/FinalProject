@@ -3,6 +3,8 @@ import { HomeService } from 'src/app/services/accountant/home.service';
 import * as XLSX from 'xlsx';
 import jspdf from 'jspdf';
 import html2canvas from 'html2canvas';
+import { ChartData } from 'chart.js';
+import { ChartType, ChartOptions } from 'chart.js';
 
 @Component({
   selector: 'app-home',
