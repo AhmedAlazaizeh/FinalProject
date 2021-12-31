@@ -12,7 +12,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { ToastrService } from 'ngx-toastr';
 import { GoogleMapControlComponent } from './google-map/google-map.control.component';
-
+import { NgxSpinnerModule } from "ngx-spinner";
 
 @NgModule({
   declarations: [
@@ -30,6 +30,7 @@ import { GoogleMapControlComponent } from './google-map/google-map.control.compo
     MatFormFieldModule,
     MatButtonModule,
     MatInputModule,
+    NgxSpinnerModule
   ]
 })
 export class AuthModule { }

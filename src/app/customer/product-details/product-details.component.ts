@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { ProductDetailsService } from 'src/app/services/customer/product-details.service';
 
@@ -24,11 +25,15 @@ export class ProductDetailsComponent implements OnInit {
 
   loggedUserID: any = localStorage.getItem("userID")
 
-  constructor(public productService: ProductDetailsService, private toastr: ToastrService, private router: Router) { }
+  constructor(public productService: ProductDetailsService, private toastr: ToastrService, private router: Router, private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
     var ID = localStorage.getItem("productID")
     this.getDetails(ID)
+    this.spinner.show();
+    setTimeout(() => {
+      this.spinner.hide();
+    }, 700);
   }
 
 

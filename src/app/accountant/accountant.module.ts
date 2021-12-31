@@ -12,7 +12,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { NgChartsModule } from 'ng2-charts';
-
+import { NgxSpinnerModule } from "ngx-spinner";
 
 @NgModule({
   declarations: [
@@ -29,7 +29,8 @@ import { NgChartsModule } from 'ng2-charts';
     MatDialogModule,
     ReactiveFormsModule,
     MatFormFieldModule,
-    NgChartsModule
+    NgChartsModule,
+    NgxSpinnerModule
   ]
 })
 export class AccountantModule { }

@@ -3,6 +3,7 @@ import { EmployeesService } from 'src/app/services/accountant/employees.service'
 import * as XLSX from 'xlsx';
 import jspdf from 'jspdf';
 import html2canvas from 'html2canvas';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-employees',
@@ -13,7 +14,7 @@ export class EmployeesComponent implements OnInit {
 
   username = localStorage.getItem("username")
 
-  constructor(public employeesService: EmployeesService) {
+  constructor(public employeesService: EmployeesService, private spinner: NgxSpinnerService) {
     this.employeesService.employeeList();
    }
 
@@ -21,6 +22,10 @@ export class EmployeesComponent implements OnInit {
     this.getFinancialList()
     var ID = localStorage.getItem("userID")
     this.getUsername();
+    this.spinner.show();
+    setTimeout(() => {
+      this.spinner.hide();
+    }, 700);
   }
 
   exportToExcel(tableID: string){

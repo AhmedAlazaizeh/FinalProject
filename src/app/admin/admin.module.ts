@@ -15,6 +15,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { NgChartsModule } from 'ng2-charts';
+import { NgxSpinnerModule } from "ngx-spinner";
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { NgChartsModule } from 'ng2-charts';
     MatIconModule,
     MatFormFieldModule,
     MatSelectModule,
-    NgChartsModule
+    NgChartsModule,
+    NgxSpinnerModule
   ]
 })
 export class AdminModule { }

@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { FeedbackService } from 'src/app/services/customer/feedback.service';
 import { ToastrService } from 'ngx-toastr';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-feedback',
@@ -17,9 +18,13 @@ export class FeedbackComponent implements OnInit {
     userID: new FormControl(localStorage.getItem("userID"))
   })
 
-  constructor(public feedbackService: FeedbackService, private router: Router, private toastr: ToastrService) { }
+  constructor(public feedbackService: FeedbackService, private router: Router, private toastr: ToastrService, private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
+    this.spinner.show();
+    setTimeout(() => {
+      this.spinner.hide();
+    }, 700);
   }
 
   feedbackSent(){

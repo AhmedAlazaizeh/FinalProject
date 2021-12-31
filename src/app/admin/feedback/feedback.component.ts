@@ -3,6 +3,7 @@ import { FeedbackService } from 'src/app/services/admin/feedback.service';
 import * as XLSX from 'xlsx';
 import jspdf from 'jspdf';
 import html2canvas from 'html2canvas';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-feedback',
@@ -13,12 +14,16 @@ export class FeedbackComponent implements OnInit {
 
   username = localStorage.getItem("username")
 
-  constructor(public feedbackService: FeedbackService) { }
+  constructor(public feedbackService: FeedbackService, private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
     this.AllFeedback()
     var ID = localStorage.getItem("userID")
     this.getUsername();
+    this.spinner.show();
+    setTimeout(() => {
+      this.spinner.hide();
+    }, 700);
   }
 
   AllFeedback() {

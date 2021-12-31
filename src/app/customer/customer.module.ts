@@ -52,6 +52,7 @@ import { MatCarousel } from 'ng-mat-carousel';
 import { InfluncerShopComponent } from './influncer-shop/influncer-shop.component';
 import { NgImageSliderModule } from 'ng-image-slider';
 import { MyfavComponent } from './myfav/myfav.component';
+import { NgxSpinnerModule } from "ngx-spinner";
 
 @NgModule({
   declarations: [
@@ -82,7 +83,8 @@ import { MyfavComponent } from './myfav/myfav.component';
     ToastrModule.forRoot(),
     MatTableModule,
     MatDialogModule,
-    NgImageSliderModule
+    NgImageSliderModule,
+    NgxSpinnerModule
   ]
 })
 export class CustomerModule { }

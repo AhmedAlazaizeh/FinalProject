@@ -7,6 +7,7 @@ import jspdf from 'jspdf';
 import html2canvas from 'html2canvas';
 import { ToastrService } from 'ngx-toastr';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-employee',
@@ -47,12 +48,16 @@ export class EmployeeComponent implements OnInit {
 
   username = localStorage.getItem("username")
 
-  constructor(private dialog: MatDialog, public employeeService: EmployeeService, private toastr: ToastrService) { }
+  constructor(private dialog: MatDialog, public employeeService: EmployeeService, private toastr: ToastrService, private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
     this.getEmployeeList()
     var ID = localStorage.getItem("userID")
     this.getUsername();
+    this.spinner.show();
+    setTimeout(() => {
+      this.spinner.hide();
+    }, 700);
   }
 
   opendialog(){

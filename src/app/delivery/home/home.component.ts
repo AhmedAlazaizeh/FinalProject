@@ -1,5 +1,6 @@
 import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { HomeService } from 'src/app/services/Delivery/home.service';
 
 
@@ -15,12 +16,16 @@ export class HomeComponent implements OnInit {
   username = localStorage.getItem("username")
   usersAddress: any
 
-  constructor(public homeService: HomeService, private dialog: MatDialog) { }
+  constructor(public homeService: HomeService, private dialog: MatDialog, private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
     this.getOrderList()
     var ID = localStorage.getItem("userID")
     this.getUsername();
+    this.spinner.show();
+    setTimeout(() => {
+      this.spinner.hide();
+    }, 700);
   }
 
   getOrderList(){

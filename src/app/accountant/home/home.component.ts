@@ -5,6 +5,7 @@ import jspdf from 'jspdf';
 import html2canvas from 'html2canvas';
 import { ChartData } from 'chart.js';
 import { ChartType, ChartOptions } from 'chart.js';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-home',
@@ -17,18 +18,18 @@ export class HomeComponent implements OnInit {
 
   chartMonths: any = []
 
-  constructor(public homeService: HomeService) { }
+  constructor(public homeService: HomeService, private spinner: NgxSpinnerService) { }
 
   public barChartOptions = {
     scaleShowVerticalLines: false,
     responsive: true
   };
 
-  public barChartLabels = ["fg"]
+  public barChartLabels = ['May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
   public barChartType = 'bar';
   public barChartLegend = true;
   public barChartData = [
-    {data: [630, 590, 800, 870], label: 'Sales', backgroundColor: "#007D7F"}
+    {data: [630, 590, 800, 870, 520, 600, 560, 830], label: 'Sales', backgroundColor: "#007D7F"}
   ];
 
   ngOnInit() {
@@ -51,6 +52,10 @@ export class HomeComponent implements OnInit {
       console.log(this.chartMonths)
       window.location.reload()
     }
+    this.spinner.show();
+    setTimeout(() => {
+      this.spinner.hide();
+    }, 700);
   }
 
   getCountOfEmployees(){

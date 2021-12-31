@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { HomeService } from 'src/app/services/customer/home.service';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
-import { NgxSpinnerComponent, NgxSpinnerService } from 'ngx-spinner';
+import { NgxSpinnerComponent } from 'ngx-spinner';
 import { MatSpinner } from '@angular/material/progress-spinner';
 import { FormControl, FormGroup } from '@angular/forms';
-
+import { NgxSpinnerService } from "ngx-spinner";
 
 @Component({
   selector: 'app-home',
@@ -15,7 +15,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 export class HomeComponent implements OnInit {
 
 
-  constructor(public homeService: HomeService, private toastr: ToastrService, private router: Router) { }
+  constructor(public homeService: HomeService, private toastr: ToastrService, private router: Router, private spinner: NgxSpinnerService) { }
 
   favForm: FormGroup = new FormGroup({
     productID: new FormControl(""),
@@ -29,6 +29,10 @@ export class HomeComponent implements OnInit {
     this.getApprovedFeedback()
     this.getListOfInfluncers()
     this.getFavList(ID)
+    this.spinner.show();
+    setTimeout(() => {
+      this.spinner.hide();
+    }, 700);
   }
 
   getAllProducts(){

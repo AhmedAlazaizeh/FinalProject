@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { CartService } from 'src/app/services/customer/cart.service';
 
 @Component({
@@ -8,12 +9,16 @@ import { CartService } from 'src/app/services/customer/cart.service';
 })
 export class CartComponent implements OnInit {
 
-  constructor(public cartService: CartService) { }
+  constructor(public cartService: CartService, private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
     var ID = localStorage.getItem("userID")
     this.getCartList(ID)
     this.getSumOfCart(ID)
+    this.spinner.show();
+    setTimeout(() => {
+      this.spinner.hide();
+    }, 700);
   }
 
   getCartList(ID: any){

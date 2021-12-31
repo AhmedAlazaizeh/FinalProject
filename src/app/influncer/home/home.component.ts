@@ -6,6 +6,7 @@ import { ToastrService } from 'ngx-toastr';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { HomeService } from 'src/app/services/influncer/home.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-home',
@@ -41,7 +42,7 @@ export class HomeComponent implements OnInit {
 
   public response = {dbPath: ''};
 
-  constructor(private dialog: MatDialog, private toastr: ToastrService, public homeService: HomeService) { }
+  constructor(private dialog: MatDialog, private toastr: ToastrService, public homeService: HomeService, private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
     var ID = Number(localStorage.getItem("userID"))
@@ -51,6 +52,10 @@ export class HomeComponent implements OnInit {
     this.getSumOfRevune(ID)
     this.getCountOfOrders(ID)
     this.getCountOfActiveProducts(ID)
+    this.spinner.show();
+    setTimeout(() => {
+      this.spinner.hide();
+    }, 700);
   }
 
   exportToExcel(tableID: string){
