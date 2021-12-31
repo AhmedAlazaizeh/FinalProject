@@ -37,8 +37,8 @@
 <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
 <aside class="app-sidebar">
 <div class="app-sidebar__user">
-  <div>
-    <h1 class="app-sidebar__user-name">John Doe</h1>
+  <div  *ngFor="let item of profileService.data1">
+    <h1 class="app-sidebar__user-name">{{item.fName}} {{item.lName}}</h1>
   </div>
 </div>
 <ul class="app-menu">
