@@ -22,15 +22,14 @@ export class HomeComponent implements OnInit {
     responsive: true
   };
 
-  public barChartLabels = this.chartMonths
+  public barChartLabels = ["fg"]
   public barChartType = 'bar';
   public barChartLegend = true;
   public barChartData = [
-    {data: [630, 590, 800, 870], label: 'Sales', backgroundColor: "#007D7F"},
-    {data: [94.5, 88.5, 120, 130.5], label: 'Revune', backgroundColor: "#009681"}
+    {data: [630, 590, 800, 870], label: 'Sales', backgroundColor: "#007D7F"}
   ];
 
-  ngOnInit(): void {
+  ngOnInit() {
     var ID = localStorage.getItem("userID")
     this.getCountOfEmployees()
     this.getCountOfCustomers()
