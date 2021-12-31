@@ -162,6 +162,12 @@
               <div class="col-md-12 form-group p_star">
                 <input formControlName="email" matInput type="text" class="form-control" value=""
                   placeholder="Email">
+                  <mat-error *ngIf="addEmployeeForm.get('email')?.hasError('required') && addEmployeeForm.get('email')!.value != ''"
+                  >Email is required</mat-error
+                >
+                <mat-error *ngIf="addEmployeeForm.get('email')?.hasError('email')"
+                  >Please enter a valid email address
+                </mat-error>
               </div>
             </mat-form-field>
             <mat-form-field>
@@ -176,12 +182,14 @@
               <div class="col-md-12 form-group p_star">
                 <input formControlName="username" matInput type="text" class="form-control" value=""
                   placeholder="Username">
+                  <mat-error *ngIf="addEmployeeForm.get('username')!.value.length < 8 && this.addEmployeeForm.get('username')!.value != ''">Must be minumim 8 charachters</mat-error>
               </div>
             </mat-form-field>
             <mat-form-field>
               <div class="col-md-12 form-group p_star">
                 <input formControlName="password" matInput type="password" class="form-control" id="password"
                   name="password" value="" placeholder="Password">
+                  <mat-error *ngIf="addEmployeeForm.get('password')!.value.length < 8 && this.addEmployeeForm.get('password')!.value != ''">Must be minumim 8 charachters</mat-error>
               </div>
             </mat-form-field>
             <mat-form-field>

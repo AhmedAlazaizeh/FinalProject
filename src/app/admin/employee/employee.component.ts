@@ -22,11 +22,11 @@ export class EmployeeComponent implements OnInit {
   addEmployeeForm: FormGroup = new FormGroup({
     fName: new FormControl("", [Validators.required]),
     lName: new FormControl("", [Validators.required]),
-    email: new FormControl("", [Validators.required]),
+    email: new FormControl("", [Validators.required, Validators.email]),
     phoneNumber: new FormControl("", [Validators.required]),
     roleID: new FormControl("", [Validators.required]),
-    username: new FormControl("", [Validators.required]),
-    password: new FormControl("", [Validators.required]),
+    username: new FormControl("", [Validators.required, Validators.minLength(8)]),
+    password: new FormControl("", [Validators.required, Validators.minLength(8)]),
     salary: new FormControl("", [Validators.required]),
     longitude: new FormControl("00"),
     latitude: new FormControl("00")

@@ -13,6 +13,7 @@
                   <div class="col-12 form-group p_star">
                     <input formControlName="fName" matInput type="text" class="form-control" value=""
                       placeholder="First Name">
+                      <mat-error ngx-mat-errors></mat-error>
                   </div>
                 </mat-form-field>
                 <mat-form-field>
@@ -26,6 +27,12 @@
                   <div class="col-md-12 form-group p_star">
                     <input formControlName="email" matInput type="text" class="form-control" value=""
                       placeholder="Email">
+                      <mat-error *ngIf="registerform.get('email')?.hasError('required') && registerform.get('email')!.value != ''"
+                      >Email is required</mat-error
+                    >
+                    <mat-error *ngIf="registerform.get('email')?.hasError('email')"
+                      >Please enter a valid email address
+                    </mat-error>
                   </div>
                 </mat-form-field>
                 <mat-form-field>
@@ -38,12 +45,14 @@
                   <div class="col-md-12 form-group p_star">
                     <input formControlName="username" matInput type="text" class="form-control" value=""
                       placeholder="Username">
+                      <mat-error *ngIf="registerform.get('username')!.value.length < 8 && this.registerform.get('username')!.value != ''">Must be minumim 8 charachters</mat-error>
                   </div>
                 </mat-form-field>
                 <mat-form-field>
                   <div class="col-md-12 form-group p_star">
                     <input formControlName="password" matInput type="password" class="form-control" id="password"
                       name="password" value="" placeholder="Password">
+                      <mat-error *ngIf="registerform.get('password')!.value.length < 8 && this.registerform.get('password')!.value != ''">Must be minumim 8 charachters</mat-error>
                   </div>
                 </mat-form-field>
                 <br /><br /><br />
