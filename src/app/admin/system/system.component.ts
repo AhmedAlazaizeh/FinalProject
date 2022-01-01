@@ -4,6 +4,7 @@ import * as XLSX from 'xlsx';
 import jspdf from 'jspdf';
 import html2canvas from 'html2canvas';
 import { MatDialog } from '@angular/material/dialog';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-system',
@@ -25,12 +26,16 @@ export class SystemComponent implements OnInit {
   Logo: string = ""
   AddedBy: number = 0
 
-  constructor(private dialog: MatDialog, public systemService: SystemService) { }
+  constructor(private dialog: MatDialog, public systemService: SystemService, private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
     this.getSystem()
     var ID = localStorage.getItem("userID")
     this.getUsername();
+    this.spinner.show();
+    setTimeout(() => {
+      this.spinner.hide();
+    }, 700);
   }
 
   getSystem(){

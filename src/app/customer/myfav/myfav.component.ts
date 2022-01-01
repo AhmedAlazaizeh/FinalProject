@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { MyfavService } from 'src/app/services/customer/myfav.service';
 
@@ -11,7 +12,7 @@ import { MyfavService } from 'src/app/services/customer/myfav.service';
 })
 export class MyfavComponent implements OnInit {
 
-  constructor(public myfavService: MyfavService, private router: Router, private toaster: ToastrService) { }
+  constructor(public myfavService: MyfavService, private router: Router, private toaster: ToastrService, private spinner: NgxSpinnerService) { }
 
   favForm: FormGroup = new FormGroup({
     productID: new FormControl(""),
@@ -22,6 +23,10 @@ export class MyfavComponent implements OnInit {
     var ID = localStorage.getItem("userID")
     this.getFavList(ID)
     this.getFavCount(ID)
+    this.spinner.show();
+    setTimeout(() => {
+      this.spinner.hide();
+    }, 700);
   }
 
   public createImgPath = (serverPath: string) => {

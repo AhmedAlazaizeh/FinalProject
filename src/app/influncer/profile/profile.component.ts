@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { ProfileService } from 'src/app/services/influncer/profile.service';
 
 
@@ -28,7 +29,7 @@ export class ProfileComponent implements OnInit {
 
   updateForm: FormGroup = new FormGroup({})
 
-  constructor(public profileService: ProfileService, private router: Router) { }
+  constructor(public profileService: ProfileService, private router: Router, private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
     var ID = localStorage.getItem("userID")
@@ -63,6 +64,10 @@ export class ProfileComponent implements OnInit {
       roleID: new FormControl(this.roleID)
     })
     this.reload()
+    this.spinner.show();
+    setTimeout(() => {
+      this.spinner.hide();
+    }, 700);
   }
 
   getUsername(){

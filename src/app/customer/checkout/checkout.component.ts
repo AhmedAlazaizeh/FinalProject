@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { Toast, ToastrService } from 'ngx-toastr';
 import { CheckoutService } from 'src/app/services/customer/checkout.service';
 
@@ -27,7 +28,7 @@ x: Number = Number(localStorage.getItem("sumOfCart"))
 
   username = localStorage.getItem("username")
 
-  constructor(public checkoutService: CheckoutService, private router: Router, private toastr: ToastrService) { }
+  constructor(public checkoutService: CheckoutService, private router: Router, private toastr: ToastrService, private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
     var ID = localStorage.getItem("userID")
@@ -36,6 +37,10 @@ x: Number = Number(localStorage.getItem("sumOfCart"))
     this.getSumOfCart(ID)
     this.x = Number(localStorage.getItem("sumOfCart"))
     localStorage.setItem("paymentButtonFlag", "0")
+    this.spinner.show();
+    setTimeout(() => {
+      this.spinner.hide();
+    }, 700);
   }
 
   getCartList(ID: any){

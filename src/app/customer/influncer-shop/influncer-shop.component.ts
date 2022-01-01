@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { InfluncerShopService } from 'src/app/services/customer/influncer-shop.service';
 
 @Component({
@@ -9,12 +10,16 @@ import { InfluncerShopService } from 'src/app/services/customer/influncer-shop.s
 })
 export class InfluncerShopComponent implements OnInit {
 
-  constructor(public influncerShopService: InfluncerShopService, private router: Router) { }
+  constructor(public influncerShopService: InfluncerShopService, private router: Router, private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
     var influncerID = localStorage.getItem("influncerIDForProducts")
     this.getInfluncereProducts(influncerID)
     this.getInfluncerInfo(influncerID)
+    this.spinner.show();
+    setTimeout(() => {
+      this.spinner.hide();
+    }, 700);
   }
 
   getInfluncereProducts(ID: any){

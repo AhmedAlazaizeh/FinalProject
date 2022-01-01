@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { ContactusService } from 'src/app/services/customer/contactus.service';
 
 @Component({
@@ -8,10 +9,14 @@ import { ContactusService } from 'src/app/services/customer/contactus.service';
 })
 export class ContactusComponent implements OnInit {
 
-  constructor(public contactUsService: ContactusService) { }
+  constructor(public contactUsService: ContactusService, private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
     this.getSystemInfo()
+    this.spinner.show();
+    setTimeout(() => {
+      this.spinner.hide();
+    }, 700);
   }
 
   getSystemInfo(){

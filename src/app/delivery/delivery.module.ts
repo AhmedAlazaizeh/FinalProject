@@ -8,6 +8,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ReactiveFormsModule } from '@angular/forms';
 import { GoogleMap } from './google-map.control/google-map.control.component';
+import { NgxSpinnerModule } from "ngx-spinner";
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { GoogleMap } from './google-map.control/google-map.control.component';
     CommonModule,
     DeliveryRoutingModule,
     ReactiveFormsModule,
-    MatDialogModule
+    MatDialogModule,
+    NgxSpinnerModule
   ]
 })
 export class DeliveryModule { }

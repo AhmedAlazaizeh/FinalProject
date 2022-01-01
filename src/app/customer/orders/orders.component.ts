@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { OrdersService } from 'src/app/services/customer/orders.service';
 
 @Component({
@@ -8,12 +9,16 @@ import { OrdersService } from 'src/app/services/customer/orders.service';
 })
 export class OrdersComponent implements OnInit {
 
-  constructor(public ordersService: OrdersService) { }
+  constructor(public ordersService: OrdersService, private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
     var ID = localStorage.getItem("userID")
     this.getUserOrderList(ID)
     this.sumOfMyOrders(ID)
+    this.spinner.show();
+    setTimeout(() => {
+      this.spinner.hide();
+    }, 700);
   }
 
   getUserOrderList(ID: any){

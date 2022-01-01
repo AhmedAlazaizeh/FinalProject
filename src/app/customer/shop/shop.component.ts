@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { ShopService } from 'src/app/services/customer/shop.service';
 
 @Component({
@@ -13,7 +14,7 @@ export class ShopComponent implements OnInit {
   searchedFor: string | any = null
   searchFlag: boolean = false
 
-  constructor(public shopService: ShopService, private router: Router) { }
+  constructor(public shopService: ShopService, private router: Router, private spinner: NgxSpinnerService) { }
 
   favForm: FormGroup = new FormGroup({
     productID: new FormControl(""),
@@ -29,6 +30,10 @@ export class ShopComponent implements OnInit {
     this.searchedFor = localStorage.getItem("searchedFor")
     localStorage.removeItem("searchedFor")
     this.getFavList(ID)
+    this.spinner.show();
+    setTimeout(() => {
+      this.spinner.hide();
+    }, 700);
   }
 
   getLatestProducts(){

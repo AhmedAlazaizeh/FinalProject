@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { AboutService } from 'src/app/services/customer/about.service';
 
 @Component({
@@ -8,10 +9,14 @@ import { AboutService } from 'src/app/services/customer/about.service';
 })
 export class AboutComponent implements OnInit {
 
-  constructor(public aboutService: AboutService) { }
+  constructor(public aboutService: AboutService, private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
     this.getSystemInfo()
+    this.spinner.show();
+    setTimeout(() => {
+      this.spinner.hide();
+    }, 700);
   }
 
   getSystemInfo(){

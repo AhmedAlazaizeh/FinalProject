@@ -4,6 +4,7 @@ import * as XLSX from 'xlsx';
 import jspdf from 'jspdf';
 import html2canvas from 'html2canvas';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-home',
@@ -14,7 +15,7 @@ export class HomeComponent implements OnInit {
 
   username = localStorage.getItem("username")
 
-  constructor(public homeService: HomeService) { }
+  constructor(public homeService: HomeService, private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
     this.getCountOfEmployees()
@@ -27,9 +28,12 @@ export class HomeComponent implements OnInit {
     this.getFinancialList()
     this.getCountOfOrders()
     this.getCountOfActiveProducts()
-
     var ID = localStorage.getItem("userID")
     this.getUsername();
+    this.spinner.show();
+    setTimeout(() => {
+      this.spinner.hide();
+    }, 700);
   }
 
   getCountOfEmployees(){

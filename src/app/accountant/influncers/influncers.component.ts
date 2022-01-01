@@ -3,6 +3,7 @@ import { InfluncersService } from 'src/app/services/accountant/influncers.servic
 import * as XLSX from 'xlsx';
 import jspdf from 'jspdf';
 import html2canvas from 'html2canvas';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-influncers',
@@ -13,13 +14,17 @@ export class InfluncersComponent implements OnInit {
 
   username = localStorage.getItem("username")
 
-  constructor(public influncersService: InfluncersService) {
+  constructor(public influncersService: InfluncersService, private spinner: NgxSpinnerService) {
   }
 
   ngOnInit(): void {
     var ID = localStorage.getItem("userID")
     this.getUsername();
     this.getInfluncersInfo()
+    this.spinner.show();
+    setTimeout(() => {
+      this.spinner.hide();
+    }, 700);
   }
 
   getUsername(){

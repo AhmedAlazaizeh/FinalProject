@@ -70,6 +70,11 @@ export class ProfileComponent implements OnInit {
       image: new FormControl(this.image)
     })
     this.reload()
+
+    this.spinner.show();
+    setTimeout(() => {
+      this.spinner.hide();
+    }, 700);
   }
 
   getUsername(){

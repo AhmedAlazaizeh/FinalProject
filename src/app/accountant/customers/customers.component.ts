@@ -6,6 +6,7 @@ import html2canvas from 'html2canvas';
 import { MatDialog } from '@angular/material/dialog';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-customers',
@@ -21,13 +22,17 @@ export class CustomersComponent implements OnInit {
     emailBody: new FormControl('', [Validators.required])
   })
 
-  constructor(private dialog: MatDialog, public customerService: CustomersService, private toaster: ToastrService) {
+  constructor(private dialog: MatDialog, public customerService: CustomersService, private toaster: ToastrService, private spinner: NgxSpinnerService) {
     this.customerService.customersList();
    }
 
   ngOnInit(): void {
     var ID = localStorage.getItem("userID")
     this.getUsername();
+    this.spinner.show();
+    setTimeout(() => {
+      this.spinner.hide();
+    }, 700);
   }
 
   getUsername(){

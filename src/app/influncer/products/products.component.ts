@@ -7,6 +7,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { HomeService } from 'src/app/services/influncer/home.service';
 import { ProductsService } from 'src/app/services/influncer/products.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-products',
@@ -43,12 +44,16 @@ export class ProductsComponent implements OnInit {
   public response = {dbPath: ''};
 
 
-  constructor(private dialog: MatDialog, private toastr: ToastrService, public productsService: ProductsService) { }
+  constructor(private dialog: MatDialog, private toastr: ToastrService, public productsService: ProductsService, private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
     var ID = localStorage.getItem("userID")
     this.getMyProducts(ID)
     this.getUsername();
+    this.spinner.show();
+    setTimeout(() => {
+      this.spinner.hide();
+    }, 700);
   }
 
   public uploadFinished = (event:any) => {

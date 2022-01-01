@@ -16,8 +16,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatTableModule } from '@angular/material/table';
 import { NgChartsModule } from 'ng2-charts';
 import { TestComponent } from './test/test.component';
-import { NgxSpinnerModule } from 'ngx-spinner';
 import { NgImageSliderModule } from 'ng-image-slider';
+import { NgxSpinnerModule } from "ngx-spinner";
 
 @NgModule({
   declarations: [
@@ -39,11 +39,11 @@ import { NgImageSliderModule } from 'ng-image-slider';
     MatDialogModule,
     MatTableModule,
     NgChartsModule,
-    NgxSpinnerModule,
+    NgxSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent],
   schemas:[CUSTOM_ELEMENTS_SCHEMA],
-  exports: [NgImageSliderModule, NgChartsModule]
+  exports: [NgImageSliderModule, NgxSpinnerModule]
 })
 export class AppModule { }

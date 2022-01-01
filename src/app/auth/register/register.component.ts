@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { lastValueFrom } from 'rxjs';
 import { RegisterService } from 'src/app/services/auth/register.service';
@@ -37,9 +38,13 @@ export class RegisterComponent implements OnInit {
     salary: new FormControl(0)
   })
 
-  constructor(public registerServiec: RegisterService, private router: Router, private toaster: ToastrService) { }
+  constructor(public registerServiec: RegisterService, private router: Router, private toaster: ToastrService, private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
+    this.spinner.show();
+    setTimeout(() => {
+      this.spinner.hide();
+    }, 700);
   }
 
   addRegister(){

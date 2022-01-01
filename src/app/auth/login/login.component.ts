@@ -4,6 +4,7 @@ import { FormGroup, FormsModule, Validators } from '@angular/forms';
 import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import jwtDecode from 'jwt-decode';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { LoginService } from 'src/app/services/auth/login.service';
 
@@ -22,13 +23,17 @@ export class LoginComponent implements OnInit {
   })
 
 
-  constructor(private loginService: LoginService, private router: Router, private toastr: ToastrService) { }
+  constructor(private loginService: LoginService, private router: Router, private toastr: ToastrService, private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
     this.returnedToken = null
     localStorage.clear()
     localStorage.clear()
     this.loginService.token = null
+    this.spinner.show();
+    setTimeout(() => {
+      this.spinner.hide();
+    }, 700);
   }
 
   logedin(){
