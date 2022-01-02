@@ -36,7 +36,6 @@ export class ProductDetailsComponent implements OnInit {
     }, 700);
   }
 
-
   getDetails(ID: any){
    this.productService.getDetails(ID)
   }

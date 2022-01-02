@@ -1,45 +1,47 @@
-
 <body>
-    <app-header></app-header>
-    <main>
+  <app-header></app-header>
+  <main>
     <!--================Single Product Area =================-->
     <div class="product_image_area mt-3">
       <div class="container">
-          <div  *ngFor="let item of productService.productDetails" class="col-lg-8" class="row justify-content-center">
-              <div class="col-10" style="justify-content:center;display:flex">
-                  <div >
-                      <div class="single_product_img" style="justify-content:center;display:flex">
-                        <img [src]="createImgPath(item.image)" alt="profile picture" style="width:400px; height:400px;">
-                      </div>
-                  </div>
+        <div *ngFor="let item of productService.productDetails" class="col-lg-8" class="row justify-content-center">
+          <div class="col-10" style="justify-content:center;display:flex">
+            <div>
+              <div class="single_product_img" style="justify-content:center;display:flex">
+                <img [src]="createImgPath(item.image)" alt="profile picture" style="width:400px; height:400px;">
               </div>
-              <div>
-                  <div class="single_product_text text-center mt-5">
-                      <h3>
-                          {{item.productTitle}}
-                      </h3>
-                      <p>
-                          {{item.description}}
-                      </p>
-                      <a (click)="getInfluncerProducts(item.userID)" class="mt-4" style="cursor: pointer; color: #FF2020; font-size: 16px;">{{item.fName}} {{item.lName}}</a>
-                      <div class="card_area mt-2">
-                          <div class="add_to_cart mt-2">
-                              <p class="my-4">$ {{item.price}}</p>
-                                      <button *ngIf="loggedUserID != null" (click)="addToCart()" class="btn_3">add to cart</button>
-                                      <a style="cursor: pointer"*ngIf="loggedUserID == null" asp-controller="Orders" asp-action="Create" asp-route-id="@Model.AdvertisementId" class="btn_3" style="cursor: pointer;color:#ccc;border-color:#ccc">add to cart</a>
-                                      <br />
-                                      <div *ngIf="loggedUserID == null" class="my-3" >
-                                          <a style="cursor: pointer;" asp-controller="Login" asp-action="Login" asp-route-id="@Model.AdvertisementId" class="btn_3">Login or Register</a>
-                                      </div>
-                          </div>
-                      </div>
-                  </div>
-              </div>
+            </div>
           </div>
+          <div>
+            <div class="single_product_text text-center mt-5">
+              <h3>
+                {{item.productTitle}}
+              </h3>
+              <p>
+                {{item.description}}
+              </p>
+              <a (click)="getInfluncerProducts(item.userID)" class="mt-4"
+                style="cursor: pointer; color: #FF2020; font-size: 16px;">{{item.fName}} {{item.lName}}</a>
+              <div class="card_area mt-2">
+                <div class="add_to_cart mt-2">
+                  <p class="my-4">$ {{item.price}}</p>
+                  <button style="cursor: pointer;" *ngIf="loggedUserID != null" (click)="addToCart()" class="btn_3">add
+                    to cart</button>
+                  <a *ngIf="loggedUserID == null" class="btn_3"
+                    style="cursor:not-allowed; color:#ccc;border-color:#ccc">add to cart</a>
+                  <br />
+                  <div *ngIf="loggedUserID == null" class="my-3">
+                    <a style="cursor: pointer;" class="btn_3">Login or Register</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-  </div>
+    </div>
     <!--================End Single Product Area =================-->
-    </main>
-    <app-footer></app-footer>
-    </body>
-    <ngx-spinner color="#ff2020" type="ball-fussion"></ngx-spinner>
+  </main>
+  <app-footer></app-footer>
+</body>
+<ngx-spinner color="#ff2020" type="ball-fussion"></ngx-spinner>
