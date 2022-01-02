@@ -26,12 +26,11 @@
                           <div class="add_to_cart mt-2">
                               <p class="my-4">$ {{item.price}}</p>
                                       <button *ngIf="loggedUserID != null" (click)="addToCart()" class="btn_3">add to cart</button>
-                                      <a *ngIf="loggedUserID == null" asp-controller="Orders" asp-action="Create" asp-route-id="@Model.AdvertisementId" class="btn_3" style="pointer-events:none;color:#ccc;border-color:#ccc">add to cart</a>
+                                      <a style="cursor: pointer"*ngIf="loggedUserID == null" asp-controller="Orders" asp-action="Create" asp-route-id="@Model.AdvertisementId" class="btn_3" style="cursor: pointer;color:#ccc;border-color:#ccc">add to cart</a>
                                       <br />
                                       <div *ngIf="loggedUserID == null" class="my-3" >
-                                          <a asp-controller="Login" asp-action="Login" asp-route-id="@Model.AdvertisementId" class="btn_3">Login or Register</a>
+                                          <a style="cursor: pointer;" asp-controller="Login" asp-action="Login" asp-route-id="@Model.AdvertisementId" class="btn_3">Login or Register</a>
                                       </div>
-
                           </div>
                       </div>
                   </div>

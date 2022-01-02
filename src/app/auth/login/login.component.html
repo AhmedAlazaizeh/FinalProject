@@ -34,12 +34,11 @@
                                     </div>
                                   </mat-form-field>
                                     <div class="col-md-12 form-group">
-                                        <button [disabled]= "loginForm.invalid" type="submit" class="btn_3" mat-flat-button>
+                                        <button (click)="logedin()" [disabled]= "loginForm.invalid" type="submit" class="btn_3 btn_danger" mat-flat-button>
                                             log in
                                         </button>
                                         <a class="row" class="lost_pass"
                                         href="#"></a>
-                                        <button (click)="logedin()" class="lost_pass" mat-flat-button>forget password?</button>
                                     </div>
                                 </form>
                             </div>
@@ -51,15 +50,5 @@
         <!--================login_part end =================-->
     </main>
     <app-footer></app-footer>
-    <!--? Search model Begin -->
-    <div class="search-model-box">
-        <div class="h-100 d-flex align-items-center justify-content-center">
-            <div class="search-close-btn">+</div>
-            <form class="search-model-form">
-                <input type="text" id="search-input" placeholder="Searching key.....">
-            </form>
-        </div>
-    </div>
-    <!-- Search model end -->
     </body>
     <ngx-spinner color="#ff2020" type="ball-fussion"></ngx-spinner>

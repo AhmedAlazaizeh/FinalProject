@@ -56,16 +56,18 @@
                         <div class="img-cap">
                             <a (click)="productDetails(item.productID)"><span>Details</span></a>
                         </div>
-                        <div *ngIf="checkIfFav(item.productID); else elseBlock">
-                          <div class="favorit-items">
-                            <a (click)="addToFav(item.productID)"><span><i class="fa fa-heart-o" aria-hidden="true"></i></span></a>
+                        <div *ngIf="ID != null">
+                          <div *ngIf="checkIfFav(item.productID); else elseBlock">
+                            <div class="favorit-items">
+                              <a (click)="addToFav(item.productID)"><span><i class="fa fa-heart-o" aria-hidden="true"></i></span></a>
+                            </div>
                           </div>
+                          <ng-template #elseBlock>
+                            <div class="favorit-items">
+                              <a (click)="removeFromFav(item.productID)" ><span><i class="fa fa-heart" aria-hidden="true"></i></span></a>
+                            </div>
+                          </ng-template>
                         </div>
-                        <ng-template #elseBlock>
-                          <div class="favorit-items">
-                            <a (click)="removeFromFav(item.productID)" ><span><i class="fa fa-heart" aria-hidden="true"></i></span></a>
-                          </div>
-                        </ng-template>
                     </div>
                     <div class="popular-caption">
                         <h3><a style="cursor: pointer;" (click)="productDetails(item.productID)">{{item.productTitle}}</a></h3>
@@ -85,16 +87,18 @@
                         <div class="img-cap">
                             <a (click)="productDetails(item.productID)"><span>Details</span></a>
                         </div>
-                        <div *ngIf="checkIfFav(item.productID); else elseBlock">
-                          <div class="favorit-items">
-                            <a (click)="addToFav(item.productID)"><span><i class="fa fa-heart-o" aria-hidden="true"></i></span></a>
+                        <div *ngIf="ID != null">
+                          <div *ngIf="checkIfFav(item.productID); else elseBlock">
+                            <div class="favorit-items">
+                              <a (click)="addToFav(item.productID)"><span><i class="fa fa-heart-o" aria-hidden="true"></i></span></a>
+                            </div>
                           </div>
+                          <ng-template #elseBlock>
+                            <div class="favorit-items">
+                              <a (click)="removeFromFav(item.productID)" ><span><i class="fa fa-heart" aria-hidden="true"></i></span></a>
+                            </div>
+                          </ng-template>
                         </div>
-                        <ng-template #elseBlock>
-                          <div class="favorit-items">
-                            <a (click)="removeFromFav(item.productID)" ><span><i class="fa fa-heart" aria-hidden="true"></i></span></a>
-                          </div>
-                        </ng-template>
                     </div>
                     <div class="popular-caption">
                         <h3><a style="cursor: pointer;" (click)="productDetails(item.productID)">{{item.productTitle}}</a></h3>
@@ -114,16 +118,18 @@
                         <div class="img-cap">
                             <a (click)="productDetails(item.productID)"><span>Details</span></a>
                         </div>
-                        <div *ngIf="checkIfFav(item.productID); else elseBlock">
-                          <div class="favorit-items">
-                            <a (click)="addToFav(item.productID)"><span><i class="fa fa-heart-o" aria-hidden="true"></i></span></a>
+                        <div *ngIf="ID != null">
+                          <div *ngIf="checkIfFav(item.productID); else elseBlock">
+                            <div class="favorit-items">
+                              <a (click)="addToFav(item.productID)"><span><i class="fa fa-heart-o" aria-hidden="true"></i></span></a>
+                            </div>
                           </div>
+                          <ng-template #elseBlock>
+                            <div class="favorit-items">
+                              <a (click)="removeFromFav(item.productID)" ><span><i class="fa fa-heart" aria-hidden="true"></i></span></a>
+                            </div>
+                          </ng-template>
                         </div>
-                        <ng-template #elseBlock>
-                          <div class="favorit-items">
-                            <a (click)="removeFromFav(item.productID)" ><span><i class="fa fa-heart" aria-hidden="true"></i></span></a>
-                          </div>
-                        </ng-template>
                     </div>
                     <div class="popular-caption">
                         <h3><a style="cursor: pointer;" (click)="productDetails(item.productID)">{{item.productTitle}}</a></h3>

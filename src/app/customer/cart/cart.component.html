@@ -8,7 +8,7 @@
             <table class="table">
               <thead>
                 <tr>
-
+                  <th style="width:50px" scope="col"></th>
                   <th scope="col">Product</th>
                   <th scope="col">Influncer</th>
                   <th scope="col"></th>
@@ -17,8 +17,8 @@
               </thead>
               <tbody>
                 <tr *ngFor="let item of cartService.cartList">
-
-                  <td>
+                  <td style="width: 20px; padding-left: 0px"><i style="padding-left: 0px ;cursor: pointer; color: #FF2020; width: 10px; padding-left:0px" (click)="removeFromCart(item.productID)" class="fa fa-trash-o" aria-hidden="true"></i></td>
+                  <td style="padding-left: 0px;">
                     <div class="media">
                       <div class="d-flex">
                         <img [src]="createImgPath(item.image)" alt="profile picture" style="width:100px; height:100px;">
@@ -28,7 +28,6 @@
                       </div>
                     </div>
                   </td>
-
                   <td>
                     <h5>{{item.fName}} {{item.lName}}</h5>
                   </td>
@@ -45,6 +44,7 @@
                   <td>
                     <h5>Subtotal</h5>
                   </td>
+                  <td></td>
                   <td>
                   </td>
                   <td>

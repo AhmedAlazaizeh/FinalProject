@@ -11,6 +11,8 @@ import { ShopService } from 'src/app/services/customer/shop.service';
 })
 export class ShopComponent implements OnInit {
 
+  ID = localStorage.getItem('userID')
+
   searchedFor: string | any = null
   searchFlag: boolean = false
 

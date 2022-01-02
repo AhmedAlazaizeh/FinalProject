@@ -39,7 +39,7 @@
                         </div>
                     </div>
                 </div>
-              <div style="height: 456px;" class="swiffy-slider col-12 p-0 slider-item-show3 slider-nav-chevron slider-nav-autoplay slider-indicators-round slider-indicators-dark slider-indicators-highlight  slider-nav-dark slider-nav-outside slider-nav-visible  slider-indicators-outside"  data-slider-nav-autoplay-interval="2500">
+              <div style="height: 461px;" class="swiffy-slider col-12 p-0 slider-item-show3 slider-nav-chevron slider-nav-autoplay slider-indicators-round slider-indicators-dark slider-indicators-highlight  slider-nav-dark slider-nav-outside slider-nav-visible  slider-indicators-outside"  data-slider-nav-autoplay-interval="2500">
                 <ul class="slider-container">
                     <li *ngFor="let item of homeService.latestProductsData"><img (click)="productDetails(item.productID)" [src]="createImgPath(item.image)" style="max-width: 100%;height: auto; cursor: pointer;">
                       <h2 (click)="productDetails(item.productID)" style="text-align: center; padding-top: 10px; font-weight: bold; cursor: pointer;">{{item.productTitle}}</h2>
@@ -109,16 +109,18 @@
                               <div class="img-cap">
                                   <a (click)="productDetails(item.productID)"><span>Details</span></a>
                               </div>
-                              <div *ngIf="checkIfFav(item.productID); else elseBlock">
-                                <div class="favorit-items">
-                                  <a (click)="addToFav(item.productID)"><span><i class="fa fa-heart-o" aria-hidden="true"></i></span></a>
+                              <div *ngIf="ID != null">
+                                <div *ngIf="checkIfFav(item.productID); else elseBlock">
+                                  <div class="favorit-items">
+                                    <a (click)="addToFav(item.productID)"><span><i class="fa fa-heart-o" aria-hidden="true"></i></span></a>
+                                  </div>
                                 </div>
+                                <ng-template #elseBlock>
+                                  <div class="favorit-items">
+                                    <a (click)="removeFromFav(item.productID)" ><span><i class="fa fa-heart" aria-hidden="true"></i></span></a>
+                                  </div>
+                                </ng-template>
                               </div>
-                              <ng-template #elseBlock>
-                                <div class="favorit-items">
-                                  <a (click)="removeFromFav(item.productID)" ><span><i class="fa fa-heart" aria-hidden="true"></i></span></a>
-                                </div>
-                              </ng-template>
                           </div>
                           <div class="popular-caption">
                               <h3><a style="cursor: pointer;" (click)="productDetails(item.productID)">{{item.productTitle}}</a></h3>
@@ -160,7 +162,6 @@
                   </div>
                   </div>
                   </div>
-
 <br /><br /><br /><br /><br /><br /><br />
         <!-- Watch Choice  End-->
         <!--? Shop Method Start-->

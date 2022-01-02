@@ -162,9 +162,6 @@
               <div class="col-md-12 form-group p_star">
                 <input formControlName="email" matInput type="text" class="form-control" value=""
                   placeholder="Email">
-                  <mat-error *ngIf="addEmployeeForm.get('email')?.hasError('required') && addEmployeeForm.get('email')!.value != ''"
-                  >Email is required</mat-error
-                >
                 <mat-error *ngIf="addEmployeeForm.get('email')?.hasError('email')"
                   >Please enter a valid email address
                 </mat-error>

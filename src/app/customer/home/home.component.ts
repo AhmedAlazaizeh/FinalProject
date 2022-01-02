@@ -14,6 +14,7 @@ import { NgxSpinnerService } from "ngx-spinner";
 })
 export class HomeComponent implements OnInit {
 
+  ID = localStorage.getItem('userID')
 
   constructor(public homeService: HomeService, private toastr: ToastrService, private router: Router, private spinner: NgxSpinnerService) { }
 
