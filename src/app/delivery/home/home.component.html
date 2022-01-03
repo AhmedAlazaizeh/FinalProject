@@ -20,6 +20,8 @@
                   <th>Order Value</th>
                   <th>Customer</th>
                   <th>Product Title</th>
+                  <th>Phone Number</th>
+
                   <th style="text-align: center;">Address</th>
                   <th style="text-align: center;">Delivered?</th>
                 </tr>
@@ -30,6 +32,7 @@
                   <td>$ {{item.orderValue}}</td>
                   <td>{{item.fName}} {{item.lName}}</td>
                   <td>{{item.productTitle}}</td>
+                  <td>{{item.phoneNumber}}</td>
                   <td style="text-align: center; width: 100px;">
                     <a style="cursor: pointer;" (click)="openMapDialog(item.latitude, item.longitude, item.fName, item.lName)" class="Location" data-toggle="modal"><i class="material-icons mx-1" data-toggle="tooltip" title="Location">&#xe0c8;</i></a>
                   </td>
