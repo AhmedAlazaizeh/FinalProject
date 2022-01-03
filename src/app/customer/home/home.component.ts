@@ -30,10 +30,6 @@ export class HomeComponent implements OnInit {
     this.getApprovedFeedback()
     this.getListOfInfluncers()
     this.getFavList(ID)
-    this.spinner.show();
-    setTimeout(() => {
-      this.spinner.hide();
-    }, 700);
   }
 
   getAllProducts(){

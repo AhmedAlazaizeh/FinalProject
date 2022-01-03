@@ -32,10 +32,6 @@ export class ShopComponent implements OnInit {
     this.searchedFor = localStorage.getItem("searchedFor")
     localStorage.removeItem("searchedFor")
     this.getFavList(ID)
-    this.spinner.show();
-    setTimeout(() => {
-      this.spinner.hide();
-    }, 700);
   }
 
   getLatestProducts(){
