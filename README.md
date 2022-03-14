@@ -23,7 +23,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 </p>
 
 ## Video
-
+https://github.com/AhmedAlazaizeh/I-AM-AN-INFLUENCER-Final-Project-/blob/36c1fc70538b726a7741e86aead498feff9da959/Screenshots/IAmAnInfluencer.mp4
 
 ## Development server
 
