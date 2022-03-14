@@ -22,8 +22,6 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 <img src="https://github.com/AhmedAlazaizeh/I-AM-AN-INFLUENCER-Final-Project-/blob/c021d67b550f820f328b640430f426c7a3aad561/Screenshots/7.jpg" width="1000">
 </p>
 
-## Video
-https://github.com/AhmedAlazaizeh/I-AM-AN-INFLUENCER-Final-Project-/blob/36c1fc70538b726a7741e86aead498feff9da959/Screenshots/IAmAnInfluencer.mp4
 
 ## Development server
 
