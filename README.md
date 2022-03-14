@@ -4,7 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## ScreenShots
 <p float="left">
-<img src="https://github.com/AhmedAlazaizeh/I-AM-AN-INFLUENCER-Final-Project-/blob/c021d67b550f820f328b640430f426c7a3aad561/Screenshots/2.jpg" width="800">
+<img src="https://github.com/AhmedAlazaizeh/I-AM-AN-INFLUENCER-Final-Project-/blob/c021d67b550f820f328b640430f426c7a3aad561/Screenshots/2.jpg" width="1000">
 </p>
 
 
