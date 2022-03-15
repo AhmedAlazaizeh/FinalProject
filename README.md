@@ -22,6 +22,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 <img src="https://github.com/AhmedAlazaizeh/I-AM-AN-INFLUENCER-Final-Project-/blob/c021d67b550f820f328b640430f426c7a3aad561/Screenshots/7.jpg" width="1000">
 </p>
 
+## .NET Core API Project
+https://github.com/AhmedAlazaizeh/IAmAnInfluencer.API
 
 ## Development server
 
